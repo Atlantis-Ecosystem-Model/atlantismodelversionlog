@@ -1,0 +1,25 @@
+---
+title: "6690"
+---
+
+**Model:** Atlantis Model for Puget Sound
+
+**Atlantis revision comments**
+
+**Version 6690**
+
+**Date pulled:** October 5, 2023
+
+**OS:** Ubuntu 18.04.6 LTS
+
+**Environment:** Linux
+
+**Notes**
+
+-   Function CKsimulator is still returning an error
+
+-  Error on PreRules.am 
+Line 43 says
+`W#ARN += -Wno-error=implicit-function-declaration`
+Should be:
+`#WARN += -Wno-error=implicit-function-declaration`

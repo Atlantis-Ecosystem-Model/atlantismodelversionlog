@@ -1,22 +1,61 @@
 ---
-title: "NOAA quarto simple with R"
-subtitle: "A simple Quarto webpage with a book layout"
+title: "Atlantis Ecosystem Model version tracking"
+subtitle: "Comments on compiling and running Atlantis"
 page-layout: full
 ---
 
-This is a template for a simple Quarto website that looks like a "book". This is a common format for documentation. It includes a GitHub Action that will build the website automatically when you make changes to the files. The NOAA palette and fonts has been added to `theme.scss`. The webpage will be on the `gh-pages` branch. Serving the website files from this branch is a common way to keep all the website files from cluttering your main branch. 
+The Atlantis modeling framework is a simulation modeling approach developed by Dr. Beth Fulton at the Commonwealth Scientific and Industrial Research Organisation (CSIRO) . Atlantis integrates physical, chemical, ecological, and anthropogenic processes in a three-dimensional, spatially explicit domain. This framework has been applied to evaluate management scenarios and investigate the effects of climate change in over 30 ecosystems worldwide. 
+In Atlantis, ecosystem dynamics are represented by spatially explicit submodels that simulate oceanographic processes, biogeochemical factors driving primary production, and food web relations among flora and fauna. The model represents species of ecological and conservation concern and key exploited species at the level of detail necessary to evaluate the direct effects of fishing, and it represents other anthropogenic and climate impacts on the ecosystem as a whole.
 
-The GitHub Action installs R so you can have R code in your qmd or Rmd files. Note, you do not need to make changes to your Rmd files unless your need Quarto features like cross-references.
+<img width="637" alt="image" src="https://user-images.githubusercontent.com/11339490/272713181-58a7442b-f4df-4987-9afe-cb4702236a8f.jpg">
 
-## GitHub Set-up
 
-* Click the green "use template" button to make a repository with this content.  Make sure to make your repo public (since GitHub Pages doesn't work on private repos unless you have a paid account) and check box to include all the branches (so that you get the gh-pages branch).
-<img width="637" alt="image" src="https://user-images.githubusercontent.com/2545978/197051535-c43c62de-17e8-40bf-a536-3eea8db250c4.png">
+## How to use this repository
 
-* Turn on GitHub Pages under Settings > Pages . You will set pages to be made from the gh-pages branch and root directory.
-<img width="540" alt="image" src="https://user-images.githubusercontent.com/2545978/196808262-3d2262be-b9b5-4897-bba5-fc2f056dd335.png">
+## To contribute to this repository
 
-* Turn on GitHub Actions under Settings > Actions > General
-<img width="719" alt="image" src="https://user-images.githubusercontent.com/2545978/196808404-0c075fcf-db03-4516-88dd-3143b9fca475.png">
+1. Create a local folder and initiate it as a Github repository. To install git https://git-scm.com/book/en/v2/Getting-Started-Installing-Git
 
-* Edit the repo description and Readme to add a link to the webpage. When you edit the description, you will see the link url in the url box or you can click on the Actions tab or the  Settings > Pages page to find the url.
+```R
+mkdir mynewbranch
+cd mynewbranch
+git init
+git checkout -b mynewbranch
+git remote add mynewbranch https://github.com/Atlantis-Ecosystem-Model/atlantismodelversionlog.git
+```
+
+
+2. Open the file `_quarto.yml` and add your comments under the corresponding *.qmd file for the version you are running.
+You can also create a new page for a new version by making a copy of the file content/v_template.qmd and add its name under href in the `_quarto.yml` file.
+
+```R
+
+style: "docked"
+    search: true
+    collapse-level: 1
+    contents:
+      - href: index.qmd
+        text: Home
+      - href: content/v6690.qmd
+        text: v6690
+```
+
+2. Push your branch to the repository
+
+
+```R
+git add -A
+git commit -m "-Added description of version 6690"
+git push https://<user>:<PAT>/Atlantis-Ecosystem-Model/atlantismodelversionlog.git mynewbranch
+```
+
+How to generate a PAT in Github https://www.theserverside.com/blog/Coffee-Talk-Java-News-Stories-and-Opinions/How-to-create-a-GitHub-Personal-Access-Token-example
+
+<hr>
+
+
+### License
+
+Copyright is waived worldwide through the CC0 1.0 Universal public domain dedication. The Atlantis Ecosystem Model code base is owned by the Commonwealth Scientific and Industrial Research Organisation (CSIRO).
+
+

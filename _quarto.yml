@@ -3,9 +3,9 @@ project:
 
 website: 
   page-navigation: true
-  title: "NOAA quarto simple" 
-  site-url: "https://nmfs-opensci.github.io/NOAA-quarto-simple" 
-  repo-url: "https://github.com/nmfs-opensci/NOAA-quarto-simple"
+  title: "Atlantis Ecosystem Model log" 
+  site-url: "https://research.csiro.au/atlantis/" 
+  repo-url: "https://github.com/Atlantis-Ecosystem-Model/atlantismodelversionlog"
   repo-actions: [edit, source, issue]
   favicon: images/favicon.ico
   
@@ -21,11 +21,8 @@ website:
     align: center
     tools: 
       - icon: globe
-        href: https://nmfs-opensci.github.io
-        text: "NMFS Open Science"
-      - icon: github
-        href: https://github.com/nmfs-opensci
-        text: "NMFS OpenSci"
+        href: https://user-images.githubusercontent.com/11339490/272713181-58a7442b-f4df-4987-9afe-cb4702236a8f.jpg
+        text: "Atlantis Ecosystem Model"
 
     style: "docked"
     search: true
@@ -33,16 +30,14 @@ website:
     contents:
       - href: index.qmd
         text: Home
-      - href: content/add-content.qmd
-        text: Add content
-      - href: content/customizing.qmd
-        text: Customizing
-      - href: content/rendering.qmd
-        text: Rendering
-      - href: content/rmarkdown.Rmd
-        text: R Markdown files
-      - href: content/code.qmd
-        text: Code in your files
+      - href: content/v6690.qmd
+        text: v6690
+      - href: content/v6689.qmd
+        text: v6689
+      - href: content/v6688.qmd
+        text: v6688
+      - href: content/v6685.Rmd
+        text: v6685
       - href: content/acknowledgements.qmd
         text: Acknowledgements
 
