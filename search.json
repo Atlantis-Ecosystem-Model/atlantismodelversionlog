@@ -130,7 +130,7 @@
     "href": "content/acknowledgements.html",
     "title": "Acknowledgments",
     "section": "",
-    "text": "This repo uses the template https://github.com/nmfs-opensci/NOAA-quarto-simple developed by Elizabeth Holmes, which was based on the tutorial by Openscapes quarto-website-tutorial by Julia Lowndes and Stefanie Butland.\nThe Atlantis Ecosystem Model code base is owned by the Commonwealth Scientific and Industrial Research Organisation (CSIRO). Atlantis was created by Dr. Elizabeth A. Fulton https://user-images.githubusercontent.com/11339490/273006704-6d0c140d-c067-485f-848c-aad55d5584db.png"
+    "text": "This repo uses the template https://github.com/nmfs-opensci/NOAA-quarto-simple developed by Elizabeth Holmes, which was based on the tutorial by Openscapes quarto-website-tutorial by Julia Lowndes and Stefanie Butland.\nThe Atlantis Ecosystem Model code base is owned by the Commonwealth Scientific and Industrial Research Organisation (CSIRO). Atlantis was created by Dr. Elizabeth A. Fulton h"
   },
   {
     "objectID": "content/v_template.html",
