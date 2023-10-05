@@ -1,4 +1,4 @@
-[![](https://user-images.githubusercontent.com/11339490/272713181-58a7442b-f4df-4987-9afe-cb4702236a8f.jpg)]
+https://user-images.githubusercontent.com/11339490/272713181-58a7442b-f4df-4987-9afe-cb4702236a8f.jpg
  
  
 Website: https://atlantis-ecosystem-model.github.io/atlantismodelversionlog/
