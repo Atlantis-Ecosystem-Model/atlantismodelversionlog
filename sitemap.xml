@@ -1,35 +1,51 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://nmfs-opensci.github.io/NOAA-quarto-simple/index.html</loc>
-    <lastmod>2023-10-04T21:22:13.314Z</lastmod>
+    <loc>https://research.csiro.au/atlantis/index.html</loc>
+    <lastmod>2023-10-05T19:22:55.550Z</lastmod>
   </url>
   <url>
-    <loc>https://nmfs-opensci.github.io/NOAA-quarto-simple/content/rmarkdown.html</loc>
-    <lastmod>2023-10-04T21:22:11.666Z</lastmod>
+    <loc>https://research.csiro.au/atlantis/content/rmarkdown.html</loc>
+    <lastmod>2023-10-05T19:22:53.718Z</lastmod>
   </url>
   <url>
-    <loc>https://nmfs-opensci.github.io/NOAA-quarto-simple/content/publishing.html</loc>
-    <lastmod>2023-10-04T21:22:09.382Z</lastmod>
+    <loc>https://research.csiro.au/atlantis/content/rendering.html</loc>
+    <lastmod>2023-10-05T19:22:51.670Z</lastmod>
   </url>
   <url>
-    <loc>https://nmfs-opensci.github.io/NOAA-quarto-simple/content/customizing.html</loc>
-    <lastmod>2023-10-04T21:22:08.570Z</lastmod>
+    <loc>https://research.csiro.au/atlantis/content/add-content.html</loc>
+    <lastmod>2023-10-05T19:22:50.862Z</lastmod>
   </url>
   <url>
-    <loc>https://nmfs-opensci.github.io/NOAA-quarto-simple/content/acknowledgements.html</loc>
-    <lastmod>2023-10-04T21:22:06.402Z</lastmod>
+    <loc>https://research.csiro.au/atlantis/content/v6688.html</loc>
+    <lastmod>2023-10-05T19:22:50.146Z</lastmod>
   </url>
   <url>
-    <loc>https://nmfs-opensci.github.io/NOAA-quarto-simple/content/add-content.html</loc>
-    <lastmod>2023-10-04T21:22:08.946Z</lastmod>
+    <loc>https://research.csiro.au/atlantis/content/customizing.html</loc>
+    <lastmod>2023-10-05T19:22:49.434Z</lastmod>
   </url>
   <url>
-    <loc>https://nmfs-opensci.github.io/NOAA-quarto-simple/content/rendering.html</loc>
-    <lastmod>2023-10-04T21:22:09.758Z</lastmod>
+    <loc>https://research.csiro.au/atlantis/content/acknowledgements.html</loc>
+    <lastmod>2023-10-05T19:22:48.350Z</lastmod>
   </url>
   <url>
-    <loc>https://nmfs-opensci.github.io/NOAA-quarto-simple/content/code.html</loc>
-    <lastmod>2023-10-04T21:22:12.894Z</lastmod>
+    <loc>https://research.csiro.au/atlantis/content/v_template.html</loc>
+    <lastmod>2023-10-05T19:22:49.790Z</lastmod>
+  </url>
+  <url>
+    <loc>https://research.csiro.au/atlantis/content/v6685.html</loc>
+    <lastmod>2023-10-05T19:22:50.502Z</lastmod>
+  </url>
+  <url>
+    <loc>https://research.csiro.au/atlantis/content/publishing.html</loc>
+    <lastmod>2023-10-05T19:22:51.282Z</lastmod>
+  </url>
+  <url>
+    <loc>https://research.csiro.au/atlantis/content/v6690.html</loc>
+    <lastmod>2023-10-05T19:22:52.018Z</lastmod>
+  </url>
+  <url>
+    <loc>https://research.csiro.au/atlantis/content/code.html</loc>
+    <lastmod>2023-10-05T19:22:54.934Z</lastmod>
   </url>
 </urlset>

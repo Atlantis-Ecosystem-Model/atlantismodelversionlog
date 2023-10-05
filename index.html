@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>NOAA quarto simple - NOAA quarto simple with R</title>
+<title>Atlantis Ecosystem Model log - Atlantis Ecosystem Model version tracking</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,6 +20,40 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -29,7 +63,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./content/add-content.html" rel="next">
+<link href="./content/v6690.html" rel="next">
 <link href="./images/favicon.ico" rel="icon">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -92,9 +126,8 @@ ul.task-list li input[type="checkbox"] {
       <a href="./index.html" class="sidebar-logo-link">
       <img src="https://raw.githubusercontent.com/nmfs-opensci/assets/main/logo/nmfs-opensci-logo3.png" alt="" class="sidebar-logo py-0 d-lg-inline d-none">
       </a>
-      <div class="sidebar-tools-main tools-wide">
-    <a href="https://nmfs-opensci.github.io" rel="" title="NMFS Open Science" class="quarto-navigation-tool px-1" aria-label="NMFS Open Science"><i class="bi bi-globe"></i></a>
-    <a href="https://github.com/nmfs-opensci" rel="" title="NMFS OpenSci" class="quarto-navigation-tool px-1" aria-label="NMFS OpenSci"><i class="bi bi-github"></i></a>
+      <div class="sidebar-tools-main">
+    <a href="https://user-images.githubusercontent.com/11339490/272713181-58a7442b-f4df-4987-9afe-cb4702236a8f.jpg" rel="" title="Atlantis Ecosystem Model" class="quarto-navigation-tool px-1" aria-label="Atlantis Ecosystem Model"><i class="bi bi-globe"></i></a>
   <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
 </div>
       </div>
@@ -113,32 +146,26 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./content/add-content.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Add content</span></a>
+  <a href="./content/v6690.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">v6690</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./content/customizing.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Customizing</span></a>
+  <a href="./content/v6689.qmd" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">v6689</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./content/rendering.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Rendering</span></a>
+  <a href="./content/v6688.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">v6688</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./content/rmarkdown.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">R Markdown files</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./content/code.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Code in your files</span></a>
+  <a href="./content/v6685.Rmd" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">v6685</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -157,17 +184,21 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#github-set-up" id="toc-github-set-up" class="nav-link active" data-scroll-target="#github-set-up">GitHub Set-up</a></li>
+  <li><a href="#how-to-use-this-repository" id="toc-how-to-use-this-repository" class="nav-link active" data-scroll-target="#how-to-use-this-repository">How to use this repository</a></li>
+  <li><a href="#to-contribute-to-this-repository" id="toc-to-contribute-to-this-repository" class="nav-link" data-scroll-target="#to-contribute-to-this-repository">To contribute to this repository</a>
+  <ul class="collapse">
+  <li><a href="#license" id="toc-license" class="nav-link" data-scroll-target="#license">License</a></li>
+  </ul></li>
   </ul>
-<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/nmfs-opensci/NOAA-quarto-simple/edit/main/index.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/nmfs-opensci/NOAA-quarto-simple/blob/main/index.qmd" class="toc-action">View source</a></p><p><a href="https://github.com/nmfs-opensci/NOAA-quarto-simple/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
+<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/Atlantis-Ecosystem-Model/atlantismodelversionlog/edit/main/index.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/Atlantis-Ecosystem-Model/atlantismodelversionlog/blob/main/index.qmd" class="toc-action">View source</a></p><p><a href="https://github.com/Atlantis-Ecosystem-Model/atlantismodelversionlog/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
     </div>
 <!-- main -->
 <main class="content column-body" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">NOAA quarto simple with R</h1>
-<p class="subtitle lead">A simple Quarto webpage with a book layout</p>
+<h1 class="title">Atlantis Ecosystem Model version tracking</h1>
+<p class="subtitle lead">Comments on compiling and running Atlantis</p>
 </div>
 
 
@@ -182,18 +213,47 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<p>This is a template for a simple Quarto website that looks like a “book”. This is a common format for documentation. It includes a GitHub Action that will build the website automatically when you make changes to the files. The NOAA palette and fonts has been added to <code>theme.scss</code>. The webpage will be on the <code>gh-pages</code> branch. Serving the website files from this branch is a common way to keep all the website files from cluttering your main branch.</p>
-<p>The GitHub Action installs R so you can have R code in your qmd or Rmd files. Note, you do not need to make changes to your Rmd files unless your need Quarto features like cross-references.</p>
-<section id="github-set-up" class="level2">
-<h2 class="anchored" data-anchor-id="github-set-up">GitHub Set-up</h2>
-<ul>
-<li><p>Click the green “use template” button to make a repository with this content. Make sure to make your repo public (since GitHub Pages doesn’t work on private repos unless you have a paid account) and check box to include all the branches (so that you get the gh-pages branch). <img width="637" alt="image" src="https://user-images.githubusercontent.com/2545978/197051535-c43c62de-17e8-40bf-a536-3eea8db250c4.png"></p></li>
-<li><p>Turn on GitHub Pages under Settings &gt; Pages . You will set pages to be made from the gh-pages branch and root directory. <img width="540" alt="image" src="https://user-images.githubusercontent.com/2545978/196808262-3d2262be-b9b5-4897-bba5-fc2f056dd335.png"></p></li>
-<li><p>Turn on GitHub Actions under Settings &gt; Actions &gt; General <img width="719" alt="image" src="https://user-images.githubusercontent.com/2545978/196808404-0c075fcf-db03-4516-88dd-3143b9fca475.png"></p></li>
-<li><p>Edit the repo description and Readme to add a link to the webpage. When you edit the description, you will see the link url in the url box or you can click on the Actions tab or the Settings &gt; Pages page to find the url.</p></li>
-</ul>
+<p>The Atlantis modeling framework is a simulation modeling approach developed by Dr.&nbsp;Beth Fulton at the Commonwealth Scientific and Industrial Research Organisation (CSIRO) . Atlantis integrates physical, chemical, ecological, and anthropogenic processes in a three-dimensional, spatially explicit domain. This framework has been applied to evaluate management scenarios and investigate the effects of climate change in over 30 ecosystems worldwide. In Atlantis, ecosystem dynamics are represented by spatially explicit submodels that simulate oceanographic processes, biogeochemical factors driving primary production, and food web relations among flora and fauna. The model represents species of ecological and conservation concern and key exploited species at the level of detail necessary to evaluate the direct effects of fishing, and it represents other anthropogenic and climate impacts on the ecosystem as a whole.</p>
+<p><img width="637" alt="image" src="https://user-images.githubusercontent.com/11339490/272713181-58a7442b-f4df-4987-9afe-cb4702236a8f.jpg"></p>
+<section id="how-to-use-this-repository" class="level2">
+<h2 class="anchored" data-anchor-id="how-to-use-this-repository">How to use this repository</h2>
+</section>
+<section id="to-contribute-to-this-repository" class="level2">
+<h2 class="anchored" data-anchor-id="to-contribute-to-this-repository">To contribute to this repository</h2>
+<ol type="1">
+<li>Create a local folder and initiate it as a Github repository. To install git https://git-scm.com/book/en/v2/Getting-Started-Installing-Git</li>
+</ol>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>mkdir mynewbranch</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>cd mynewbranch</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>git init</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>git checkout <span class="sc">-</span>b mynewbranch</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>git remote add mynewbranch https<span class="sc">:</span><span class="er">//</span>github.com<span class="sc">/</span>Atlantis<span class="sc">-</span>Ecosystem<span class="sc">-</span>Model<span class="sc">/</span>atlantismodelversionlog.git</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ol start="2" type="1">
+<li>Open the file <code>_quarto.yml</code> and add your comments under the corresponding *.qmd file for the version you are running. You can also create a new page for a new version by making a copy of the file content/v_template.qmd and add its name under href in the <code>_quarto.yml</code> file.</li>
+</ol>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>style<span class="sc">:</span> <span class="st">"docked"</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    search<span class="sc">:</span> true</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>    collapse<span class="sc">-</span>level<span class="sc">:</span> <span class="dv">1</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>    contents<span class="sc">:</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>      <span class="sc">-</span> href<span class="sc">:</span> index.qmd</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>        text<span class="sc">:</span> Home</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>      <span class="sc">-</span> href<span class="sc">:</span> content<span class="sc">/</span>v6690.qmd</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>        text<span class="sc">:</span> v6690</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ol start="2" type="1">
+<li>Push your branch to the repository</li>
+</ol>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>git add <span class="sc">-</span>A</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>git commit <span class="sc">-</span>m <span class="st">"-Added description of version 6690"</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>git push https<span class="sc">:</span><span class="er">//&lt;</span>user<span class="sc">&gt;</span><span class="er">:&lt;</span>PAT<span class="sc">&gt;</span><span class="er">/</span>Atlantis<span class="sc">-</span>Ecosystem<span class="sc">-</span>Model<span class="sc">/</span>atlantismodelversionlog.git mynewbranch</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>How to generate a PAT in <a href="https://www.theserverside.com/blog/Coffee-Talk-Java-News-Stories-and-Opinions/How-to-create-a-GitHub-Personal-Access-Token-example">Github</a></p>
+<hr>
+<section id="license" class="level3">
+<h3 class="anchored" data-anchor-id="license">License</h3>
+<p>Copyright is waived worldwide through the CC0 1.0 Universal public domain dedication. The Atlantis Ecosystem Model code base is owned by the Commonwealth Scientific and Industrial Research Organisation (CSIRO).</p>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
@@ -549,8 +609,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   <div class="nav-page nav-page-previous">
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./content/add-content.html" class="pagination-link">
-        <span class="nav-page-text">Add content</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./content/v6690.html" class="pagination-link">
+        <span class="nav-page-text">v6690</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
