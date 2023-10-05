@@ -49,7 +49,9 @@ git commit -m "-Added description of version 6690"
 git push https://<user>:<PAT>/Atlantis-Ecosystem-Model/atlantismodelversionlog.git mynewbranch
 ```
 
-How to generate a PAT in Github https://www.theserverside.com/blog/Coffee-Talk-Java-News-Stories-and-Opinions/How-to-create-a-GitHub-Personal-Access-Token-example
+How to generate a PAT in [Github](https://www.theserverside.com/blog/Coffee-Talk-Java-News-Stories-and-Opinions/How-to-create-a-GitHub-Personal-Access-Token-example)
+
+
 
 <hr>
 
