@@ -2,6 +2,8 @@
 title: "6688"
 ---
 
+<img width="100" alt="image" src="https://user-images.githubusercontent.com/11339490/272713181-58a7442b-f4df-4987-9afe-cb4702236a8f.jpg">
+
 **Model:** Atlantis Model for Puget Sound
 
 **Atlantis revision comments**
@@ -20,16 +22,3 @@ title: "6688"
 
 -   Missing file atPGMSY.c
 
-
-**Version 6688**
-
-**Pulled:** October 3, 2023
-
-**Model:** Atlantis Model for Puget Sound
-
-**OS:** 
-**Notes**
-
--   Function CKsimulator is not returning an error
-
--   Missing file atPGMSY.c
