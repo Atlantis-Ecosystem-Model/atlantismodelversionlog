@@ -1,13 +1,13 @@
 ---
 title: "Atlantis Ecosystem Model version tracking"
-subtitle: "Comments on compiling and running Atlantis"
+subtitle: "Comments on compiling and running Atlantis code versions"
 page-layout: full
 ---
 
 The Atlantis modeling framework is a simulation modeling approach developed by Dr. Beth Fulton at the Commonwealth Scientific and Industrial Research Organisation (CSIRO) . Atlantis integrates physical, chemical, ecological, and anthropogenic processes in a three-dimensional, spatially explicit domain. This framework has been applied to evaluate management scenarios and investigate the effects of climate change in over 30 ecosystems worldwide. 
 In Atlantis, ecosystem dynamics are represented by spatially explicit submodels that simulate oceanographic processes, biogeochemical factors driving primary production, and food web relations among flora and fauna. The model represents species of ecological and conservation concern and key exploited species at the level of detail necessary to evaluate the direct effects of fishing, and it represents other anthropogenic and climate impacts on the ecosystem as a whole.
 
-<img width="100" alt="image" src="https://user-images.githubusercontent.com/11339490/272713181-58a7442b-f4df-4987-9afe-cb4702236a8f.jpg">
+<img width="50" alt="image" src="https://user-images.githubusercontent.com/11339490/272713181-58a7442b-f4df-4987-9afe-cb4702236a8f.jpg">
 
 
 ## To contribute to this repository
