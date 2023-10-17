@@ -4,7 +4,7 @@ title: "6688"
 
 <img width="30" alt="image" src="https://user-images.githubusercontent.com/11339490/272713181-58a7442b-f4df-4987-9afe-cb4702236a8f.jpg">
 
-**Model:** Atlantis Model for Puget Sound
+**Atlantis model used:** Atlantis Model for Puget Sound https://github.com/hmorzaria/psatlantismodel commit 87031b7
 
 **Atlantis revision comments**
 
@@ -21,6 +21,9 @@ title: "6688"
 -   Function CKsimulator is not returning an error
 
 -   Missing file atPGMSY.c
+
+**Model behavior**
+Code did not compile because of missing file.
 
 **SVN commit message** 
 

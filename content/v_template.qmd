@@ -17,9 +17,10 @@ title: <version number>
 **Environment:** <Windows/Linux/Mac>
 
 **Notes**
+-   
+-   
 
--   
--   
+**Model behavior**
 
 **SVN commit message** 
 #to get the last 10 commits messages from the SVN use svn log -v  -l 10 https://svnserv.csiro.au/svn/ext/atlantis/Atlantis/trunk --username <XX> --password <XX>
