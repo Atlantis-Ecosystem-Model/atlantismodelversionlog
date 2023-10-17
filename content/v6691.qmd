@@ -20,12 +20,14 @@ title: "v6691"
 
 -   Function CKsimulator is still returning an error
 
+**Model behavior**
+Code compiled. Model is stable in a 30 year run
+
+--------------------------------------------------------------------------------
+
 **SVN commit message** 
 
 Fixed misplaced "#"
 
 Changed paths:
  `  M /Atlantis/trunk/atlantis/PreRules.am `
-
-**Model behavior**
-Code compiled. Model is stable in a 30 year run

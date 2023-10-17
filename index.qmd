@@ -49,8 +49,11 @@ git push https://<user>:<PAT>/Atlantis-Ecosystem-Model/atlantismodelversionlog.g
 
 How to generate a PAT in [Github](https://www.theserverside.com/blog/Coffee-Talk-Java-News-Stories-and-Opinions/How-to-create-a-GitHub-Personal-Access-Token-example)
 
-3. Go to the [repository](https://github.com/Atlantis-Ecosystem-Model/atlantismodelversionlog) and create a pull request 
+3. Create a pull request 
 
+```R
+gh pr create --base main
+```
 
 <hr>
 

@@ -25,6 +25,8 @@ title: "6685"
 
 Code compiled. Segmentation fault ~day 200
 
+--------------------------------------------------------------------------------
+
 **SVN commit message** 
 
 Adding PGMSY and aging of contaminants

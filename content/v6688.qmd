@@ -26,6 +26,8 @@ title: "6688"
 
 Code did not compile because of missing file.
 
+--------------------------------------------------------------------------------
+
 **SVN commit message** 
 
 Most of the additions are due to new harvest strategy options. Have also changed the handling fo some migration and movement related arrays. Should not change output in anyway but is a cleaner handling of memory.
@@ -80,3 +82,4 @@ Changed paths:
    M /Atlantis/trunk/atlantis/atphysics/atphysIO.c
    M /Atlantis/trunk/atlantis/atphysics/attracerIO.c
    M /Atlantis/trunk/atlantis/atphysics/attransport.c`
+
