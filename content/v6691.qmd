@@ -4,7 +4,7 @@ title: "v6691"
 
 <img width="30" alt="image" src="https://user-images.githubusercontent.com/11339490/272713181-58a7442b-f4df-4987-9afe-cb4702236a8f.jpg">
 
-**Model:** Atlantis Model for Puget Sound https://github.com/hmorzaria/psatlantismodel commit 87031b7
+**Atlantis model used:** Atlantis Model for Puget Sound https://github.com/hmorzaria/psatlantismodel commit 87031b7
 
 **Atlantis revision comments**
 
@@ -26,3 +26,5 @@ Fixed misplaced #
 Changed paths:
    M /Atlantis/trunk/atlantis/PreRules.am
 
+**Model behavior**
+Code compiled. Model is stable in a 30 year run
