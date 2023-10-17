@@ -4,6 +4,11 @@ title: <version number>
 
 <img width="30" alt="image" src="https://user-images.githubusercontent.com/11339490/272713181-58a7442b-f4df-4987-9afe-cb4702236a8f.jpg">
 
+#Use this template to add infomation from your model
+#Use dashed lines after Model behavior to separate model entries
+--------------------------------------------------------------------------------
+
+
 **Model:** Atlantis Model for Puget Sound
 
 **Atlantis revision comments**

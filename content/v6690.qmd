@@ -29,12 +29,14 @@ Should be:
 **Model behavior**
 Model compiled. Not run
 
+--------------------------------------------------------------------------------
+
 **SVN commit message**
 
 Fixing a bunch of memory issues and adding more to MSE tiered management code
 
 Changed paths:
-   M /Atlantis/trunk/atlantis/PreRules.am
+`   M /Atlantis/trunk/atlantis/PreRules.am
    M /Atlantis/trunk/atlantis/atSS3Link/atSS3DataGen.c
    M /Atlantis/trunk/atlantis/atassess/atAssessTierSetup.c
    M /Atlantis/trunk/atlantis/atecology/additionalTracer.c
@@ -57,4 +59,6 @@ Changed paths:
    M /Atlantis/trunk/atlantis/atmanage/atManageTier.c
    M /Atlantis/trunk/atlantis/atmanage/include/atManage.h
    M /Atlantis/trunk/atlantis/atphysics/atphysics.c
-   M /Atlantis/trunk/atlantis/atphysics/atsourcesink.c
+   M /Atlantis/trunk/atlantis/atphysics/atsourcesink.c`
+   
+
