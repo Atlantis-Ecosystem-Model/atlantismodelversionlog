@@ -22,3 +22,41 @@ title: "6685"
 -   No description in Atlantis Wiki
 
 -   Function CKsimulator is returning an error and was commented out
+
+**SVN commit message** 
+
+Adding PGMSY and aging of contaminants
+
+Changed paths:
+   M /Atlantis/trunk/atlantis/ConvertAtlantis/atAssesstoXML.c
+   M /Atlantis/trunk/atlantis/ConvertAtlantis/atCreateXML.c
+   M /Atlantis/trunk/atlantis/ConvertAtlantis/atRunXML.c
+   M /Atlantis/trunk/atlantis/atSS3Link/atSS3DataGen.c
+   M /Atlantis/trunk/atlantis/atSS3Link/atSS3LinkIO.c
+   M /Atlantis/trunk/atlantis/atassess/atAssessTierSetup.c
+   M /Atlantis/trunk/atlantis/atassess/atassessParamIO.c
+   M /Atlantis/trunk/atlantis/atecology/additionalTracer.c
+   M /Atlantis/trunk/atlantis/atecology/atContaminants.c
+   M /Atlantis/trunk/atlantis/atecology/atGroupProcesses.c
+   M /Atlantis/trunk/atlantis/atecology/atannualbiology.c
+   M /Atlantis/trunk/atlantis/atecology/atbiolmessage.c
+   M /Atlantis/trunk/atlantis/atecology/atbiolsetup.c
+   M /Atlantis/trunk/atlantis/atecology/atdemography.c
+   M /Atlantis/trunk/atlantis/atecology/atecology.c
+   M /Atlantis/trunk/atlantis/atecology/atmigration.c
+   M /Atlantis/trunk/atlantis/atecology/atmovement.c
+   M /Atlantis/trunk/atlantis/atecology/include/atContaminants.h
+   M /Atlantis/trunk/atlantis/atharvest/atHarvest.c
+   M /Atlantis/trunk/atlantis/atharvest/atHarvestParamIO.c
+   M /Atlantis/trunk/atlantis/atharvest/atHarvestSetup.c
+   M /Atlantis/trunk/atlantis/atharvest/include/atHarvest.h
+   M /Atlantis/trunk/atlantis/atharvest/include/atHarvestPrivate.h
+   M /Atlantis/trunk/atlantis/atlantisUtil/atUtil.c
+   M /Atlantis/trunk/atlantis/atlantisUtil/atUtilGroupIO.c
+   M /Atlantis/trunk/atlantis/atlantisUtil/atUtilXML.c
+   M /Atlantis/trunk/atlantis/atlantisUtil/include/atFunctGroup.h
+   M /Atlantis/trunk/atlantis/atlantismain/include/atlantisboxmodel.h
+   M /Atlantis/trunk/atlantis/atmanage/atManageAnnual.c
+   M /Atlantis/trunk/atlantis/atmanage/atManageTier.c
+   M /Atlantis/trunk/atlantis/atmanage/atSS3assess.c
+
