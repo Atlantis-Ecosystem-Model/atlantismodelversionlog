@@ -22,6 +22,7 @@ title: "6685"
 -   Function CKsimulator is returning an error and was commented out
 
 **Model behavior**
+
 Code compiled. Segmentation fault ~day 200
 
 **SVN commit message** 
@@ -29,7 +30,7 @@ Code compiled. Segmentation fault ~day 200
 Adding PGMSY and aging of contaminants
 
 Changed paths:
-   M /Atlantis/trunk/atlantis/ConvertAtlantis/atAssesstoXML.c
+`   M /Atlantis/trunk/atlantis/ConvertAtlantis/atAssesstoXML.c
    M /Atlantis/trunk/atlantis/ConvertAtlantis/atCreateXML.c
    M /Atlantis/trunk/atlantis/ConvertAtlantis/atRunXML.c
    M /Atlantis/trunk/atlantis/atSS3Link/atSS3DataGen.c
@@ -59,5 +60,5 @@ Changed paths:
    M /Atlantis/trunk/atlantis/atlantismain/include/atlantisboxmodel.h
    M /Atlantis/trunk/atlantis/atmanage/atManageAnnual.c
    M /Atlantis/trunk/atlantis/atmanage/atManageTier.c
-   M /Atlantis/trunk/atlantis/atmanage/atSS3assess.c
+   M /Atlantis/trunk/atlantis/atmanage/atSS3assess.c `
 
