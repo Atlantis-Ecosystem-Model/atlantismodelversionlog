@@ -18,7 +18,14 @@ title: "6688"
 
 **Notes**
 
--   Function CKsimulator is not returning an error
+-   Function CKsimulator is returning an error in atSS3DataGen.c commented out lines 85-89
+
+` /* if(bm->CloseKinEst->UseCloseKin && FunctGroupArray[groupIndex].isCloseKin) {
+            GetCloseKinNum(bm, groupIndex, yearIndex);
+            CKsimulator(bm, groupIndex, yearIndex);
+            bm->CloseKinEst[groupIndex].nCKsampled++;
+        } */`
+
 
 -   Missing file atPGMSY.c
 
