@@ -178,8 +178,9 @@ ul.task-list li input[type="checkbox"] {
 <p><strong>Environment:</strong> Linux</p>
 <p><strong>Notes</strong></p>
 <ul>
-<li>Function CKsimulator is still returning an error</li>
+<li>Function CKsimulator is still returning an error. In atSS3DataGen.c commented out lines 85-89</li>
 </ul>
+<p><code>/* if(bm-&gt;CloseKinEst-&gt;UseCloseKin &amp;&amp; FunctGroupArray[groupIndex].isCloseKin) {             GetCloseKinNum(bm, groupIndex, yearIndex);             CKsimulator(bm, groupIndex, yearIndex);             bm-&gt;CloseKinEst[groupIndex].nCKsampled++;         } */</code></p>
 <p><strong>Model behavior</strong> Code compiled. Model is stable in a 30 year run</p>
 <hr>
 <p><strong>SVN commit message</strong></p>

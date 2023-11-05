@@ -1,55 +1,59 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://research.csiro.au/atlantis/index.html</loc>
-    <lastmod>2023-10-17T17:43:54.421Z</lastmod>
-  </url>
-  <url>
-    <loc>https://research.csiro.au/atlantis/content/rmarkdown.html</loc>
-    <lastmod>2023-10-17T17:43:52.541Z</lastmod>
-  </url>
-  <url>
-    <loc>https://research.csiro.au/atlantis/content/rendering.html</loc>
-    <lastmod>2023-10-17T17:43:50.469Z</lastmod>
-  </url>
-  <url>
-    <loc>https://research.csiro.au/atlantis/content/v6691.html</loc>
-    <lastmod>2023-10-17T17:43:49.605Z</lastmod>
-  </url>
-  <url>
-    <loc>https://research.csiro.au/atlantis/content/v6685.html</loc>
-    <lastmod>2023-10-17T17:43:48.857Z</lastmod>
-  </url>
-  <url>
-    <loc>https://research.csiro.au/atlantis/content/v_template.html</loc>
-    <lastmod>2023-10-17T17:43:48.121Z</lastmod>
-  </url>
-  <url>
-    <loc>https://research.csiro.au/atlantis/content/acknowledgements.html</loc>
-    <lastmod>2023-10-17T17:43:45.649Z</lastmod>
-  </url>
-  <url>
-    <loc>https://research.csiro.au/atlantis/content/customizing.html</loc>
-    <lastmod>2023-10-17T17:43:47.749Z</lastmod>
-  </url>
-  <url>
-    <loc>https://research.csiro.au/atlantis/content/v6688.html</loc>
-    <lastmod>2023-10-17T17:43:48.497Z</lastmod>
-  </url>
-  <url>
-    <loc>https://research.csiro.au/atlantis/content/add-content.html</loc>
-    <lastmod>2023-10-17T17:43:49.233Z</lastmod>
+    <loc>https://research.csiro.au/atlantis/content/code.html</loc>
+    <lastmod>2023-11-05T17:55:39.079Z</lastmod>
   </url>
   <url>
     <loc>https://research.csiro.au/atlantis/content/publishing.html</loc>
-    <lastmod>2023-10-17T17:43:50.045Z</lastmod>
+    <lastmod>2023-11-05T17:55:37.843Z</lastmod>
+  </url>
+  <url>
+    <loc>https://research.csiro.au/atlantis/content/add-content.html</loc>
+    <lastmod>2023-11-05T17:55:36.227Z</lastmod>
+  </url>
+  <url>
+    <loc>https://research.csiro.au/atlantis/content/customizing.html</loc>
+    <lastmod>2023-11-05T17:55:35.647Z</lastmod>
+  </url>
+  <url>
+    <loc>https://research.csiro.au/atlantis/content/v6691.html</loc>
+    <lastmod>2023-11-05T17:55:35.063Z</lastmod>
+  </url>
+  <url>
+    <loc>https://research.csiro.au/atlantis/content/rendering.html</loc>
+    <lastmod>2023-11-05T17:52:40.061Z</lastmod>
   </url>
   <url>
     <loc>https://research.csiro.au/atlantis/content/v6690.html</loc>
-    <lastmod>2023-10-17T17:43:50.841Z</lastmod>
+    <lastmod>2023-11-05T17:52:39.485Z</lastmod>
   </url>
   <url>
-    <loc>https://research.csiro.au/atlantis/content/code.html</loc>
-    <lastmod>2023-10-17T17:43:53.789Z</lastmod>
+    <loc>https://research.csiro.au/atlantis/index.html</loc>
+    <lastmod>2023-11-05T17:52:38.633Z</lastmod>
+  </url>
+  <url>
+    <loc>https://research.csiro.au/atlantis/content/acknowledgements.html</loc>
+    <lastmod>2023-11-05T17:52:39.757Z</lastmod>
+  </url>
+  <url>
+    <loc>https://research.csiro.au/atlantis/content/v6685.html</loc>
+    <lastmod>2023-11-05T17:55:34.743Z</lastmod>
+  </url>
+  <url>
+    <loc>https://research.csiro.au/atlantis/content/v_template.html</loc>
+    <lastmod>2023-11-05T17:55:35.355Z</lastmod>
+  </url>
+  <url>
+    <loc>https://research.csiro.au/atlantis/content/v6688.html</loc>
+    <lastmod>2023-11-05T17:55:35.935Z</lastmod>
+  </url>
+  <url>
+    <loc>https://research.csiro.au/atlantis/content/rmarkdown.html</loc>
+    <lastmod>2023-11-05T17:55:37.523Z</lastmod>
+  </url>
+  <url>
+    <loc>https://research.csiro.au/atlantis/content/v6693.html</loc>
+    <lastmod>2023-11-05T17:55:38.119Z</lastmod>
   </url>
 </urlset>

@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Atlantis Ecosystem Model log - 6688</title>
+<title>Atlantis Ecosystem Model log - v6693</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -29,8 +29,6 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../content/v6685.html" rel="next">
-<link href="../content/v6690.html" rel="prev">
 <link href="../images/favicon.ico" rel="icon">
 <script src="../site_libs/quarto-html/quarto.js"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
@@ -76,7 +74,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../content/v6688.html">v6688</a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">v6693</li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -125,7 +123,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../content/v6688.html" class="sidebar-item-text sidebar-link active">
+  <a href="../content/v6688.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">v6688</span></a>
   </div>
 </li>
@@ -154,7 +152,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">6688</h1>
+<h1 class="title">v6693</h1>
 </div>
 
 
@@ -172,24 +170,22 @@ ul.task-list li input[type="checkbox"] {
 <p><img width="30" alt="image" src="https://user-images.githubusercontent.com/11339490/272713181-58a7442b-f4df-4987-9afe-cb4702236a8f.jpg"></p>
 <p><strong>Atlantis model used:</strong> Atlantis Model for Puget Sound https://github.com/hmorzaria/psatlantismodel commit 87031b7</p>
 <p><strong>Atlantis revision comments</strong></p>
-<p><strong>Version 6688</strong></p>
-<p><strong>Date pulled:</strong> October 3, 2023</p>
+<p><strong>Version 6693</strong></p>
+<p><strong>Date pulled:</strong> October 17, 2023</p>
 <p><strong>OS:</strong> Ubuntu 18.04.6 LTS</p>
 <p><strong>Environment:</strong> Linux</p>
 <p><strong>Notes</strong></p>
 <ul>
-<li>Function CKsimulator is returning an error in atSS3DataGen.c commented out lines 85-89</li>
+<li>Function CKsimulator is still returning an error. In atSS3DataGen.c commented out lines 85-89</li>
 </ul>
 <p><code>/* if(bm-&gt;CloseKinEst-&gt;UseCloseKin &amp;&amp; FunctGroupArray[groupIndex].isCloseKin) {             GetCloseKinNum(bm, groupIndex, yearIndex);             CKsimulator(bm, groupIndex, yearIndex);             bm-&gt;CloseKinEst[groupIndex].nCKsampled++;         } */</code></p>
-<ul>
-<li>Missing file atPGMSY.c</li>
-</ul>
-<p><strong>Model behavior</strong></p>
-<p>Code did not compile because of missing file.</p>
+<p><strong>Model behavior</strong> Code compiled.</p>
 <hr>
 <p><strong>SVN commit message</strong></p>
-<p>Most of the additions are due to new harvest strategy options. Have also changed the handling fo some migration and movement related arrays. Should not change output in anyway but is a cleaner handling of memory.</p>
-<p>Changed paths: <code>M /Atlantis/trunk/atlantis/ConvertAtlantis/atAssesstoXML.c    M /Atlantis/trunk/atlantis/ConvertAtlantis/atCreateXML.c    M /Atlantis/trunk/atlantis/atSS3Link/atSS3DataGen.c    M /Atlantis/trunk/atlantis/atSS3Link/atSS3LinkIO.c    M /Atlantis/trunk/atlantis/atassess/atAssessTierSetup.c    M /Atlantis/trunk/atlantis/atassess/atassessParamIO.c    M /Atlantis/trunk/atlantis/atassess/atdatareading.c    M /Atlantis/trunk/atlantis/atassess/atnetwork.c    M /Atlantis/trunk/atlantis/atassess/atsurvey.c    M /Atlantis/trunk/atlantis/atassess/atwriting.c    M /Atlantis/trunk/atlantis/atecology/additionalTracer.c    M /Atlantis/trunk/atlantis/atecology/atbiolmessage.c    M /Atlantis/trunk/atlantis/atecology/atbiology.c    M /Atlantis/trunk/atlantis/atecology/atbiolsetup.c    M /Atlantis/trunk/atlantis/atecology/atbiophysics.c    M /Atlantis/trunk/atlantis/atecology/atdiversity.c    M /Atlantis/trunk/atlantis/atecology/atecology.c    M /Atlantis/trunk/atlantis/atecology/atecologyts.c    M /Atlantis/trunk/atlantis/atecology/atmovement.c    M /Atlantis/trunk/atlantis/atecology/include/atbiology.h    M /Atlantis/trunk/atlantis/atecology/include/atbiologyPrivate.h    M /Atlantis/trunk/atlantis/atecology/include/atecology.h    M /Atlantis/trunk/atlantis/ateconomic/ateconeffort.c    M /Atlantis/trunk/atlantis/ateconomic/ateconio.c    M /Atlantis/trunk/atlantis/ateconomic/ateconomicsetup.c    M /Atlantis/trunk/atlantis/atharvest/atHarvest.c    M /Atlantis/trunk/atlantis/atharvest/atHarvestIO.c    M /Atlantis/trunk/atlantis/atharvest/atHarvestTS.c    M /Atlantis/trunk/atlantis/atlantisUtil/atUtil.c    M /Atlantis/trunk/atlantis/atlantisUtil/atUtilGroupIO.c    M /Atlantis/trunk/atlantis/atlantisUtil/atUtilXML.c    M /Atlantis/trunk/atlantis/atlantisUtil/include/atFisheryStruct.h    M /Atlantis/trunk/atlantis/atlantismain/atlantismain.c    M /Atlantis/trunk/atlantis/atlantismain/include/atlantisboxmodel.h    M /Atlantis/trunk/atlantis/atmanage/Makefile.am    M /Atlantis/trunk/atlantis/atmanage/atManageAnnual.c    M /Atlantis/trunk/atlantis/atmanage/atManageIO.c    M /Atlantis/trunk/atlantis/atmanage/atManageSetup.c    M /Atlantis/trunk/atlantis/atmanage/atManageTier.c    M /Atlantis/trunk/atlantis/atmanage/atRlinkRBC.c    M /Atlantis/trunk/atlantis/atmanage/atSS3assess.c    M /Atlantis/trunk/atlantis/atmanage/include/atManage.h    M /Atlantis/trunk/atlantis/atphysics/atagetracerIO.c    M /Atlantis/trunk/atlantis/atphysics/atdiagIO.c    M /Atlantis/trunk/atlantis/atphysics/atepiIO.c    M /Atlantis/trunk/atlantis/atphysics/atfishstatIO.c    M /Atlantis/trunk/atlantis/atphysics/atphysIO.c    M /Atlantis/trunk/atlantis/atphysics/attracerIO.c    M /Atlantis/trunk/atlantis/atphysics/attransport.c</code></p>
+<p>Changed paths: <code>M /Atlantis/trunk/atlantis/atecology/atContaminants.c    M /Atlantis/trunk/atlantis/atlantisUtil/atUtilGroupIO.c    M /Atlantis/trunk/atlantis/atlantisUtil/include/atFunctGroup.h</code></p>
+<p>Fix to atContaminants ageing transfer as final boxes may be over-writing earlier boxes in old way it was done.</p>
+<hr>
+<p>**</p>
 
 
 
@@ -542,25 +538,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script>
-<nav class="page-navigation">
-  <div class="nav-page nav-page-previous">
-      <a href="../content/v6690.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">v6690</span>
-      </a>          
-  </div>
-  <div class="nav-page nav-page-next">
-      <a href="../content/v6685.html" class="pagination-link">
-        <span class="nav-page-text">v6685</span> <i class="bi bi-arrow-right-short"></i>
-      </a>
-  </div>
-</nav>
 </div> <!-- /content -->
 <footer class="footer">
   <div class="nav-footer">
     <div class="nav-footer-left">© CC-1.0</div>   
     <div class="nav-footer-center">
       &nbsp;
-    <div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/Atlantis-Ecosystem-Model/atlantismodelversionlog/edit/main/content/v6688.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/Atlantis-Ecosystem-Model/atlantismodelversionlog/blob/main/content/v6688.qmd" class="toc-action">View source</a></p><p><a href="https://github.com/Atlantis-Ecosystem-Model/atlantismodelversionlog/issues/new" class="toc-action">Report an issue</a></p></div></div></div>
+    <div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/Atlantis-Ecosystem-Model/atlantismodelversionlog/edit/main/content/v6693.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/Atlantis-Ecosystem-Model/atlantismodelversionlog/blob/main/content/v6693.qmd" class="toc-action">View source</a></p><p><a href="https://github.com/Atlantis-Ecosystem-Model/atlantismodelversionlog/issues/new" class="toc-action">Report an issue</a></p></div></div></div>
     <div class="nav-footer-right">This page is built with <a href="https://quarto.org/">Quarto</a>.</div>
   </div>
 </footer>

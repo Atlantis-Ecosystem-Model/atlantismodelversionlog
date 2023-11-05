@@ -178,10 +178,13 @@ ul.task-list li input[type="checkbox"] {
 <p><strong>Environment:</strong> Linux</p>
 <p><strong>Notes</strong></p>
 <ul>
-<li><p>Function CKsimulator is still returning an error</p></li>
-<li><p>Error on PreRules.am Line 43 says <code>W#ARN += -Wno-error=implicit-function-declaration</code> Should be: <code>#WARN += -Wno-error=implicit-function-declaration</code></p></li>
+<li>Function CKsimulator is returning an error in atSS3DataGen.c commented out lines 85-89</li>
 </ul>
-<p><strong>Model behavior</strong> Model compiled. Not run</p>
+<p><code>/* if(bm-&gt;CloseKinEst-&gt;UseCloseKin &amp;&amp; FunctGroupArray[groupIndex].isCloseKin) {             GetCloseKinNum(bm, groupIndex, yearIndex);             CKsimulator(bm, groupIndex, yearIndex);             bm-&gt;CloseKinEst[groupIndex].nCKsampled++;         } */</code></p>
+<ul>
+<li>Error on PreRules.am Line 43 says <code>W#ARN += -Wno-error=implicit-function-declaration</code> Should be: <code>#WARN += -Wno-error=implicit-function-declaration</code></li>
+</ul>
+<p><strong>Model behavior</strong> Model compiles after PreRules error is corrected. Run for 5 years</p>
 <hr>
 <p><strong>SVN commit message</strong></p>
 <p>Fixing a bunch of memory issues and adding more to MSE tiered management code</p>
