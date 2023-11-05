@@ -18,7 +18,13 @@ title: "6690"
 
 **Notes**
 
--   Function CKsimulator is still returning an error
+-   Function CKsimulator is returning an error in atSS3DataGen.c commented out lines 85-89
+
+` /* if(bm->CloseKinEst->UseCloseKin && FunctGroupArray[groupIndex].isCloseKin) {
+            GetCloseKinNum(bm, groupIndex, yearIndex);
+            CKsimulator(bm, groupIndex, yearIndex);
+            bm->CloseKinEst[groupIndex].nCKsampled++;
+        } */`
 
 -  Error on PreRules.am 
 Line 43 says
@@ -27,7 +33,7 @@ Should be:
 `#WARN += -Wno-error=implicit-function-declaration`
 
 **Model behavior**
-Model compiled. Not run
+Model compiles after PreRules error is corrected. Run for 5 years
 
 --------------------------------------------------------------------------------
 

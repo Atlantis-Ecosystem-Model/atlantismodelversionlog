@@ -1,5 +1,5 @@
 ---
-title: "v6691"
+title: "v6693"
 ---
 
 <img width="30" alt="image" src="https://user-images.githubusercontent.com/11339490/272713181-58a7442b-f4df-4987-9afe-cb4702236a8f.jpg">
@@ -8,9 +8,9 @@ title: "v6691"
 
 **Atlantis revision comments**
 
-**Version 6691**
+**Version 6693**
 
-**Date pulled:** October 10, 2023
+**Date pulled:** October 17, 2023
 
 **OS:** Ubuntu 18.04.6 LTS
 
@@ -28,13 +28,18 @@ title: "v6691"
 
 
 **Model behavior**
-Code compiled. Model is stable in a 30 year run
+Code compiled. 
 
 --------------------------------------------------------------------------------
 
 **SVN commit message** 
 
-Fixed misplaced "#"
-
 Changed paths:
- `  M /Atlantis/trunk/atlantis/PreRules.am `
+`   M /Atlantis/trunk/atlantis/atecology/atContaminants.c
+   M /Atlantis/trunk/atlantis/atlantisUtil/atUtilGroupIO.c
+   M /Atlantis/trunk/atlantis/atlantisUtil/include/atFunctGroup.h `
+
+Fix to atContaminants ageing transfer as final boxes may be over-writing earlier boxes in old way it was done.
+
+--------------------------------------------------------------------------------
+**

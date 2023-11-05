@@ -19,7 +19,13 @@ title: "6685"
 
 **Notes**
 
--   Function CKsimulator is returning an error and was commented out
+-   Function CKsimulator is returning an error in atSS3DataGen.c commented out lines 85-89
+
+` /* if(bm->CloseKinEst->UseCloseKin && FunctGroupArray[groupIndex].isCloseKin) {
+            GetCloseKinNum(bm, groupIndex, yearIndex);
+            CKsimulator(bm, groupIndex, yearIndex);
+            bm->CloseKinEst[groupIndex].nCKsampled++;
+        } */`
 
 **Model behavior**
 
@@ -27,12 +33,15 @@ Code compiled. Segmentation fault ~day 200
 
 --------------------------------------------------------------------------------
 
+Also made changes on primary producer mortality, and added:
+flag_replicated_old_PPmort 0 #Flag to replicate old model code assumptions around primary production mortality before code version 6685
+
 **SVN commit message** 
 
 Adding PGMSY and aging of contaminants
 
 Changed paths:
-`   M /Atlantis/trunk/atlantis/ConvertAtlantis/atAssesstoXML.c
+`  M /Atlantis/trunk/atlantis/ConvertAtlantis/atAssesstoXML.c
    M /Atlantis/trunk/atlantis/ConvertAtlantis/atCreateXML.c
    M /Atlantis/trunk/atlantis/ConvertAtlantis/atRunXML.c
    M /Atlantis/trunk/atlantis/atSS3Link/atSS3DataGen.c
@@ -64,3 +73,1460 @@ Changed paths:
    M /Atlantis/trunk/atlantis/atmanage/atManageTier.c
    M /Atlantis/trunk/atlantis/atmanage/atSS3assess.c `
 
+--------------------------------------------------------------------------------
+**Detailed comparison with previous version**
+Left is new version, right is old version. Versions are separated by |
+
+Versions compared 6685 6681
+
+`
+FILE COMPARED
+atassess/atassess_2013.vcxproj.bec
+
+FILE COMPARED
+atassess/atassessParamIO.c
+        						      <
+        //Initialise_PGMSY(bm);				      <
+        						      <
+            if (speciesParamStructArray[sp].paramType == SP_I |	            if (FunctGroupArray[sp].speciesParams[MultispAsse
+                if ((FunctGroupArray[sp].speciesParams[Multis |	                bm->PGMSY_on = TRUE;
+                    bm->PGMSY_on = TRUE;		      |	                // Make sure the R file is in place
+                    // Make sure the R file is in place	      <
+                    fprintf(bm->logFile,"Set PGMSY_on as %s h |	            }
+                					      |	            if ((FunctGroupArray[sp].isFished == TRUE)  && (b
+                }					      |	                bm->RBCestimation.earliestYr = bm->RBCestimat
+                if ((FunctGroupArray[sp].isFished == TRUE)  & <
+                    bm->RBCestimation.earliestYr = bm->RBCest <
+                }					      <
+							      >
+    Util_XML_Read_Species_RBCParam(bm, fileName, childGroupin <
+							      <
+
+FILE COMPARED
+atassess/atAssessTierSetup.c
+        fprintf(bm->logFile, "Initiaised propcatch, propcatch <
+        						      <
+							      >	        printf("%s free got to here A\n", FunctGroupArray[gro
+							      >
+							      >	        printf("%s free got to here B\n", FunctGroupArray[gro
+							      >	        
+							      >	        printf("%s free got to here C\n", FunctGroupArray[gro
+							      >
+							      >	            printf("%s free got to here C1\n", FunctGroupArra
+							      >	        
+							      >	            printf("%s free got to here C2\n", FunctGroupArra
+							      >	        
+							      >	            printf("%s free got to here C3\n", FunctGroupArra
+							      >	        
+							      >	            printf("%s free got to here C4\n", FunctGroupArra
+							      >	        
+							      >	        
+							      >	            printf("%s free got to here D\n", FunctGroupArray
+							      >	        printf("%s free got to here E\n", FunctGroupArray[gro
+							      >
+							      >	        printf("%s free got to here F\n", FunctGroupArray[gro
+							      >	                
+							      >	        printf("%s free got to here G\n", FunctGroupArray[gro
+							      >	        
+							      >	        printf("%s free got to here H\n", FunctGroupArray[gro
+							      >	        
+							      >	        printf("%s free got to here I\n", FunctGroupArray[gro
+							      >
+							      >	        printf("%s free got to here J\n", FunctGroupArray[gro
+							      >	 
+							      >	        if(bm->RBCestimation.Catch_by_Metier)
+							      >	            free4d(bm->RBCestimation.Catch_by_Metier);
+    if(bm->RBCestimation.Catch_by_Metier)		      <
+        free4d(bm->RBCestimation.Catch_by_Metier);	      <
+							      <
+    int nLen, nt, mid;					      |	    int nLen, nt;
+							      >	        /* TODO: FIX - Filler on metiers to fisheries - read 
+            mid = bm->RBCestimation.speciesRPFleetToMetier[m] |	            bm->RBCestimation.speciesMetierToRPFleet[groupInd
+            bm->RBCestimation.speciesMetierToRPFleet[groupInd |	            bm->RBCestimation.speciesRPFleetToMetier[m][group
+            strcpy(bm->RBCestimation.metierArray[mid].metierC |	            strcpy(bm->RBCestimation.metierArray[m].metierCod
+            bm->RBCestimation.metierArray[mid].PGMSYlinks = P |	            bm->RBCestimation.metierArray[m].PGMSYlinks = PGM
+
+FILE COMPARED
+atassess/atattribute.c
+
+FILE COMPARED
+atassess/atclassical.c
+
+FILE COMPARED
+atassess/atdatareading.c
+
+FILE COMPARED
+atassess/atdiet.c
+
+FILE COMPARED
+atassess/atindices.c
+
+FILE COMPARED
+atassess/atnetwork.c
+
+FILE COMPARED
+atassess/atsample.c
+
+FILE COMPARED
+atassess/atsamplesetup.c
+
+FILE COMPARED
+atassess/atsolve.c
+
+FILE COMPARED
+atassess/atsurvey.c
+
+FILE COMPARED
+atassess/atwriting.c
+
+FILE COMPARED
+atassess/doolittle.c
+
+FILE COMPARED
+atassess/unit_lower_triangular.c
+
+FILE COMPARED
+atassess/upper_triangular.c
+
+FILE COMPARED
+atbrokerlink/atBrokerLinkInit.c
+
+FILE COMPARED
+atbrokerlink/Deserialiser.c
+
+FILE COMPARED
+atbrokerlink/ImportExportData.c
+
+FILE COMPARED
+atbrokerlink/LinkageInterface.c
+
+FILE COMPARED
+atbrokerlink/network.c
+
+FILE COMPARED
+atbrokerlink/NetworkError.c
+
+FILE COMPARED
+atbrokerlink/requests.pb-c.c
+
+FILE COMPARED
+atbrokerlink/responses.pb-c.c
+
+FILE COMPARED
+atCLAMLink/atCLAMComm.c
+
+FILE COMPARED
+atCLAMLink/atCLAMImplement.c
+
+FILE COMPARED
+atCLAMLink/atCLAMLink.c
+
+FILE COMPARED
+atCLAMLink/atCLAMLinkIO.c
+
+FILE COMPARED
+atCLAMLink/atCLAMLinkSetup.c
+
+FILE COMPARED
+atCLAMLink/atCLAMManage.c
+
+FILE COMPARED
+atecology/additionalTracer.c
+							      >	//double Calculate_Phosphorus_Uptake(MSEBoxModel *bm, int gui
+							      >	//
+							      >	//	double  uptake;
+							      >	//	//double P0 = FunctGroupArray[guild].speciesParams[P_
+							      >	//	//double P1 = FunctGroupArray[guild].speciesParams[P_
+							      >	//	double PValue = biomass * PRatio;
+							      >	//	//double growth =PValue * mum * hN_sp * hI_sp * eddy_
+							      >	//
+							      >	//	uptake = grow * PRatio; //PValue * mum * hN_sp * hI_s
+							      >	//	//uptake = growth * FunctGroupArray[guild].speciesPar
+							      >	//
+							      >	//	/* Save the uptake value for later */
+							      >	//	FunctGroupArray[guild].uptakeP = uptake;
+							      >	//
+							      >	//	return uptake;
+							      >	//}
+							      >
+							      |								
+							      >								
+                                fprintf(bm->logFile, "%s-%d B <
+                                    			      <
+							      |								
+                                //if(sp == 5 && tracerIndex = <
+							      |								
+							      |								
+                                **/			      |								
+							      >								
+							      >								
+							      >								
+							      |								
+							      |								
+                                             FunctGroupArray[ |								
+							      >								
+							      |								
+							} els |								}else
+							      |								
+							      >								
+							      >								
+							      >								
+							      |								
+							      |								
+							      >								
+							      >								
+							      |								
+							      >								
+							      >								
+							      |								
+							      >								
+							      |								
+							      >
+							      >								
+							      >								
+							      >								
+							      >
+							      >								
+							      >
+							      >
+							      >								
+							      >								
+							      |								
+		/**/					      |			/**
+		//if(amount > 0 && tracerIndex == c_id && toG |			if(amount > 0 && tracerIndex == c_id && toGui
+        if(amount > 0 && toGuild == 0){			      <
+		}					      |			}**/
+        /**/						      <
+
+FILE COMPARED
+atecology/atannualbiology.c
+            						      <
+            /**						      <
+            //if (do_debug && (bm->which_check == species)) { <
+            if (species == 33) {			      <
+                fprintf(bm->logFile,"Doing %s stock %d, ngene <
+                FunctGroupArray[species].groupCode, stock_id, <
+                EMBRYO[species].Larvae[stock_id][ngene][qid]) <
+            }						      <
+            **/						      <
+            						      <
+    							      <
+    /**							      <
+    //if (do_debug && (bm->which_check == species)) {	      <
+    if (species == 33) {				      <
+        fprintf(bm->logFile, "Initialisation, species %s, rec <
+    }							      <
+    **/							      <
+
+FILE COMPARED
+atecology/atbiolmessage.c
+							      >		/* Write time */
+							      >		fprintf(fid, "Time: %e\n", bm->dayt);
+							      >
+
+FILE COMPARED
+atecology/atbiology.c
+
+FILE COMPARED
+atecology/atBiologyXMLParamIO.c
+	bm->flagtempdepend_move = (int) Util_XML_Read_Value(f |		bm->flagtempdepend = (int) Util_XML_Read_Value(fileNa
+    bm->flagtempdepend_reprod = (int) Util_XML_Read_Value(fil <
+	if (bm->flagtempdepend_move) {			      |		if (bm->flagtempdepend) {
+    if (bm->flagtempdepend_reprod) {			      |	    if (bm->flagtempdepend) {
+        MIGRATION[sp].ReprodAllowed = Util_Alloc_Init_2D_Int( <
+        						      <
+        MIGRATION[sp].ReprodAllowedPrm = Util_Alloc_Init_2D_I |
+
+FILE COMPARED
+atecology/atbiolsetup.c
+            foundchrt = 0;				      <
+                                        foundchrt = chrt;     <
+            i_free2d(MIGRATION[sp].ReprodAllowed);	      <
+            i_free2d(MIGRATION[sp].ReprodAllowedPrm);	      <
+    totden_check = Util_Alloc_Init_2D_Double(totdensize, bm-> <
+
+FILE COMPARED
+atecology/atbiolUtil.c
+
+FILE COMPARED
+atecology/atbiophysics.c
+
+FILE COMPARED
+atecology/atBuildTracer.c
+
+FILE COMPARED
+atecology/atcalibtools.c
+
+FILE COMPARED
+atecology/atContaminants.c
+int Group_Transfer_Contaminant(MSEBoxModel *bm, BoxLayerValue |	int Group_Transfer_Contaminant(MSEBoxModel *bm, BoxLayerValue
+	double cGroupLevel, transfer, totalBiomass, amt_excha |		double cGroupLevel, transfer, totalBiomass, propEaten
+	/* If the amount transfered is zero don't do anything |		/* If the amount eaten is zero don't do anything
+	if (amountTransfer == 0.0)			      |		if (amountEaten == 0.0)
+        quit("Group_Transfer_Contaminant - from group %s-%d,  |	        quit("Group_Transfer_Contaminant - to group %s-%d, fr
+	/* Work out the proportion transfered */	      |		/* Work out the proportion eaten */
+        amountTransfer = amountTransfer / (totalBiomass + sma |			propEaten = amountEaten / (totalBiomass + sma
+        if(!initialBiomass)  // No actual transfer possible   |	        if(!initialBiomass)  // No actual consumption possibl
+        amountTransfer = amountTransfer / (totalBiomass + sma |			propEaten = amountEaten / (totalBiomass + sma
+    if (amountTransfer > 1.0) {				      |	    if (propEaten > 1.0) {
+        amountTransfer = 1.0;				      |	        propEaten = 1.0;
+	if ((isnan(propTransfer)) || (propTransfer > 1.0)) {  |		if ((isnan(propEaten)) || (propEaten > 1.0)) {
+		fprintf(stderr, "Group_Transfer_Contaminant g |			fprintf(stderr, "Group_Transfer_Contaminant g
+            if ((isnan(propTransfer)) || (propTransfer > 1.0) |	            if ((isnan(propEaten)) || (propEaten > 1.0)) {
+                fprintf(stderr, "Time: %e box %d-%d case %d G |	                fprintf(stderr, "Time: %e box %d-%d case %d G
+			//transfer = cGroupLevel * amountTran |				transfer = cGroupLevel * propEaten / 
+            transfer = cGroupLevel * amountTransfer;  // Actu <
+				quit("Group_Transfer_Contamin |					quit("Group_Transfer_Contamin
+						FunctGroupArr |							FunctGroupArr
+                    fprintf(bm->logFile, "prey = %s, to %s-%d |	                    fprintf(bm->logFile, "prey = %s, to %s-%d
+                amt_exchanged = amountTransfer * dtsz;	      |	                amt_exchanged = amountEaten * dtsz;
+                					      <
+}							      <
+							      <
+void Age_Contaminants_Store(MSEBoxModel *bm, int sp, int coho <
+    int cIndex, cid;					      <
+    double cGroupLevel;					      <
+    							      <
+    for (cIndex = 0; cIndex < bm->num_contaminants; cIndex++) <
+        cid = FunctGroupArray[sp].contaminantTracers[cohort][ <
+        cGroupLevel = bm->boxes[bm->current_box].tr[bm->curre <
+        FunctGroupArray[sp].agingContam[nextcid][cIndex] = cG <
+        bm->boxes[bm->current_box].tr[bm->current_layer][cid] <
+        // Remove it here so transferred to next class with a <
+        						      <
+    }							      <
+}							      <
+							      <
+void Age_Contaminants_Update(MSEBoxModel *bm, int sp, int coh <
+    int cIndex, cid;					      <
+    double cGroupLevel;					      <
+    							      <
+    for (cIndex = 0; cIndex < bm->num_contaminants; cIndex++) <
+        cid = FunctGroupArray[sp].contaminantTracers[cohort][ <
+        cGroupLevel = bm->boxes[bm->current_box].tr[bm->curre <
+        						      <
+        bm->boxes[ij].tr[k][cid] += FunctGroupArray[sp].aging <
+        // Add stuff being transferred			      <
+    }							      <
+
+FILE COMPARED
+atecology/atcoral.c
+
+FILE COMPARED
+atecology/atdemography.c
+void Update_Aging_Numbers(MSEBoxModel *bm, int species, int c |	void Update_Aging_Numbers(MSEBoxModel *bm, int species, int c
+double Get_Numbers_Aging(MSEBoxModel *bm, int species, int co |	double Get_Numbers_Aging(MSEBoxModel *bm, int species, int co
+    double dennow, CHLa, KWSR_sp, KWRR_sp, enviro_scalar, thi |	    double dennow, CHLa, KWSR_sp, KWRR_sp, enviro_scalar,
+                        dennow = Get_Numbers_Aging(bm, specie |	                        dennow = Get_Numbers_Aging(bm, specie
+                        Update_Aging_Numbers(bm, species, coh |	                        Update_Aging_Numbers(bm, species, coh
+    int flag_allow_spawn = 1;				      <
+                flag_allow_spawn = MIGRATION[species].ReprodA |	                if (MIGRATION[species].DEN[cohort][mid] > bm-
+                if (flag_allow_spawn && (MIGRATION[species].D <
+                    if (species == 33) {		      |	                    if (species == 52) {
+                        fprintf(llogfp, "Time: %e, %s cohort  |	                        fprintf(llogfp, "Time: %e, %s cohort 
+        //if (do_debug ) {				      |	        if (do_debug ) {
+        if (species == 33) {				      |				fprintf(llogfp, "Time: %e, %s , cohor
+			fprintf(llogfp, "Time: %e, %s cohort  <
+            if (species == 33) {			      |	            if ((species == 33) || (species == 32)) {
+                if (species == 33) {			      |	                 //if (species == 33) {
+							      >	                if (species == 52) {
+			temprec = (recSTOCK[species][stock_id |				temprec = (recSTOCK[species][stock_id
+							      >						* stock_prop[species]
+            if (species == 33) {			      |	            if ((species == 33) || (species == 32)) {
+        if (species == 33) {				      |	        if ((species == 33) || (species == 32)) {
+    							      <
+    if(!bm->flagtempdepend_reprod) { // Have turned off tempe <
+        if(temp_sensitive_sp && bm->newmonth) {		      <
+            warn("Time: %e Zeroing temperature sensitivity fo <
+        }						      <
+        temp_sensitive_sp = 0;				      <
+    }							      <
+							      <
+            if (species == 33) {			      |	             //if (species == 33) {
+							      >	            if ((species == 33) || (species == 32)) {
+        if (species == 33) {				      |	         //if (species == 33) {
+        //if (species == 52) {				      |	        if (species == 52) {
+                /**					      |	                //fprintf(llogfp, "Time: %e, get settlers %s 
+                if (species == 33) {			      <
+                fprintf(llogfp, "Time: %e, get settlers %s bo <
+                }					      <
+                **/					      <
+                if (species == 33) {			      |	                if (species == 52) {
+            **/						      |	            /**/
+double Get_Numbers_Aging(MSEBoxModel *bm, int species, int co |	double Get_Numbers_Aging(MSEBoxModel *bm, int species, int co
+							      <
+void Update_Aging_Numbers(MSEBoxModel *bm, int species, int c |	void Update_Aging_Numbers(MSEBoxModel *bm, int species, int c
+        						      <
+        if(bm->track_contaminants){			      <
+            Age_Contaminants_Store(bm, species, cohort, nextc <
+        }						      <
+                                    			      <
+                                    if(bm->track_contaminants <
+                                        Age_Contaminants_Upda <
+                                    }			      <
+    double flag_allow_spawn = 1.0;			      <
+            flag_allow_spawn = (double)(MIGRATION[species].Re |				MigSpawn = spawn_active * prop_mat * 
+			MigSpawn = flag_allow_spawn * spawn_a <
+
+FILE COMPARED
+atecology/atdiversity.c
+
+FILE COMPARED
+atecology/atecology_2013.vcxproj.bec
+
+FILE COMPARED
+atecology/atecology.c
+						boxLayerInfo- |							boxLayerInfo-
+							      >								
+
+FILE COMPARED
+atecology/atecologyts.c
+
+FILE COMPARED
+atecology/atexternalpop.c
+
+FILE COMPARED
+atecology/atExternalScalar.c
+
+FILE COMPARED
+atecology/atfluxbreakdown.c
+
+FILE COMPARED
+atecology/atForcedMovement.c
+
+FILE COMPARED
+atecology/atGroupProcesses.c
+            // TODO: I think this is a bug and hangover from  |
+            if (bm->flag_replicated_old_PPmort) {	      |				/* Zero out the mortality value so we
+                /* Zero out the mortality value so we can use |				FunctGroupArray[guild].mortality[0] =
+                FunctGroupArray[guild].mortality[0] = 0.0;    <
+            }						      <
+			boxLayerInfo->DetritusProd[habitatTyp |				boxLayerInfo->DetritusProd[habitatTyp
+                //fprintf(bm->logFile,"Calling Group_Transfer |	                //fprintf(bm->logFile,"Calling Group_Transfer
+                Group_Transfer_Contaminant(bm, boxLayerInfo,  |	                Group_Transfer_Contaminant(bm, boxLayerInfo, 
+            // TODO: I think this is a bug and hangover from  |				/* Zero out the mortality value so we
+            if (bm->flag_replicated_old_PPmort) {	      |				FunctGroupArray[guild].mortality[0] =
+                /* Zero out the mortality value so we can use |
+                FunctGroupArray[guild].mortality[0] = 0.0;    <
+            }						      <
+                					      <
+			boxLayerInfo->DetritusProd[WC][DLdet_ |				boxLayerInfo->DetritusProd[WC][DLdet_
+                Group_Transfer_Contaminant(bm, boxLayerInfo,  |	                Group_Transfer_Contaminant(bm, boxLayerInfo, 
+
+FILE COMPARED
+atecology/atIceProcesses.c
+
+FILE COMPARED
+atecology/atImposeRecruit.c
+
+FILE COMPARED
+atecology/atLandProcess.c
+
+FILE COMPARED
+atecology/atmacrophytes.c
+
+FILE COMPARED
+atecology/atmigration.c
+                					      |
+                        MIGRATION[sp].ReprodAllowed[cohort][c <
+                    MIGRATION[sp].ReprodAllowed[cohort][curre <
+        if ((sp == 33) || ((sp > 8) && (sp < 12))) {	      |	        //if ((sp == 33) || ((sp > 8) && (sp < 12))) {
+        }						      |	        //}
+                    /**/				      |	                    /**
+                    //if (bm->debug && (bm->which_check == sp |	                    if (bm->debug && (bm->which_check == sp))
+                    if (sp == 33) {			      <
+                    /**/				      |	                    **/
+        						      |	            
+        /**/						      |	        //fprintf(llogfp,"%s-%d age_away: %d vs num_aging_eve
+        if (sp == 33) {					      <
+            fprintf(llogfp,"%s-%d age_away: %d vs num_aging_e <
+        }						      <
+        /**/						      <
+                /**					      |	                /*
+                //if ((sp == 48) || (sp == 63) || (sp == 64)) |	                if ((sp == 48) || (sp == 63) || (sp == 64)) {
+                if (sp == 33) {				      |	                    fprintf(bm->logFile, "Init_Migration_Age_
+                    fprintf(bm->logFile, "Init_Migration_Age_ <
+                **/					      |	                */
+                    fprintf(bm->logFile, "Init_Migration_Age_ |	                    fprintf(bm->logFile, "Init_Migration_Age_
+
+FILE COMPARED
+atecology/atmovement.c
+	if (bm->flagtempdepend_move || bm->flagsaltdepend ||  |		if (bm->flagtempdepend || bm->flagsaltdepend || bm->f
+    Util_Init_2D_Double(totden_check, bm->K_num_tot_sp, bm->K <
+    //sp = bm->which_check;				      |	    if ((bm->which_check <= bm->K_num_tot_sp)){
+    sp = 33;						      |	    	if (FunctGroupArray[bm->which_check].isVertebrate == 
+    if ((sp <= bm->K_num_tot_sp)){			      <
+    	if (FunctGroupArray[sp].isVertebrate == TRUE) {	      <
+						for (n = 0; n |							for (n = 0; n
+							den = |								den =
+                            fprintf(llogfp, "START Time: %e,  |	                            fprintf(llogfp, "START Time: %e, 
+    							      |
+    if (verbose > 0)					      |		for (sp = 0; sp < bm->K_num_tot_sp; sp++) {
+        printf("Doing vertebrate movement\n");		      <
+    							      <
+    for (sp = 0; sp < bm->K_num_tot_sp; sp++) {		      <
+                    /**					      |						/**
+                    if (sp == 33) {			      |	                    if (sp == 35) {
+                        /**				      |	                        /**/
+                        if (sp == 33) {			      |	                        if ((sp == 33) || (sp == 32)) {
+                        **/				      |	                        /**/
+                        if (sp == 33) {			      |	                        if (sp == 35) {
+                       **/				      |	                        **/
+                        if (sp == 33) {			      |	                        if (sp == 35) {
+        						      <
+        if (verbose > 0)				      <
+            printf("Doing movement for %s\n", FunctGroupArray <
+							      <
+            						      |
+            /* Normalise proportion of total abundance in eac |				/* Normalise proportion of total abun
+            /* If non present (less than one individual prese |				/* If non present (less than one indi
+            						      |
+            for (n = 0; n < FunctGroupArray[sp].numCohortsXnu |				for (n = 0; n < FunctGroupArray[sp].n
+            						      |
+            /* Note that this use of growth rate and clearanc |				/* Note that this use of growth rate 
+            						      |
+            age_mat = (int) (FunctGroupArray[sp].speciesParam |				age_mat = (int) (FunctGroupArray[sp].
+            if(!bm->flagtempdepend_move) { // Have turned off <
+                if(temp_sensitive_sp && bm->newmonth) {	      <
+                    warn("Time: %e Zeroing temperature sensit <
+                }					      <
+                temp_sensitive_sp = 0;			      <
+            }						      <
+            						      <
+            /* Replicate old bec_dev results on existing mode |				/* Replicate old bec_dev results on e
+            bearlive = (int) (FunctGroupArray[sp].speciesPara |				bearlive = (int) (FunctGroupArray[sp]
+            /* Make parameter adjustments due to acidificatio |				/* Make parameter adjustments due to 
+            						      |
+            if (sp_ddepend_move > perscribed_move || FunctGro |				if (sp_ddepend_move > perscribed_move
+            /* If using 'sticky' density dependent movement s |				/* If using 'sticky' density dependen
+            /* Do final summation (in all cases) */	      |				/* Do final summation (in all cases) 
+            						      |
+            						      |
+            /* Final movement allocations - including migrati |				/* Final movement allocations - inclu
+                                            if (sp == 33)  {  |	                                            if ((sp == 33) ||
+							      >
+                                            if (sp == 33) {   |	                                            if ((sp == 33) ||
+                                            if (sp == 33) {   |	                                            if ((sp == 33) ||
+                                            if (sp == 33) {   |	                                            if ((sp == 33) ||
+                            totden_check[sp][n] += totden[sp] <
+            /* Finalise migration now all boxes iterated thro |				/* Finalise migration now all boxes i
+    //sp = bm->which_check;				      |	    if ((bm->which_check <= bm->K_num_tot_sp)){
+    sp = 33;						      |	        if (FunctGroupArray[bm->which_check].isVertebrate == 
+    if (sp <= bm->K_num_tot_sp){			      <
+        if (FunctGroupArray[sp].isVertebrate == TRUE) {	      <
+                        for (n = 0; n < FunctGroupArray[sp].n |	                        for (n = 0; n < FunctGroupArray[bm->w
+                            den = FunctGroupArray[sp].NumsTra |	                            den = FunctGroupArray[bm->which_c
+                            fprintf(llogfp, "END END Time: %e |	                            fprintf(llogfp, "END END Time: %e
+							      <
+    if (verbose > 0)					      |	    if (bm->flagtempdepend || bm->flagsaltdepend || bm->flagO
+        printf("Doing invertebrate movement\n");	      <
+    							      <
+    if (bm->flagtempdepend_move || bm->flagsaltdepend || bm-> <
+							      >		if (verbose)
+							      >			printf("Dealing with invertebrate movement\n"
+							      >
+        if(!bm->flagtempdepend_move) { // Have turned off tem <
+            if(temp_sensitive_sp && bm->newmonth) {	      <
+                warn("Time: %e Zeroing temperature sensitivit <
+            }						      <
+            temp_sensitive_sp = 0;			      <
+        }						      <
+        						      <
+    if(!bm->flagtempdepend_move) { // Have turned off tempera <
+        if(temp_sensitive_sp && bm->newmonth) {		      <
+            warn("Time: %e Zeroing temperature sensitivity fo <
+        }						      <
+        temp_sensitive_sp = 0;				      <
+    }							      <
+    							      <
+			if (bm->flagtempdepend_move) {	      |				if (bm->flagtempdepend) {
+    							      <
+    if(!bm->flagtempdepend_move) { // Have turned off tempera <
+        if(temp_sensitive_sp && bm->newmonth) {		      <
+            warn("Time: %e Zeroing temperature sensitivity fo <
+        }						      <
+        temp_sensitive_sp = 0;				      <
+    }							      <
+    							      <
+    if(!bm->flagtempdepend_move) { // Have turned off tempera <
+        if(temp_sensitive_sp && bm->newmonth) {		      <
+            warn("Time: %e Zeroing temperature sensitivity fo <
+        }						      <
+        temp_sensitive_sp = 0;				      <
+    }							      <
+
+FILE COMPARED
+atecology/atNutrient.c
+
+FILE COMPARED
+atecology/atPhysChemIO.c
+
+FILE COMPARED
+atecology/atprocess.c
+
+FILE COMPARED
+atecology/atq10.c
+
+FILE COMPARED
+atecology/attime.c
+
+FILE COMPARED
+atecology/atvertprocesses.c
+
+FILE COMPARED
+atecology/dump.c
+
+FILE COMPARED
+atecology/init.c
+
+FILE COMPARED
+ateconomic/ateconeffort.c
+
+FILE COMPARED
+ateconomic/ateconhelp.c
+
+FILE COMPARED
+ateconomic/ateconindicator.c
+
+FILE COMPARED
+ateconomic/ateconio.c
+
+FILE COMPARED
+ateconomic/ateconomic_2013.vcxproj.bec
+
+FILE COMPARED
+ateconomic/ateconomic.c
+
+FILE COMPARED
+ateconomic/atEconomicAnnual.c
+
+FILE COMPARED
+ateconomic/ateconomicsetup.c
+
+FILE COMPARED
+ateconomic/atEconomicUtil.c
+
+FILE COMPARED
+ateconomic/ateconParamIO.c
+
+FILE COMPARED
+ateconomic/ateconresponse.c
+
+FILE COMPARED
+ateconomic/ateconts.c
+
+FILE COMPARED
+ateconomic/ateffortquota.c
+
+FILE COMPARED
+ateconomic/atquota.c
+
+FILE COMPARED
+atharvest/atharvest_2013.vcxproj.bec
+
+FILE COMPARED
+atharvest/atHarvest.c
+							      |								
+							      |								
+                            stage = FunctGroupArray[sp].cohor <
+							sel = |								sel =
+		sel = bm->selectivity[sp][nf][stage] + addlsm |			sel = selectivity[sp][nf][stage] + addlsm;
+			sel_lsm = bm->selectivity[sp][nf][juv |				sel_lsm = selectivity[sp][nf][juv_id]
+				sel = bm->selectivity[sp][nf] |					sel = selectivity[sp][nf][adu
+
+FILE COMPARED
+atharvest/atHarvestAnnual.c
+
+FILE COMPARED
+atharvest/atHarvestCatch.c
+
+FILE COMPARED
+atharvest/atHarvestDiscards.c
+
+FILE COMPARED
+atharvest/atHarvestImposedCatch.c
+
+FILE COMPARED
+atharvest/atHarvestIndex.c
+
+FILE COMPARED
+atharvest/atHarvestIO.c
+
+FILE COMPARED
+atharvest/atHarvestParamIO.c
+		readGroupAgeGroupFisheryParamXML(bm, fileName |			readGroupAgeGroupFisheryParamXML(bm, fileName
+		readGroupAgeGroupFisheryParamXML(bm, fileName |			readGroupAgeGroupFisheryParamXML(bm, fileName
+
+FILE COMPARED
+atharvest/atHarvestSetup.c
+					bm->selectivity[sp][i |						selectivity[sp][i][b]
+	free3d(bm->selectivity);			      |		free3d(selectivity);
+	bm->selectivity = Util_Alloc_Init_3D_Double(bm->K_num |		selectivity = Util_Alloc_Init_3D_Double(2, bm->K_num_
+
+FILE COMPARED
+atharvest/atHarvestTS.c
+
+FILE COMPARED
+atimplementation/atimplementation_2013.vcxproj.bec
+
+FILE COMPARED
+atimplementation/atImplementationAnnual.c
+
+FILE COMPARED
+atimplementation/atImplementationParamIO.c
+
+FILE COMPARED
+atimplementation/atImplementationSetup.c
+
+FILE COMPARED
+atlantismain/atlantismain.c
+        Ecology_Update_Move_Entry(bm, logfp);  // Not in fish <
+							      >	            Ecology_Update_Move_Entry(bm, logfp);
+
+FILE COMPARED
+atlantismain/atlantisMerged.pc
+
+FILE COMPARED
+atlantisUtil/atlantisUtil_2013.vcxproj.bec
+
+FILE COMPARED
+atlantisUtil/atUtil.c
+    sprintf(paramStrings[q10_optimal_temp_id], "%s", "q10_opt |		sprintf(paramStrings[q10_optimal_temp_id], "%s", "q10
+							      >		sprintf(paramStrings[q10_method_id], "%s", "q10_metho
+    sprintf(RBCParamStrings[trigger_threshold_id], "%s", "tri <
+
+FILE COMPARED
+atlantisUtil/atUtilArray.c
+
+FILE COMPARED
+atlantisUtil/atUtilFisheryIO.c
+
+FILE COMPARED
+atlantisUtil/atUtilFisheryXML.c
+
+FILE COMPARED
+atlantisUtil/atUtilGroupIO.c
+            FunctGroupArray[i].agingContam = Util_Alloc_Init_ <
+            free2d(FunctGroupArray[i].agingContam);	      <
+
+FILE COMPARED
+atlantisUtil/atUtilhelp.c
+
+FILE COMPARED
+atlantisUtil/atUtilIO.c
+
+FILE COMPARED
+atlantisUtil/atUtilUnix.c
+
+FILE COMPARED
+atlantisUtil/atUtilXML.c
+		{ "FLAG_Q10_METHOD", q10_method_id, "^q10_met
+							      |			{ "FLAG_Q10_METHOD", q10_method_id, "^q10_met
+								
+        { "FLAG_TRIGTHRESH", trigger_threshold_id, "^trigger_
+							      <
+
+FILE COMPARED
+atlink/atComms.c
+
+FILE COMPARED
+atlink/atlinkconversion.c
+
+FILE COMPARED
+atlink/atlinkexport.c
+
+FILE COMPARED
+atlink/atlinkimport.c
+
+FILE COMPARED
+atmanage/atCloseKin.c
+
+FILE COMPARED
+atmanage/atmanage_2013.vcxproj.bec
+
+FILE COMPARED
+atmanage/atManage.c
+
+FILE COMPARED
+atmanage/atManageAnnual.c
+							      >	    // Call PGMSY first as does own species assessments - so 
+							      >	    if (bm->PGMSY_on) {
+							      >	        Call_PGMSY(bm, year, llogfp);
+							      >	    }
+							      >	    
+        // Under single species assessments - for single spec |	        if ((int)(bm->RBCestimation.RBCspeciesParam[sp][Multi
+        if((bm->UsingRAssess == 1) && (FunctGroupArray[sp].is |	            // Do nothing as covered in multispecies call - P
+							      >	        } else {
+							      >	            // Under single species assessments
+							      >	            if((bm->UsingRAssess == 1) && (FunctGroupArray[sp
+            Do_RAssess(bm, sp, year, llogfp);		      |	                Do_RAssess(bm, sp, year, llogfp);
+            quit("How get here as R link not active so set Us |	                quit("How get here as R link not active so se
+        } else if(bm->useRBCTiers) {			      |	            } else if(bm->useRBCTiers) {
+            CallTierAssessment(bm, sp, year, llogfp);	      |	                CallTierAssessment(bm, sp, year, llogfp);
+        } else {					      |	            } else {
+            AMS_Tiered_Assessment(bm, sp, llogfp);	      |	                AMS_Tiered_Assessment(bm, sp, llogfp);
+							      >	            }
+							      |	    
+    fprintf(bm->logFile, "Time: %e year: %d Getting read to d <
+							      <
+        if (bm->PGMSY_on) {				      <
+            Call_PGMSY(bm, year, llogfp);		      <
+        }						      <
+
+FILE COMPARED
+atmanage/atManageIndex.c
+
+FILE COMPARED
+atmanage/atManageIO.c
+
+FILE COMPARED
+atmanage/atManageMPATS.c
+
+FILE COMPARED
+atmanage/atManageParamIO.c
+
+FILE COMPARED
+atmanage/atManageSetup.c
+
+FILE COMPARED
+atmanage/atManageTier.c
+        printf("Generating data during the non-assessment per |	        printf("Generating data\n");
+        printf("Generating data during the assessment period  <
+        printf("Entering assessment rourine for %s\n", FunctG <
+        						      <
+        printf("Finished assessment process for %s\n", FunctG <
+    							      |		double current_catch = 0, tac_change, cpue_ratio;
+    double current_catch = 0, tac_change, cpue_ratio;	      <
+    							      |		int Nregions = (int)(bm->RBCestimation.RBCspeciesPara
+    int Nregions = (int)(bm->RBCestimation.RBCspeciesParam[sp <
+    int nf, nreg, CPUEfleet, assess_flag_sp, nfishery, index1 |		int nf, nreg, CPUEfleet, assess_flag_sp, nfishery, in
+    printf("DoTierAssessment %s with year: %d with nYears: %d |
+    							      <
+        printf("Doing Tiered Assessment for %s FunctGroupArra |	        printf("Doing Tiered Assessment\n");
+    /******* Find total old TAC *******/		      |	    Util_Init_2D_Double(bm->RBCestimation.RBCspeciesArray[spe
+							      >	    Util_Init_3D_Double(bm->RBCestimation.RBCspeciesArray[spe
+							      >	    Util_Init_1D_Double(bm->RBCestimation.RBCspeciesArray[spe
+							      >	    Util_Init_2D_Double(bm->RBCestimation.RBCspeciesArray[spe
+							      >
+							      >		/******* Find total old TAC *******/
+    							      <
+    printf("Got here E\n");				      <
+    printf("Doing Tiered Assessment - Deal with old TAcs and  <
+    							      <
+    if(year > bm->RBCestimation.RBCspeciesParam[species][Asse |	    if(bm->RBCestimation.RBCspeciesParam[species][isTriggerSp
+        						      |	        breakout = trigger_species_breakout(bm, species, year
+        // Only do this if after first year of the assessment |	        if(breakout > 0) {
+        if(bm->RBCestimation.RBCspeciesParam[species][isTrigg |	            // Nothing to do as uses tier from speciesParams[
+            						      |	        } else {
+            printf("Checking trigger breakout for %s\n", Func |	            // Rollover so overwrite tier
+            						      |	            tier = sp_rollover;
+            breakout = trigger_species_breakout(bm, species,  <
+            if(breakout > 0) {				      <
+                // Nothing to do as uses tier from speciesPar <
+            } else {					      <
+                // Rollover so overwrite tier		      <
+                tier = sp_rollover;			      <
+            }						      <
+    printf("Doing Tiered Assessment - check for rollover\n"); <
+    							      <
+    printf("Doing Tiered Assessment - start assessment of spe <
+    							      <
+    int nPast = (int)(bm->RBCestimation.RBCspeciesParam[speci <
+    int InitnYears = bm->RBCestimation.nFuture + nPast;	      <
+    							      <
+    printf("Doing Tier_averages - initalise popcatch and avpr |		/*
+    							      <
+    Util_Init_2D_Double(bm->RBCestimation.RBCspeciesArray[spe <
+    Util_Init_3D_Double(bm->RBCestimation.RBCspeciesArray[spe <
+    Util_Init_1D_Double(bm->RBCestimation.RBCspeciesArray[spe <
+    Util_Init_2D_Double(bm->RBCestimation.RBCspeciesArray[spe <
+    							      <
+    /*							      <
+    fprintf(bm->logFile, "DoMultiStockAssessment Time: %e yea <
+    							      <
+            fprintf(bm->logFile, "DoMultiStockAssessment Time <
+            						      <
+    							      <
+    printf("Checking if %s is prevAssessment %e\n", FunctGrou <
+							      <
+    printf("About to do Market test for %s\n", FunctGroupArra <
+							      <
+            						      <
+            printf("Doing test for %s - r %d f %d rbcYear: %d <
+							      <
+    							      <
+    printf("About to do test for %s vs threshold %e for this_ <
+    							      <
+    if (lastC > (bm->RBCestimation.RBCspeciesParam[sp][trigge |	    if (lastC > (bm->RBCestimation.RBCspeciesParam[sp][trigge
+    }							      <
+    printf("About to do print to logfile %s with TACcaptured  <
+                  					      <
+    printf("About to do stock test for %s\n", FunctGroupArray <
+           						      <
+    printf("About to do 10year test for %s\n", FunctGroupArra <
+    							      <
+    printf("For %s no incr check and return\n", FunctGroupArr <
+    							      <
+    fprintf(bm->logFile,"Time: %e year: %d %s CalculateNonInd <
+    							      <
+            fprintf(bm->logFile,"Time: %e year: %d %s vs %s I |	            fprintf(bm->logFile,"Time: %e year: %d %s Indicat
+        						      <
+        fprintf(bm->logFile,"Time: %e year: %d %s avg Indicat <
+
+FILE COMPARED
+atmanage/atRlink.c
+
+FILE COMPARED
+atmanage/atRlinkRAssess.c
+
+FILE COMPARED
+atmanage/atRlinkRBC.c
+
+FILE COMPARED
+atmanage/atRlinkRedus.c
+
+FILE COMPARED
+atmanage/atSS3assess.c
+int Create_Dir_SS3(MSEBoxModel *bm, int sp, int year, FILE *l <
+// Name:  Create_Dir_SS3				      <
+// Creating a directory for the SS activity - done here to tr <
+// occur before the write occurs			      <
+//							      <
+// called by: SS330Assessment				      <
+// created: Aug 2023 Beth Fuliton			      <
+//							      <
+//*********************************************************** <
+int Create_Dir_SS3(MSEBoxModel *bm, int sp, int year, FILE *l <
+							      <
+    char dirName[STRLEN];				      <
+    int ret = 0;					      <
+							      <
+    struct stat st = {0};				      <
+    							      <
+    /* Create directory */				      <
+    sprintf(dirName, "%s_SS3_sim_%d_year_%d", FunctGroupArray <
+    							      <
+    if (stat(dirName, &st) == -1) {			      <
+        printf("Creating %s\n", dirName);		      <
+        ret = mkdir(dirName, 0777);  // Was S_IRWXU instead o <
+    }							      <
+							      <
+    /* Change directory into the new directory - lets skip th <
+    //pass your path in the function			      <
+    ret = chdir(dirName);				      <
+    // if the change of directory was successful it will prin <
+    if (ret < 0)					      <
+        quit("SS330Assessment: chdir change of directory to % <
+    else						      <
+        printf("SS330Assessment: chdir change of directory to <
+     							      <
+     */							      <
+    							      <
+    if (ret < 0) {					      <
+        printf("Error: %s\n", strerror(errno));		      <
+        quit("Create_Dir_SS3: make directory to %s not succes <
+    }							      <
+    							      <
+    return ret;						      <
+}							      <
+							      <
+//*********************************************************** <
+//							      <
+// called by:						      |	//
+// calls:						      |	// called by :
+// created:  Oct 2019 Rich Little			      |	// calls :
+							      >	// created  :Oct 2019 Rich Little
+    printf("Starting SS330Assessment");			      |	    /* Create directory */
+							      >	    ret = mkdir(dirName, S_IRWXU);
+							      >
+							      >	    /* Change directory into the new directory */
+							      >	    //pass your path in the function
+							      >	    ret = chdir(dirName);
+							      >	    /*if the change of directory was successful it will print
+							      >	    if (ret < 0)
+							      >	        quit("SS330Assessment: chdir change of directory to %
+							      >	    else
+							      >	        printf("SS330Assessment: chdir change of directory to
+    							      <
+    /* Create directory */				      <
+    ret = Create_Dir_SS3(bm, sp, year, llogfp);  // Failure t <
+        						      <
+        // read max convergence criterion		      |	    // read max convergence criterion
+    } else {						      |	    } else { 
+    // read next year+1 catches from report.sso		      |	        // read next year+1 catches from report.sso
+							      >
+    if (bm->RBCestimation.RBCspeciesParam[sp][AssessFail_id]) |	    if (bm->RBCestimation.RBCspeciesParam[sp][AssessFail_id])
+        bm->RBCestimation.RBCspeciesArray[sp].NassessFail++;  <
+							      >
+
+FILE COMPARED
+atphysics/atagetracerIO.c
+
+FILE COMPARED
+atphysics/atbioirrig.c
+
+FILE COMPARED
+atphysics/atbioturb.c
+
+FILE COMPARED
+atphysics/atboundary.c
+
+FILE COMPARED
+atphysics/atdecay.c
+
+FILE COMPARED
+atphysics/atdeposition.c
+
+FILE COMPARED
+atphysics/atdiagIO.c
+
+FILE COMPARED
+atphysics/atdietIO.c
+
+FILE COMPARED
+atphysics/atepiIO.c
+
+FILE COMPARED
+atphysics/atfishstatIO.c
+
+FILE COMPARED
+atphysics/atgas.c
+
+FILE COMPARED
+atphysics/atgeomIO.c
+
+FILE COMPARED
+atphysics/athdiff.c
+
+FILE COMPARED
+atphysics/athydromod.c
+
+FILE COMPARED
+atphysics/aticeIO.c
+
+FILE COMPARED
+atphysics/atindex.c
+
+FILE COMPARED
+atphysics/atLandIO.c
+
+FILE COMPARED
+atphysics/atparamIO.c
+    bm->flag_replicated_old_PPmort = (int) Util_XML_Read_Valu <
+							      <
+
+FILE COMPARED
+atphysics/atphysics_2013.vcxproj.bec
+
+FILE COMPARED
+atphysics/atphysics.c
+
+FILE COMPARED
+atphysics/atPhysicsModule.c
+
+FILE COMPARED
+atphysics/atphysIO.c
+
+FILE COMPARED
+atphysics/atprofile.c
+
+FILE COMPARED
+atphysics/atreadbm.c
+
+FILE COMPARED
+atphysics/atsaturation.c
+
+FILE COMPARED
+atphysics/atsedprops.c
+
+FILE COMPARED
+atphysics/atsettle.c
+
+FILE COMPARED
+atphysics/atsourcesink.c
+
+FILE COMPARED
+atphysics/atsummaryIO.c
+
+FILE COMPARED
+atphysics/atsuspension.c
+
+FILE COMPARED
+atphysics/atswr.c
+
+FILE COMPARED
+atphysics/attempsalt.c
+
+FILE COMPARED
+atphysics/attracerIO.c
+
+FILE COMPARED
+atphysics/attransport.c
+
+FILE COMPARED
+atphysics/atvdiff.c
+
+FILE COMPARED
+atphysics/atvertgeom.c
+
+FILE COMPARED
+atphysics/atvmix.c
+
+FILE COMPARED
+atSS3Link/atSS3DataGen.c
+void RecordHistF(MSEBoxModel *bm, int sp, int iyr);	      <
+      /*  if(bm->CloseKinEst->UseCloseKin && FunctGroupArray[ |	        if(bm->CloseKinEst->UseCloseKin && FunctGroupArray[gr
+      } */						      |	        }
+        // Store historical F				      <
+        RecordHistF(bm, groupIndex, yearIndex);		      <
+    							      <
+    return;						      <
+}							      <
+							      <
+//*********************************************************** <
+//							      <
+// Name:  RecordHistF					      <
+// Description:  store F based on recorded catch and effort d <
+//               and get average of the 5 most recent years   <
+//							      <
+// created  : September 2023 Beth Fulton		      <
+//							      <
+//*********************************************************** <
+void RecordHistF(MSEBoxModel *bm, int sp, int iyr) {	      <
+    int minYr, maxYr, ij, k, nf, n, r, sn, rn, den, stage, pi <
+    double avgPeriod = 0.0;				      <
+    double fishableBiomass = 0.0, avgF = 0.0, avgC = 0.0, spb <
+    							      <
+    for (ij = 0; ij < bm->nbox; ij++) {			      <
+        if (bm->boxes[ij].type != BOUNDARY) {		      <
+            for (k = 0; k < bm->boxes[ij].nz; k++) {	      <
+                bm->cell_vol = bm->boxes[ij].area * bm->boxes <
+                					      <
+                switch (FunctGroupArray[sp].groupAgeType) {   <
+                case AGE_STRUCTURED:			      <
+                    for (n = 0; n < FunctGroupArray[sp].numCo <
+                        sn = FunctGroupArray[sp].structNTrace <
+                        rn = FunctGroupArray[sp].resNTracers[ <
+                        den = FunctGroupArray[sp].NumsTracers <
+                        stage = FunctGroupArray[sp].cohort_st <
+                        spbiom = (bm->boxes[ij].tr[k][sn] + b <
+                        				      <
+                        /* Consideration per fishery */	      <
+                        for (nf = 0; nf < bm->K_num_fisheries <
+                            sel = bm->selectivity[sp][nf][sta <
+                            q = bm->SP_FISHERYprms[sp][nf][q_ <
+                            				      <
+                            fishableBiomass += sel * q * spbi <
+                        }				      <
+                    }					      <
+                    break;				      <
+                case AGE_STRUCTURED_BIOMASS:		      <
+                    for (n = 0; n < FunctGroupArray[sp].numCo <
+                        pid = FunctGroupArray[sp].totNTracers <
+                        stage = FunctGroupArray[sp].cohort_st <
+                        spbiom = bm->boxes[ij].tr[k][pid];    <
+                        				      <
+                        /* Consideration per fishery */	      <
+                        for (nf = 0; nf < bm->K_num_fisheries <
+                            sel = bm->selectivity[sp][nf][sta <
+                            q = bm->SP_FISHERYprms[sp][nf][q_ <
+                            				      <
+                            fishableBiomass += sel * q * spbi <
+                        }				      <
+                    }					      <
+                    break;				      <
+                case BIOMASS:				      <
+                    /* Do nothing */			      <
+                    pid = FunctGroupArray[sp].totNTracers[0]; <
+                    spbiom = bm->boxes[ij].tr[k][pid];	      <
+                        				      <
+                    /* Consideration per fishery */	      <
+                    for (nf = 0; nf < bm->K_num_fisheries; nf <
+                        sel = bm->selectivity[sp][nf][0];     <
+                        q = bm->SP_FISHERYprms[sp][nf][q_id]; <
+                    }					      <
+                    fishableBiomass += sel * q * spbiom;      <
+							      <
+                    break;				      <
+                }					      <
+            }						      <
+        }						      <
+    }							      <
+    							      <
+    for (nf = 0; nf < bm->K_num_fisheries; nf++) {	      <
+        bm->RBCestimation.RBCspeciesArray[sp].Fhist[nf][iyr]  <
+        for (r = 0; r < bm->RBCestimation.RBCspeciesParam[sp] <
+            bm->RBCestimation.RBCspeciesArray[sp].Fhist[nf][i <
+							      <
+        }						      <
+    }							      <
+    							      <
+    // Calculate the averages - over teh review period, which <
+    minYr = iyr - bm->RBCestimation.ReviewPeriod;	      <
+    avgPeriod = 0.0;					      <
+    if (minYr < 0) {					      <
+        minYr = 0;					      <
+    }							      <
+    							      <
+    avgF = 0.0;						      <
+    avgC = 0.0;						      <
+    for (ij = minYr; ij < (iyr + 1); ij++) {		      <
+        for (nf = 0; nf < bm->K_num_fisheries; nf++) {	      <
+            avgF += bm->RBCestimation.RBCspeciesArray[sp].Fhi <
+            for (r = 0; r < bm->RBCestimation.RBCspeciesParam <
+                avgC += bm->RBCestimation.RBCspeciesArray[sp] <
+            }						      <
+        }						      <
+        avgPeriod += 1.0;				      <
+    }							      <
+    avgF /= avgPeriod;					      <
+    avgC /= avgPeriod;					      <
+    							      <
+    bm->RBCestimation.RBCspeciesParam[sp][F_5yrAvg_id] = avgF <
+    bm->RBCestimation.RBCspeciesParam[sp][Catch_5yrAvg_id] =  <
+
+FILE COMPARED
+atSS3Link/atSS3Link_2013.vcxproj.bec
+
+FILE COMPARED
+atSS3Link/atSS3Link.c
+
+FILE COMPARED
+atSS3Link/atSS3LinkIO.c
+    if ((fiddat = fopen(outputFileName, "w")) == NULL) {      |	    if ((fiddat = fopen(outputFileName, "r")) == NULL) {
+    if ((fidctl = fopen(outputFileName, "w")) == NULL) {      |	    if ((fidctl = fopen(outputFileName, "r")) == NULL) {
+    if ((fidss = fopen(outputFileName, "w")) == NULL) {	      |	    if ((fidss = fopen(outputFileName, "r")) == NULL) {
+            quit("SS selectivity pattern (%d) for %s fleet %d |	            quit("SS selectivity pattern not coded in\n");
+
+FILE COMPARED
+atSS3Link/atSS3Test.c
+
+FILE COMPARED
+atSS3Link/atSS3Util.c
+
+FILE COMPARED
+build_hpc
+
+FILE COMPARED
+configure_mac
+
+FILE COMPARED
+configure.ac
+
+FILE COMPARED
+ConvertAtlantis/atAssesstoXML.c
+    Create_RBC_Species_ParamXML(bm, fileName, fp, childGroupi <
+    Create_RBC_Species_ParamXML(bm, fileName, fp, childGroupi <
+
+FILE COMPARED
+ConvertAtlantis/atBioltoXML.c
+	Util_XML_Parse_Create_Node(fp, fileName, groupingNode
+							      |		Util_XML_Parse_Create_Node(fp, fileName, groupingNode
+								
+    Util_XML_Parse_Create_Node(fp, fileName, groupingNode, "f
+							      <
+    Util_XML_Get_Value_Integer(fileName, ATLANTIS_ATTRIBUTE, 
+							      |	    Util_XML_Get_Value_Integer(fileName, ATLANTIS_ATTRIBUTE, 
+								
+    Util_XML_Get_Value_Integer(fileName, ATLANTIS_ATTRIBUTE, 
+							      |	    if (bm->flagtempdepend) {
+								
+
+							      <
+    if (bm->flagtempdepend_move) {
+							      <
+    
+							      |	    if (bm->flagtempdepend) {
+								
+    if (bm->flagtempdepend_reprod) {
+							      <
+    int numExpectedTokens = 17;
+							      |	    int numExpectedTokens = 16;
+								
+            
+							      <
+            /* Whether can reproduce while outside the model 
+							      <
+            varStr = strtok(NULL, seps);
+							      <
+            Util_XML_Create_Node(ATLANTIS_ATTRIBUTE, groupNod
+							      <
+    int start_stage, migrationID, start_tofy, end_tofy, mig_p
+							      |	    int start_stage, migrationID, start_tofy, end_tofy, mig_p
+								
+            Util_XML_Get_Value_Integer(convertedXMLFileName, 
+							      |	
+								
+            
+							      <
+            MIGRATION[speciesIndex].ReprodAllowedPrm[start_st
+							      <
+
+FILE COMPARED
+ConvertAtlantis/atCreateXML.c
+                case trigger_threshold_id:		      <
+
+FILE COMPARED
+ConvertAtlantis/atEconomicXML.c
+
+FILE COMPARED
+ConvertAtlantis/atFisheriesXML.c
+
+FILE COMPARED
+ConvertAtlantis/atGroupsXML.c
+
+FILE COMPARED
+ConvertAtlantis/atHarvesttoXML.c
+
+FILE COMPARED
+ConvertAtlantis/atImplementationtoXML.c
+
+FILE COMPARED
+ConvertAtlantis/atManagetoXML.c
+	// Old verion when had fixed limit to the number of f |		Parse_File(
+    // Parse_File( bm, fp, fileName, groupingNode, "Companion |				bm,
+    Parse_File( bm, fp, fileName, groupingNode, "CompanionSpe |				fp,
+							      >				fileName,
+							      >				groupingNode,
+							      >				"CompanionSpecies",
+							      >				"^co_sp_[A-Z]{2,3}",
+							      >				"Identity of companions in companion 
+							      >				"", XML_TYPE_INTEGERARRAY, -1, TRUE, 
+
+FILE COMPARED
+ConvertAtlantis/atRunXML.c
+    Util_XML_Parse_Create_Node(fp, fileName, groupingNode, "f <
+    							      <
+
+FILE COMPARED
+ConvertAtlantis/ConvertAtlantis_2013.vcxproj.bec
+
+FILE COMPARED
+externalLibs/win32_vs_dll_4.0.1-beta3.tar/netcdf.inc
+
+FILE COMPARED
+netcdf/include/netcdf.inc
+
+FILE COMPARED
+sjwlib/cfft.c
+
+FILE COMPARED
+sjwlib/colourtable.c
+
+FILE COMPARED
+sjwlib/contour.c
+
+FILE COMPARED
+sjwlib/convertFileFormats.c
+
+FILE COMPARED
+sjwlib/datafile.c
+
+FILE COMPARED
+sjwlib/decay.c
+
+FILE COMPARED
+sjwlib/dfcoords.c
+
+FILE COMPARED
+sjwlib/dfeval.c
+
+FILE COMPARED
+sjwlib/diffusion.c
+
+FILE COMPARED
+sjwlib/drandom.c
+
+FILE COMPARED
+sjwlib/ellipt_coord.c
+
+FILE COMPARED
+sjwlib/erfc.c
+
+FILE COMPARED
+sjwlib/geodetic.c
+
+FILE COMPARED
+sjwlib/gridangle.c
+
+FILE COMPARED
+sjwlib/gridmetric.c
+
+FILE COMPARED
+sjwlib/gridmisc.c
+
+FILE COMPARED
+sjwlib/keyfile.c
+
+FILE COMPARED
+sjwlib/libsjwlib.pc
+
+FILE COMPARED
+sjwlib/mapproj.c
+
+FILE COMPARED
+sjwlib/memory.c
+
+FILE COMPARED
+sjwlib/netcdf.c
+
+FILE COMPARED
+sjwlib/nrcdflib.c
+
+FILE COMPARED
+sjwlib/pointsourcesink.c
+
+FILE COMPARED
+sjwlib/polar_coord.c
+
+FILE COMPARED
+sjwlib/polyline.c
+
+FILE COMPARED
+sjwlib/ppbfetch.c
+
+FILE COMPARED
+sjwlib/ptrack.c
+
+FILE COMPARED
+sjwlib/quit.c
+
+FILE COMPARED
+sjwlib/rect_coord.c
+
+FILE COMPARED
+sjwlib/sjwlib_2013.vcxproj.bec
+
+FILE COMPARED
+sjwlib/spline.c
+
+FILE COMPARED
+sjwlib/text_input.c
+
+FILE COMPARED
+sjwlib/time.c
+
+FILE COMPARED
+sjwlib/timeseries.c
+
+FILE COMPARED
+sjwlib/txt_param.c
+
+FILE COMPARED
+sjwlib/vgrid.c
+
+FILE COMPARED
+sjwlib/warn.c
+
+FILE COMPARED
+sjwlib/waterprops.c
+
+FILE COMPARED
+sjwlib/weight_fn.c
+
+FILE COMPARED
+sjwlib/win32.c
+
+FILE COMPARED
+sjwlib/xytoij.c
+`
