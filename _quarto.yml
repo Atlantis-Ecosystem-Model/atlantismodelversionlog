@@ -38,6 +38,8 @@ website:
         text: v6688
       - href: content/v6685.qmd
         text: v6685
+      - href: content/v6683.qmd
+        text: v6683
       - href: content/acknowledgements.qmd
         text: Acknowledgements
 
