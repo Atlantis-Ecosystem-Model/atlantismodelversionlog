@@ -33,9 +33,6 @@ Code compiled. Segmentation fault ~day 200
 
 --------------------------------------------------------------------------------
 
-Also made changes on primary producer mortality, and added:
-flag_replicated_old_PPmort 0 #Flag to replicate old model code assumptions around primary production mortality before code version 6685
-
 **SVN commit message** 
 
 Adding PGMSY and aging of contaminants
