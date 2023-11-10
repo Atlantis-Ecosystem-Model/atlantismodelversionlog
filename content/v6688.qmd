@@ -4,35 +4,6 @@ title: "6688"
 
 <img width="30" alt="image" src="https://user-images.githubusercontent.com/11339490/272713181-58a7442b-f4df-4987-9afe-cb4702236a8f.jpg">
 
-**Atlantis model used:** Atlantis Model for Puget Sound https://github.com/hmorzaria/psatlantismodel commit 87031b7
-
-**Atlantis revision comments**
-
-**Version 6688**
-
-**Date pulled:** October 3, 2023
-
-**OS:** Ubuntu 18.04.6 LTS
-
-**Environment:** Linux
-
-**Notes**
-
--   Function CKsimulator is returning an error in atSS3DataGen.c commented out lines 85-89
-
-` /* if(bm->CloseKinEst->UseCloseKin && FunctGroupArray[groupIndex].isCloseKin) {
-            GetCloseKinNum(bm, groupIndex, yearIndex);
-            CKsimulator(bm, groupIndex, yearIndex);
-            bm->CloseKinEst[groupIndex].nCKsampled++;
-        } */`
-
-
--   Missing file atPGMSY.c
-
-**Model behavior**
-
-Code did not compile because of missing file.
-
 --------------------------------------------------------------------------------
 
 **SVN commit message** 
@@ -89,4 +60,29 @@ Changed paths:
    M /Atlantis/trunk/atlantis/atphysics/atphysIO.c
    M /Atlantis/trunk/atlantis/atphysics/attracerIO.c
    M /Atlantis/trunk/atlantis/atphysics/attransport.c`
+
+--------------------------------------------------------------------------------
+
+**Atlantis model used:** Atlantis Model for Puget Sound https://github.com/hmorzaria/psatlantismodel commit 87031b7
+**Atlantis revision comments**
+**Version 6688**
+**Date pulled:** October 3, 2023
+**OS:** Ubuntu 18.04.6 LTS
+**Environment:** Linux
+**Modeler:** Hem Nalini Morzaria-Luna
+**Notes**
+
+-   Function CKsimulator is returning an error in atSS3DataGen.c commented out lines 85-89
+
+` /* if(bm->CloseKinEst->UseCloseKin && FunctGroupArray[groupIndex].isCloseKin) {
+            GetCloseKinNum(bm, groupIndex, yearIndex);
+            CKsimulator(bm, groupIndex, yearIndex);
+            bm->CloseKinEst[groupIndex].nCKsampled++;
+        } */`
+
+
+-   Missing file atPGMSY.c
+
+**Model behavior**
+Code did not compile because of missing file.
 

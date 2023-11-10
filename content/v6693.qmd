@@ -4,34 +4,6 @@ title: "v6693"
 
 <img width="30" alt="image" src="https://user-images.githubusercontent.com/11339490/272713181-58a7442b-f4df-4987-9afe-cb4702236a8f.jpg">
 
-**Atlantis model used:** Atlantis Model for Puget Sound https://github.com/hmorzaria/psatlantismodel commit 87031b7
-
-**Atlantis revision comments**
-
-**Version 6693**
-
-**Date pulled:** October 17, 2023
-
-**OS:** Ubuntu 18.04.6 LTS
-
-**Environment:** Linux
-
-**Notes**
-
--   Function CKsimulator is still returning an error. In atSS3DataGen.c commented out lines 85-89
-
-` /* if(bm->CloseKinEst->UseCloseKin && FunctGroupArray[groupIndex].isCloseKin) {
-            GetCloseKinNum(bm, groupIndex, yearIndex);
-            CKsimulator(bm, groupIndex, yearIndex);
-            bm->CloseKinEst[groupIndex].nCKsampled++;
-        } */`
-
-
-**Model behavior**
-Code compiled. 
-
---------------------------------------------------------------------------------
-
 **SVN commit message** 
 
 Changed paths:
@@ -42,4 +14,23 @@ Changed paths:
 Fix to atContaminants ageing transfer as final boxes may be over-writing earlier boxes in old way it was done.
 
 --------------------------------------------------------------------------------
-**
+
+**Atlantis model used:** Atlantis Model for Puget Sound https://github.com/hmorzaria/psatlantismodel commit 87031b7
+**Atlantis revision comments**
+**Version 6693**
+**Date pulled:** October 17, 2023
+**OS:** Ubuntu 18.04.6 LTS
+**Environment:** Linux
+**Modeler:** Hem Nalini Morzaria-Luna
+**Notes**
+-   Function CKsimulator is still returning an error. In atSS3DataGen.c commented out lines 85-89
+
+` /* if(bm->CloseKinEst->UseCloseKin && FunctGroupArray[groupIndex].isCloseKin) {
+            GetCloseKinNum(bm, groupIndex, yearIndex);
+            CKsimulator(bm, groupIndex, yearIndex);
+            bm->CloseKinEst[groupIndex].nCKsampled++;
+        } */`
+
+**Model behavior**
+Code compiled
+--------------------------------------------------------------------------------

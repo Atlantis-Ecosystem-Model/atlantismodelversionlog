@@ -4,18 +4,23 @@ title: "v6691"
 
 <img width="30" alt="image" src="https://user-images.githubusercontent.com/11339490/272713181-58a7442b-f4df-4987-9afe-cb4702236a8f.jpg">
 
+--------------------------------------------------------------------------------
+
+**SVN commit message** 
+
+Fixed misplaced "#"
+
+Changed paths:
+ `  M /Atlantis/trunk/atlantis/PreRules.am `
+--------------------------------------------------------------------------------
+
 **Atlantis model used:** Atlantis Model for Puget Sound https://github.com/hmorzaria/psatlantismodel commit 87031b7
-
 **Atlantis revision comments**
-
 **Version 6691**
-
 **Date pulled:** October 10, 2023
-
 **OS:** Ubuntu 18.04.6 LTS
-
 **Environment:** Linux
-
+**Modeler:** Hem Nalini Morzaria-Luna
 **Notes**
 
 -   Function CKsimulator is still returning an error. In atSS3DataGen.c commented out lines 85-89
@@ -30,11 +35,3 @@ title: "v6691"
 **Model behavior**
 Code compiled. Model is stable in a 30 year run
 
---------------------------------------------------------------------------------
-
-**SVN commit message** 
-
-Fixed misplaced "#"
-
-Changed paths:
- `  M /Atlantis/trunk/atlantis/PreRules.am `

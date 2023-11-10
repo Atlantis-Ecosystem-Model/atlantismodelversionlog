@@ -4,37 +4,6 @@ title: "6690"
 
 <img width="30" alt="image" src="https://user-images.githubusercontent.com/11339490/272713181-58a7442b-f4df-4987-9afe-cb4702236a8f.jpg">
 
-**Atlantis model used:** Atlantis Model for Puget Sound https://github.com/hmorzaria/psatlantismodel commit 87031b7
-
-**Atlantis revision comments**
-
-**Version 6690**
-
-**Date pulled:** October 5, 2023
-
-**OS:** Ubuntu 18.04.6 LTS
-
-**Environment:** Linux
-
-**Notes**
-
--   Function CKsimulator is returning an error in atSS3DataGen.c commented out lines 85-89
-
-` /* if(bm->CloseKinEst->UseCloseKin && FunctGroupArray[groupIndex].isCloseKin) {
-            GetCloseKinNum(bm, groupIndex, yearIndex);
-            CKsimulator(bm, groupIndex, yearIndex);
-            bm->CloseKinEst[groupIndex].nCKsampled++;
-        } */`
-
--  Error on PreRules.am 
-Line 43 says
-`W#ARN += -Wno-error=implicit-function-declaration`
-Should be:
-`#WARN += -Wno-error=implicit-function-declaration`
-
-**Model behavior**
-Model compiles after PreRules error is corrected. Run for 5 years
-
 --------------------------------------------------------------------------------
 
 **SVN commit message**
@@ -67,4 +36,31 @@ Changed paths:
    M /Atlantis/trunk/atlantis/atphysics/atphysics.c
    M /Atlantis/trunk/atlantis/atphysics/atsourcesink.c`
    
+--------------------------------------------------------------------------------
+
+**Atlantis model used:** Atlantis Model for Puget Sound https://github.com/hmorzaria/psatlantismodel commit 87031b7
+**Atlantis revision comments**
+**Version 6690**
+**Date pulled:** October 5, 2023
+**OS:** Ubuntu 18.04.6 LTS
+**Environment:** Linux
+**Modeler:** Hem Nalini Morzaria-Luna
+**Notes**
+
+-   Function CKsimulator is returning an error in atSS3DataGen.c commented out lines 85-89
+
+` /* if(bm->CloseKinEst->UseCloseKin && FunctGroupArray[groupIndex].isCloseKin) {
+            GetCloseKinNum(bm, groupIndex, yearIndex);
+            CKsimulator(bm, groupIndex, yearIndex);
+            bm->CloseKinEst[groupIndex].nCKsampled++;
+        } */`
+
+-  Error on PreRules.am 
+Line 43 says
+`W#ARN += -Wno-error=implicit-function-declaration`
+Should be:
+`#WARN += -Wno-error=implicit-function-declaration`
+
+**Model behavior**
+Model compiles after PreRules error is corrected. Run for 5 years
 
