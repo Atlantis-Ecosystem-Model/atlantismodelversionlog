@@ -64,12 +64,19 @@ Changed paths:
 --------------------------------------------------------------------------------
 
 **Atlantis model used:** Atlantis Model for Puget Sound https://github.com/hmorzaria/psatlantismodel commit 87031b7
+
 **Atlantis revision comments**
+
 **Version 6688**
+
 **Date pulled:** October 3, 2023
+
 **OS:** Ubuntu 18.04.6 LTS
+
 **Environment:** Linux
+
 **Modeler:** Hem Nalini Morzaria-Luna
+
 **Notes**
 
 -   Function CKsimulator is returning an error in atSS3DataGen.c commented out lines 85-89
@@ -84,5 +91,6 @@ Changed paths:
 -   Missing file atPGMSY.c
 
 **Model behavior**
+
 Code did not compile because of missing file.
 

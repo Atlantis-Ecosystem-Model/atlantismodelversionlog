@@ -46,12 +46,19 @@ Changed paths:
 --------------------------------------------------------------------------------
 
 **Atlantis model used:** Atlantis Model for Puget Sound https://github.com/hmorzaria/psatlantismodel commit 87031b7
+
 **Atlantis revision comments**
+
 **Version 6685**
+
 **Date pulled:** September 27, 2023
+
 **OS:** Ubuntu 18.04.6 LTS
+
 **Environment:** Linux
+
 **Modeler:** Hem Nalini Morzaria-Luna
+
 **Notes**
 
 -   Function CKsimulator is returning an error in atSS3DataGen.c commented out lines 85-89
@@ -69,6 +76,7 @@ Code compiled. Segmentation fault ~day 200
 
 --------------------------------------------------------------------------------
 **Detailed comparison with previous version**
+
 Left is new version, right is old version. Versions are separated by |
 
 Versions compared 6685 6681

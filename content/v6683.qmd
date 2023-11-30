@@ -15,12 +15,19 @@ flag_replicated_old_PPmort 0 #Flag to replicate old model code assumptions aroun
 --------------------------------------------------------------------------------
 
 **Atlantis model used:** Salish Sea Atlantis Model
+
 **Atlantis revision comments**
+
 **Version 6683**
+
 **Date pulled:** November 9, 2023
+
 **OS:** 
+
 **Environment:** 
+
 **Modeler:** Javier Porobic
+
 **Notes**
 
 -   Function CKsimulator is returning an error in atSS3DataGen.c commented out lines 85-89
@@ -32,17 +39,25 @@ flag_replicated_old_PPmort 0 #Flag to replicate old model code assumptions aroun
         } */`
 
 **Model behavior**
+
 Code compiled. Run to 5 years
 
 --------------------------------------------------------------------------------
 
 **Atlantis model used:** Atlantis Model for Puget Sound https://github.com/hmorzaria/psatlantismodel commit 87031b7
+
 **Atlantis revision comments**
+
 **Version 6683**
+
 **Date pulled:** September 14, 2023
+
 **OS:** Ubuntu 18.04.6 LTS
+
 **Environment:** Linux
+
 **Modeler:** Hem Nalini Morzaria-Luna
+
 **Notes**
 
 -   Function CKsimulator is returning an error in atSS3DataGen.c commented out lines 85-89
@@ -54,6 +69,7 @@ Code compiled. Run to 5 years
         } */`
 
 **Model behavior**
+
 Code compiled. Run to 5 years
 
 --------------------------------------------------------------------------------

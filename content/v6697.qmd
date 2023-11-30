@@ -1,0 +1,43 @@
+---
+title: "v6693"
+---
+
+<img width="30" alt="image" src="https://user-images.githubusercontent.com/11339490/272713181-58a7442b-f4df-4987-9afe-cb4702236a8f.jpg">
+
+**SVN commit message** 
+
+Changed paths:
+ `  M /Atlantis/trunk/atlantis/ConvertAtlantis/atRunXML.c
+   M /Atlantis/trunk/atlantis/atassess/atAssessTierSetup.c
+   M /Atlantis/trunk/atlantis/atecology/additionalTracer.c
+   M /Atlantis/trunk/atlantis/atecology/atContaminants.c
+   M /Atlantis/trunk/atlantis/atecology/atbiology.c
+   M /Atlantis/trunk/atlantis/atecology/atecology.c
+   M /Atlantis/trunk/atlantis/atlantismain/include/atlantisboxmodel.h
+   M /Atlantis/trunk/atlantis/atphysics/atparamIO.c `
+
+Added explicit N_to_C and N_to_P ratios and modified some memory initialisation
+
+
+--------------------------------------------------------------------------------
+
+**Atlantis model used:** Atlantis Model for Puget Sound https://github.com/hmorzaria/psatlantismodel commit 87031b7
+
+**Atlantis revision comments**
+
+**Version 6697**
+
+**Date pulled:** November 6, 2023
+
+**OS:** Ubuntu 18.04.6 LTS
+
+**Environment:** Linux
+
+**Modeler:** Hem Nalini Morzaria-Luna
+
+**Notes**
+
+**Model behavior**
+
+Code compiled and runs to 30 years
+--------------------------------------------------------------------------------
