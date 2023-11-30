@@ -30,6 +30,12 @@ website:
     contents:
       - href: index.qmd
         text: Home
+      - href: content/v6698.qmd
+        text: v6698
+      - href: content/v6697.qmd
+        text: v6697
+      - href: content/v6693.qmd
+        text: v6693
       - href: content/v6691.qmd
         text: v6691
       - href: content/v6690.qmd

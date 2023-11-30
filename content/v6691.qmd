@@ -15,12 +15,19 @@ Changed paths:
 --------------------------------------------------------------------------------
 
 **Atlantis model used:** Atlantis Model for Puget Sound https://github.com/hmorzaria/psatlantismodel commit 87031b7
+
 **Atlantis revision comments**
+
 **Version 6691**
+
 **Date pulled:** October 10, 2023
+
 **OS:** Ubuntu 18.04.6 LTS
+
 **Environment:** Linux
+
 **Modeler:** Hem Nalini Morzaria-Luna
+
 **Notes**
 
 -   Function CKsimulator is still returning an error. In atSS3DataGen.c commented out lines 85-89
@@ -33,5 +40,6 @@ Changed paths:
 
 
 **Model behavior**
+
 Code compiled. Model is stable in a 30 year run
 

@@ -16,13 +16,21 @@ Fix to atContaminants ageing transfer as final boxes may be over-writing earlier
 --------------------------------------------------------------------------------
 
 **Atlantis model used:** Atlantis Model for Puget Sound https://github.com/hmorzaria/psatlantismodel commit 87031b7
+
 **Atlantis revision comments**
+
 **Version 6693**
+
 **Date pulled:** October 17, 2023
+
 **OS:** Ubuntu 18.04.6 LTS
+
 **Environment:** Linux
+
 **Modeler:** Hem Nalini Morzaria-Luna
+
 **Notes**
+
 -   Function CKsimulator is still returning an error. In atSS3DataGen.c commented out lines 85-89
 
 ` /* if(bm->CloseKinEst->UseCloseKin && FunctGroupArray[groupIndex].isCloseKin) {
@@ -32,5 +40,6 @@ Fix to atContaminants ageing transfer as final boxes may be over-writing earlier
         } */`
 
 **Model behavior**
+
 Code compiled
 --------------------------------------------------------------------------------
