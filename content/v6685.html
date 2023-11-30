@@ -113,6 +113,24 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../content/v6698.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">v6698</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../content/v6697.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">v6697</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../content/v6693.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">v6693</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../content/v6691.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">v6691</span></a>
   </div>
@@ -181,7 +199,14 @@ ul.task-list li input[type="checkbox"] {
 <p>Adding PGMSY and aging of contaminants</p>
 <p>Changed paths: <code>M /Atlantis/trunk/atlantis/ConvertAtlantis/atAssesstoXML.c    M /Atlantis/trunk/atlantis/ConvertAtlantis/atCreateXML.c    M /Atlantis/trunk/atlantis/ConvertAtlantis/atRunXML.c    M /Atlantis/trunk/atlantis/atSS3Link/atSS3DataGen.c    M /Atlantis/trunk/atlantis/atSS3Link/atSS3LinkIO.c    M /Atlantis/trunk/atlantis/atassess/atAssessTierSetup.c    M /Atlantis/trunk/atlantis/atassess/atassessParamIO.c    M /Atlantis/trunk/atlantis/atecology/additionalTracer.c    M /Atlantis/trunk/atlantis/atecology/atContaminants.c    M /Atlantis/trunk/atlantis/atecology/atGroupProcesses.c    M /Atlantis/trunk/atlantis/atecology/atannualbiology.c    M /Atlantis/trunk/atlantis/atecology/atbiolmessage.c    M /Atlantis/trunk/atlantis/atecology/atbiolsetup.c    M /Atlantis/trunk/atlantis/atecology/atdemography.c    M /Atlantis/trunk/atlantis/atecology/atecology.c    M /Atlantis/trunk/atlantis/atecology/atmigration.c    M /Atlantis/trunk/atlantis/atecology/atmovement.c    M /Atlantis/trunk/atlantis/atecology/include/atContaminants.h    M /Atlantis/trunk/atlantis/atharvest/atHarvest.c    M /Atlantis/trunk/atlantis/atharvest/atHarvestParamIO.c    M /Atlantis/trunk/atlantis/atharvest/atHarvestSetup.c    M /Atlantis/trunk/atlantis/atharvest/include/atHarvest.h    M /Atlantis/trunk/atlantis/atharvest/include/atHarvestPrivate.h    M /Atlantis/trunk/atlantis/atlantisUtil/atUtil.c    M /Atlantis/trunk/atlantis/atlantisUtil/atUtilGroupIO.c    M /Atlantis/trunk/atlantis/atlantisUtil/atUtilXML.c    M /Atlantis/trunk/atlantis/atlantisUtil/include/atFunctGroup.h    M /Atlantis/trunk/atlantis/atlantismain/include/atlantisboxmodel.h    M /Atlantis/trunk/atlantis/atmanage/atManageAnnual.c    M /Atlantis/trunk/atlantis/atmanage/atManageTier.c    M /Atlantis/trunk/atlantis/atmanage/atSS3assess.c</code></p>
 <hr>
-<p><strong>Atlantis model used:</strong> Atlantis Model for Puget Sound https://github.com/hmorzaria/psatlantismodel commit 87031b7 <strong>Atlantis revision comments</strong> <strong>Version 6685</strong> <strong>Date pulled:</strong> September 27, 2023 <strong>OS:</strong> Ubuntu 18.04.6 LTS <strong>Environment:</strong> Linux <strong>Modeler:</strong> Hem Nalini Morzaria-Luna <strong>Notes</strong></p>
+<p><strong>Atlantis model used:</strong> Atlantis Model for Puget Sound https://github.com/hmorzaria/psatlantismodel commit 87031b7</p>
+<p><strong>Atlantis revision comments</strong></p>
+<p><strong>Version 6685</strong></p>
+<p><strong>Date pulled:</strong> September 27, 2023</p>
+<p><strong>OS:</strong> Ubuntu 18.04.6 LTS</p>
+<p><strong>Environment:</strong> Linux</p>
+<p><strong>Modeler:</strong> Hem Nalini Morzaria-Luna</p>
+<p><strong>Notes</strong></p>
 <ul>
 <li>Function CKsimulator is returning an error in atSS3DataGen.c commented out lines 85-89</li>
 </ul>
@@ -189,7 +214,8 @@ ul.task-list li input[type="checkbox"] {
 <p><strong>Model behavior</strong></p>
 <p>Code compiled. Segmentation fault ~day 200</p>
 <hr>
-<p><strong>Detailed comparison with previous version</strong> Left is new version, right is old version. Versions are separated by |</p>
+<p><strong>Detailed comparison with previous version</strong></p>
+<p>Left is new version, right is old version. Versions are separated by |</p>
 <p>Versions compared 6685 6681</p>
 <p>` FILE COMPARED atassess/atassess_2013.vcxproj.bec</p>
 <p>FILE COMPARED atassess/atassessParamIO.c &lt; //Initialise_PGMSY(bm); &lt; &lt; if (speciesParamStructArray[sp].paramType == SP_I | if (FunctGroupArray[sp].speciesParams[MultispAsse if ((FunctGroupArray[sp].speciesParams[Multis | bm-&gt;PGMSY_on = TRUE; bm-&gt;PGMSY_on = TRUE; | // Make sure the R file is in place // Make sure the R file is in place &lt; fprintf(bm-&gt;logFile,“Set PGMSY_on as %s h | } | if ((FunctGroupArray[sp].isFished == TRUE) &amp;&amp; (b } | bm-&gt;RBCestimation.earliestYr = bm-&gt;RBCestimat if ((FunctGroupArray[sp].isFished == TRUE) &amp; &lt; bm-&gt;RBCestimation.earliestYr = bm-&gt;RBCest &lt; } &lt; &gt; Util_XML_Read_Species_RBCParam(bm, fileName, childGroupin &lt; &lt;</p>

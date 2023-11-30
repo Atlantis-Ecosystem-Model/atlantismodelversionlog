@@ -29,6 +29,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
+<link href="../content/v6691.html" rel="next">
+<link href="../content/v6697.html" rel="prev">
 <link href="../images/favicon.ico" rel="icon">
 <script src="../site_libs/quarto-html/quarto.js"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
@@ -74,7 +76,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">v6693</li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../content/v6693.html">v6693</a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -107,6 +109,24 @@ ul.task-list li input[type="checkbox"] {
   <div class="sidebar-item-container"> 
   <a href="../index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Home</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../content/v6698.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">v6698</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../content/v6697.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">v6697</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../content/v6693.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">v6693</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -151,7 +171,13 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#code-compiled" id="toc-code-compiled" class="nav-link active" data-scroll-target="#code-compiled">Code compiled</a></li>
+  </ul>
+<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/Atlantis-Ecosystem-Model/atlantismodelversionlog/edit/main/content/v6693.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/Atlantis-Ecosystem-Model/atlantismodelversionlog/blob/main/content/v6693.qmd" class="toc-action">View source</a></p><p><a href="https://github.com/Atlantis-Ecosystem-Model/atlantismodelversionlog/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -178,11 +204,24 @@ ul.task-list li input[type="checkbox"] {
 <p>Changed paths: <code>M /Atlantis/trunk/atlantis/atecology/atContaminants.c    M /Atlantis/trunk/atlantis/atlantisUtil/atUtilGroupIO.c    M /Atlantis/trunk/atlantis/atlantisUtil/include/atFunctGroup.h</code></p>
 <p>Fix to atContaminants ageing transfer as final boxes may be over-writing earlier boxes in old way it was done.</p>
 <hr>
-<p><strong>Atlantis model used:</strong> Atlantis Model for Puget Sound https://github.com/hmorzaria/psatlantismodel commit 87031b7 <strong>Atlantis revision comments</strong> <strong>Version 6693</strong> <strong>Date pulled:</strong> October 17, 2023 <strong>OS:</strong> Ubuntu 18.04.6 LTS <strong>Environment:</strong> Linux <strong>Modeler:</strong> Hem Nalini Morzaria-Luna <strong>Notes</strong> - Function CKsimulator is still returning an error. In atSS3DataGen.c commented out lines 85-89</p>
+<p><strong>Atlantis model used:</strong> Atlantis Model for Puget Sound https://github.com/hmorzaria/psatlantismodel commit 87031b7</p>
+<p><strong>Atlantis revision comments</strong></p>
+<p><strong>Version 6693</strong></p>
+<p><strong>Date pulled:</strong> October 17, 2023</p>
+<p><strong>OS:</strong> Ubuntu 18.04.6 LTS</p>
+<p><strong>Environment:</strong> Linux</p>
+<p><strong>Modeler:</strong> Hem Nalini Morzaria-Luna</p>
+<p><strong>Notes</strong></p>
+<ul>
+<li>Function CKsimulator is still returning an error. In atSS3DataGen.c commented out lines 85-89</li>
+</ul>
 <p><code>/* if(bm-&gt;CloseKinEst-&gt;UseCloseKin &amp;&amp; FunctGroupArray[groupIndex].isCloseKin) {             GetCloseKinNum(bm, groupIndex, yearIndex);             CKsimulator(bm, groupIndex, yearIndex);             bm-&gt;CloseKinEst[groupIndex].nCKsampled++;         } */</code></p>
-<p><strong>Model behavior</strong> Code compiled ——————————————————————————–</p>
+<p><strong>Model behavior</strong></p>
+<section id="code-compiled" class="level2">
+<h2 class="anchored" data-anchor-id="code-compiled">Code compiled</h2>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -533,13 +572,25 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../content/v6697.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">v6697</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../content/v6691.html" class="pagination-link">
+        <span class="nav-page-text">v6691</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
 </div> <!-- /content -->
 <footer class="footer">
   <div class="nav-footer">
     <div class="nav-footer-left">© CC-1.0</div>   
     <div class="nav-footer-center">
       &nbsp;
-    <div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/Atlantis-Ecosystem-Model/atlantismodelversionlog/edit/main/content/v6693.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/Atlantis-Ecosystem-Model/atlantismodelversionlog/blob/main/content/v6693.qmd" class="toc-action">View source</a></p><p><a href="https://github.com/Atlantis-Ecosystem-Model/atlantismodelversionlog/issues/new" class="toc-action">Report an issue</a></p></div></div></div>
+    </div>
     <div class="nav-footer-right">This page is built with <a href="https://quarto.org/">Quarto</a>.</div>
   </div>
 </footer>

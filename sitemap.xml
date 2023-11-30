@@ -1,63 +1,71 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://research.csiro.au/atlantis/content/code.html</loc>
-    <lastmod>2023-11-10T01:11:03.203Z</lastmod>
-  </url>
-  <url>
     <loc>https://research.csiro.au/atlantis/content/publishing.html</loc>
-    <lastmod>2023-11-10T01:11:01.983Z</lastmod>
-  </url>
-  <url>
-    <loc>https://research.csiro.au/atlantis/content/add-content.html</loc>
-    <lastmod>2023-11-10T01:11:00.427Z</lastmod>
-  </url>
-  <url>
-    <loc>https://research.csiro.au/atlantis/content/customizing.html</loc>
-    <lastmod>2023-11-10T01:10:59.843Z</lastmod>
-  </url>
-  <url>
-    <loc>https://research.csiro.au/atlantis/content/v6691.html</loc>
-    <lastmod>2023-11-10T01:10:59.259Z</lastmod>
-  </url>
-  <url>
-    <loc>https://research.csiro.au/atlantis/content/rendering.html</loc>
-    <lastmod>2023-11-10T01:08:09.133Z</lastmod>
+    <lastmod>2023-11-30T00:46:47.861Z</lastmod>
   </url>
   <url>
     <loc>https://research.csiro.au/atlantis/content/acknowledgements.html</loc>
-    <lastmod>2023-11-10T01:08:08.525Z</lastmod>
-  </url>
-  <url>
-    <loc>https://research.csiro.au/atlantis/index.html</loc>
-    <lastmod>2023-11-10T01:08:07.381Z</lastmod>
-  </url>
-  <url>
-    <loc>https://research.csiro.au/atlantis/content/v6690.html</loc>
-    <lastmod>2023-11-10T01:08:08.261Z</lastmod>
-  </url>
-  <url>
-    <loc>https://research.csiro.au/atlantis/content/v6683.html</loc>
-    <lastmod>2023-11-10T01:08:08.817Z</lastmod>
-  </url>
-  <url>
-    <loc>https://research.csiro.au/atlantis/content/v6685.html</loc>
-    <lastmod>2023-11-10T01:10:58.955Z</lastmod>
+    <lastmod>2023-11-30T00:46:47.261Z</lastmod>
   </url>
   <url>
     <loc>https://research.csiro.au/atlantis/content/v_template.html</loc>
-    <lastmod>2023-11-10T01:10:59.547Z</lastmod>
+    <lastmod>2023-11-30T00:46:46.713Z</lastmod>
+  </url>
+  <url>
+    <loc>https://research.csiro.au/atlantis/content/v6697.html</loc>
+    <lastmod>2023-11-30T00:46:45.129Z</lastmod>
+  </url>
+  <url>
+    <loc>https://research.csiro.au/atlantis/content/rendering.html</loc>
+    <lastmod>2023-11-30T00:46:44.569Z</lastmod>
+  </url>
+  <url>
+    <loc>https://research.csiro.au/atlantis/content/v6683.html</loc>
+    <lastmod>2023-11-30T00:43:57.218Z</lastmod>
   </url>
   <url>
     <loc>https://research.csiro.au/atlantis/content/v6688.html</loc>
-    <lastmod>2023-11-10T01:11:00.123Z</lastmod>
+    <lastmod>2023-11-30T00:43:56.650Z</lastmod>
   </url>
   <url>
-    <loc>https://research.csiro.au/atlantis/content/rmarkdown.html</loc>
-    <lastmod>2023-11-10T01:11:01.663Z</lastmod>
+    <loc>https://research.csiro.au/atlantis/content/add-content.html</loc>
+    <lastmod>2023-11-30T00:43:56.094Z</lastmod>
+  </url>
+  <url>
+    <loc>https://research.csiro.au/atlantis/index.html</loc>
+    <lastmod>2023-11-30T00:43:53.970Z</lastmod>
+  </url>
+  <url>
+    <loc>https://research.csiro.au/atlantis/content/code.html</loc>
+    <lastmod>2023-11-30T00:43:55.814Z</lastmod>
+  </url>
+  <url>
+    <loc>https://research.csiro.au/atlantis/content/v6698.html</loc>
+    <lastmod>2023-11-30T00:43:56.366Z</lastmod>
+  </url>
+  <url>
+    <loc>https://research.csiro.au/atlantis/content/customizing.html</loc>
+    <lastmod>2023-11-30T00:43:56.926Z</lastmod>
+  </url>
+  <url>
+    <loc>https://research.csiro.au/atlantis/content/v6685.html</loc>
+    <lastmod>2023-11-30T00:46:44.241Z</lastmod>
   </url>
   <url>
     <loc>https://research.csiro.au/atlantis/content/v6693.html</loc>
-    <lastmod>2023-11-10T01:11:02.263Z</lastmod>
+    <lastmod>2023-11-30T00:46:44.849Z</lastmod>
+  </url>
+  <url>
+    <loc>https://research.csiro.au/atlantis/content/rmarkdown.html</loc>
+    <lastmod>2023-11-30T00:46:46.421Z</lastmod>
+  </url>
+  <url>
+    <loc>https://research.csiro.au/atlantis/content/v6691.html</loc>
+    <lastmod>2023-11-30T00:46:47.001Z</lastmod>
+  </url>
+  <url>
+    <loc>https://research.csiro.au/atlantis/content/v6690.html</loc>
+    <lastmod>2023-11-30T00:46:47.545Z</lastmod>
   </url>
 </urlset>
