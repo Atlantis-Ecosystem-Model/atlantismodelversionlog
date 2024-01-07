@@ -4,6 +4,31 @@ title: "v6698"
 
 <img width="30" alt="image" src="https://user-images.githubusercontent.com/11339490/272713181-58a7442b-f4df-4987-9afe-cb4702236a8f.jpg">
 
+***New parameters to add***
+****biology.prm****
+Flags to activate temperature dependent movement and recruitment
+
+ `flagtempdepend_move 0`
+ `flagtempdepend_reprod 0`
+
+****run.prm****
+Flag is used to maintain old plankton mortality assumptions (from very early code versions that persisted as potential bug into newer models). Turning it on zeroes out phytoplankton mortality and only allows for lysis in phytoplankton.
+Note: Testing this flag using the Puget Sound model found no difference in output between 0 and 1 settings
+
+`flag_replicated_old_PPmort 0`
+
+****harvest.prm****
+Related to companion species. Catch of one species results in bycatch of another
+
+ `K_max_sp_co 0`
+ `max_co_sp_XXX 0`
+ 
+****migrations.csv****
+One additional column is required (17 columns total)
+
+ReprodAllowed is whether individuals participating in this migration can spawn when they reach maturity (1 = yes, 0 = no). If set to 0 then in multi-year spawners (like salmon), the individuals will not spawn even if they reach adult ages during that migration.
+
+
 **SVN commit message** 
 
 Changed paths:
