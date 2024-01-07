@@ -1,0 +1,42 @@
+---
+title: "v6699"
+---
+
+<img width="30" alt="image" src="https://user-images.githubusercontent.com/11339490/272713181-58a7442b-f4df-4987-9afe-cb4702236a8f.jpg">
+
+***New parameters to add***
+
+
+**SVN commit message** 
+
+Changed paths:
+   M /Atlantis/trunk/atlantis/PreRules.am
+   M /Atlantis/trunk/atlantis/atecology/atannualbiology.c
+   M /Atlantis/trunk/atlantis/atecology/atmigration.c
+   M /Atlantis/trunk/atlantis/atecology/atvertprocesses.c
+   M /Atlantis/trunk/atlantis/atmanage/atManageAnnual.c
+   M /Atlantis/trunk/example/RunAtlantis.sh
+
+Tidying up compile time issues with new compiler - mainly clarity of indenting, typos in comments and “set but not used” variables. Also triple checked the re-initialisation of the new global memory handling for box variables
+--------------------------------------------------------------------------------
+
+**Atlantis model used:** Atlantis Model for Puget Sound https://github.com/hmorzaria/psatlantismodel commit 87031b7
+
+**Atlantis revision comments**
+
+**Version 6699**
+
+**Date pulled:** January 7, 2024
+
+**OS:** Ubuntu 20.04 LTS
+
+**Environment:** Linux
+
+**Modeler:** Hem Nalini Morzaria-Luna
+
+**Notes**
+
+**Model behavior**
+
+Code compiled and runs to 5 years
+--------------------------------------------------------------------------------

@@ -1,17 +1,25 @@
 ---
-title: <version number>
+title: "6681"
 ---
 
 <img width="30" alt="image" src="https://user-images.githubusercontent.com/11339490/272713181-58a7442b-f4df-4987-9afe-cb4702236a8f.jpg">
 
 ***New parameters to add***
-#Add the file and the parameters that need to be added for the current version
+
+****biology.prm****
+Indicate which method to deal with temperature scalars. setting to zero uses a simple Q10 based correction using 15'C reference
+
+ `q10_method_XXX 0`
 
 #to get the last 10 commits messages from the SVN use svn log -v  -l 10 https://svnserv.csiro.au/svn/ext/atlantis/Atlantis/trunk --username <XX> --password <XX>
 --------------------------------------------------------------------------------
 
 **SVN commit message** 
 
+Changed paths:
+   M /Atlantis/trunk/atlantis/ConvertAtlantis/atBioltoXML.c
+
+Fixed the read in of q10_method param
 --------------------------------------------------------------------------------
 
 #Use this template to add infomation from your model
@@ -19,11 +27,11 @@ title: <version number>
 
 **Model:** Atlantis Model for Puget Sound
 **Atlantis revision comments**
-**Version <version number>**
-**Date pulled:** <date>
-**OS:** <Operating system ran>
-**Environment:** <Windows/Linux/Mac>
-**Modeler:** <name>
+**Version 6681**
+**Date pulled:** June 16, 2023
+**OS:** Ubuntu 20.04
+**Environment:** Linux
+**Modeler:** Hem Nalini Morzaria-Luna
 **Notes**
 **Model behavior**
 

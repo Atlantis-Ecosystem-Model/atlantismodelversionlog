@@ -30,6 +30,8 @@ website:
     contents:
       - href: index.qmd
         text: Home
+      - href: content/v6699.qmd
+        text: v6699
       - href: content/v6698.qmd
         text: v6698
       - href: content/v6697.qmd
@@ -46,6 +48,8 @@ website:
         text: v6685
       - href: content/v6683.qmd
         text: v6683
+      - href: content/v6681.qmd
+        text: v6681
       - href: content/acknowledgements.qmd
         text: Acknowledgements
 
