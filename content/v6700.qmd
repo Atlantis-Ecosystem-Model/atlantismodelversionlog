@@ -1,0 +1,22 @@
+---
+title: "v6700"
+---
+
+<img width="30" alt="image" src="https://user-images.githubusercontent.com/11339490/272713181-58a7442b-f4df-4987-9afe-cb4702236a8f.jpg">
+
+***New parameters to add***
+
+**Notes**
+
+Incorporates q10 response developed by Alberto Rovellini https://academic.oup.com/icesjms/advance-article/doi/10.1093/icesjms/fsae002/7584994
+
+**SVN commit message** 
+
+Changed paths:
+   M /Atlantis/trunk/atlantis/atecology/atbiology.c
+
+Added bm->dtsz_stored = dt; fail safe
+--------------------------------------------------------------------------------
+
+Not run
+--------------------------------------------------------------------------------

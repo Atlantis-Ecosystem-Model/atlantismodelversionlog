@@ -7,11 +7,12 @@ title: <version number>
 ***New parameters to add***
 #Add the file and the parameters that need to be added for the current version
 
-#to get the last 10 commits messages from the SVN use svn log -v  -l 10 https://svnserv.csiro.au/svn/ext/atlantis/Atlantis/trunk --username <XX> --password <XX>
---------------------------------------------------------------------------------
+**Notes**
+#Add any changes not noted in the SVN
 
 **SVN commit message** 
 
+#to get the last 10 commits messages from the SVN use svn log -v  -l 10 https://svnserv.csiro.au/svn/ext/atlantis/Atlantis/trunk --username <XX> --password <XX>
 --------------------------------------------------------------------------------
 
 #Use this template to add infomation from your model
