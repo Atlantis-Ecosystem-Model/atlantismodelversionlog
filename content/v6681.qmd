@@ -26,13 +26,21 @@ Fixed the read in of q10_method param
 #Use dashed lines after Model behavior to separate model entries
 
 **Model:** Atlantis Model for Puget Sound
+
 **Atlantis revision comments**
+
 **Version 6681**
+
 **Date pulled:** June 16, 2023
+
 **OS:** Ubuntu 20.04
+
 **Environment:** Linux
+
 **Modeler:** Hem Nalini Morzaria-Luna
+
 **Notes**
+
 **Model behavior**
 
 --------------------------------------------------------------------------------
