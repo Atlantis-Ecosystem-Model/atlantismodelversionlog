@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Atlantis Ecosystem Model log - v6693</title>
+<title>Atlantis Ecosystem Model log - v6698</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -30,7 +30,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
 <link href="../content/v6697.html" rel="next">
-<link href="../index.html" rel="prev">
+<link href="../content/v6699.html" rel="prev">
 <link href="../images/favicon.ico" rel="icon">
 <script src="../site_libs/quarto-html/quarto.js"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
@@ -113,6 +113,24 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../content/v6701.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">v6701</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../content/v6700.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">v6700</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../content/v6699.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">v6699</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../content/v6698.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">v6698</span></a>
   </div>
@@ -161,6 +179,12 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../content/v6681.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">v6681</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../content/acknowledgements.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Acknowledgements</span></a>
   </div>
@@ -184,7 +208,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">v6693</h1>
+<h1 class="title">v6698</h1>
 </div>
 
 
@@ -200,15 +224,23 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 <p><img width="30" alt="image" src="https://user-images.githubusercontent.com/11339490/272713181-58a7442b-f4df-4987-9afe-cb4702236a8f.jpg"></p>
+<p><strong><em>New parameters to add</em></strong> ****biology.prm**** Flags to activate temperature dependent movement and recruitment</p>
+<p><code>flagtempdepend_move 0</code> <code>flagtempdepend_reprod 0</code></p>
+<p>****run.prm**** Flag is used to maintain old plankton mortality assumptions (from very early code versions that persisted as potential bug into newer models). Turning it on zeroes out phytoplankton mortality and only allows for lysis in phytoplankton. Note: Testing this flag using the Puget Sound model found no difference in output between 0 and 1 settings</p>
+<p><code>flag_replicated_old_PPmort 0</code></p>
+<p>****harvest.prm**** Related to companion species. Catch of one species results in bycatch of another</p>
+<p><code>K_max_sp_co 0</code> <code>max_co_sp_XXX 0</code></p>
+<p>****migrations.csv**** One additional column is required (17 columns total)</p>
+<p>ReprodAllowed is whether individuals participating in this migration can spawn when they reach maturity (1 = yes, 0 = no). If set to 0 then in multi-year spawners (like salmon), the individuals will not spawn even if they reach adult ages during that migration.</p>
 <p><strong>SVN commit message</strong></p>
-<p>Changed paths: <code>M /Atlantis/trunk/atlantis/ConvertAtlantis/atRunXML.c    M /Atlantis/trunk/atlantis/atassess/atAssessTierSetup.c    M /Atlantis/trunk/atlantis/atecology/additionalTracer.c    M /Atlantis/trunk/atlantis/atecology/atContaminants.c    M /Atlantis/trunk/atlantis/atecology/atbiology.c    M /Atlantis/trunk/atlantis/atecology/atecology.c    M /Atlantis/trunk/atlantis/atlantismain/include/atlantisboxmodel.h    M /Atlantis/trunk/atlantis/atphysics/atparamIO.c</code></p>
-<p>Added explicit N_to_C and N_to_P ratios and modified some memory initialisation</p>
+<p>Changed paths: M /Atlantis/trunk/atlantis/PreRules.am M /Atlantis/trunk/atlantis/atecology/atbiology.c M /Atlantis/trunk/atlantis/atecology/atbiolsetup.c M /Atlantis/trunk/atlantis/atecology/atdemography.c M /Atlantis/trunk/atlantis/atecology/atmovement.c M /Atlantis/trunk/atlantis/atlantismain/atlantismain.c M /Atlantis/trunk/atlantis/atlantismain/include/atlantisboxmodel.h M /Atlantis/trunk/atlantis/atmanage/atManage.c M /Atlantis/trunk/atlantis/atmanage/atRlinkRAssess.c M /Atlantis/trunk/atlantis/atphysics/attracerIO.c M /Atlantis/trunk/example/VMPA_setas_run_fishing_F_Trunk.prm</p>
+<p>Fixed some compile issues for Sonoma M2 Macs, added more to tiered management code and corrected invertebrate movement memory bug</p>
 <hr>
 <p><strong>Atlantis model used:</strong> Atlantis Model for Puget Sound https://github.com/hmorzaria/psatlantismodel commit 87031b7</p>
 <p><strong>Atlantis revision comments</strong></p>
-<p><strong>Version 6697</strong></p>
-<p><strong>Date pulled:</strong> November 6, 2023</p>
-<p><strong>OS:</strong> Ubuntu 18.04.6 LTS</p>
+<p><strong>Version 6698</strong></p>
+<p><strong>Date pulled:</strong> November 28, 2023</p>
+<p><strong>OS:</strong> Ubuntu 20.04 LTS</p>
 <p><strong>Environment:</strong> Linux</p>
 <p><strong>Modeler:</strong> Hem Nalini Morzaria-Luna</p>
 <p><strong>Notes</strong></p>
@@ -570,8 +602,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../index.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Home</span>
+      <a href="../content/v6699.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">v6699</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
