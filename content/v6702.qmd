@@ -1,5 +1,5 @@
 ---
-title: "v6701"
+title: "v6702"
 ---
 
 <img width="30" alt="image" src="https://user-images.githubusercontent.com/11339490/272713181-58a7442b-f4df-4987-9afe-cb4702236a8f.jpg">
@@ -8,20 +8,21 @@ title: "v6701"
 
 
 **SVN commit message** 
-
+Date commit: January 29 2024
 Changed paths:
-   M /Atlantis/trunk/atlantis/atlantismain/atlantismain.c
+   M /Atlantis/trunk/atlantis/atmanage/atManage.c
 
-Added an additional bm.dtsz_stored fail safe
+Added option for forced effort to pay attention to TAC’s
+
 --------------------------------------------------------------------------------
 
 **Atlantis model used:** Atlantis Model for Puget Sound https://github.com/hmorzaria/psatlantismodel commit 87031b7
 
 **Atlantis revision comments**
 
-**Version 6701**
+**Version 6702**
 
-**Date pulled:** January 23, 2024
+**Date pulled:** February 6, 2024
 
 **OS:** Ubuntu 20.04 LTS
 
