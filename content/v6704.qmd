@@ -1,0 +1,231 @@
+---
+title: "v6704"
+---
+
+<img width="30" alt="image" src="https://user-images.githubusercontent.com/11339490/272713181-58a7442b-f4df-4987-9afe-cb4702236a8f.jpg">
+
+***New parameters to add***
+
+
+**SVN commit message** 
+------------------------------------------------------------------------
+r6704 | ful083 | 2024-02-16 22:22:07 -0800 (Fri, 16 Feb 2024) | 1 line
+Changed paths:
+   M /Atlantis/trunk/atlantis/atmanage/atManageAnnual.c
+
+Changed reference to flagusingRedusR_HCR_id to overall model variable bm->usingRedus_R_HCR
+
+--------------------------------------------------------------------------------
+
+**Atlantis model used:** Atlantis Model for Puget Sound https://github.com/hmorzaria/psatlantismodel commit 87031b7
+
+**Atlantis revision comments**
+
+**Version 6704**
+
+**Date pulled:** February 29, 2024
+
+**OS:** Ubuntu 20.04 LTS
+
+**Environment:** Linux
+
+**Modeler:** Hem Nalini Morzaria-Luna
+
+**Notes**
+
+**Model behavior**
+
+Code compiled and runs to 5 years
+--------------------------------------------------------------------------------
+Specific code changes relative to v6702
+
+FILE COMPARED
+atecology/atannualbiology.c
+							      >	            /*
+							      >	            */
+                                quit("EMBRYO[%s].next_larvae  |	                                quit("EMBRYO[%s].next_larvae 
+
+FILE COMPARED
+atecology/atbiology.c
+    if (verbose > 0)					      |	    if (verbose > 0){
+		printf("processing box %d\n", pBox->n);	      |	        printf("processing box %d\n", pBox->n);
+							      >	        fflush(stdout);
+							      >	        fflush(stderr);
+							      >	    }
+							      >	    if(!bm->dtsz_stored) {
+							      >	        bm->dtsz_stored = dt;
+							      >	    }
+							      >	    
+
+FILE COMPARED
+atecology/atBiologyXMLParamIO.c
+
+FILE COMPARED
+atecology/atbiolsetup.c
+							      >	    fprintf(llogfp, "totboxden created with dimension bm->K_n
+							      >	    
+
+FILE COMPARED
+atecology/atdemography.c
+            warn("Time: %e Zeroing temperature sensitivity fo |	            warn("Time: %e Zeroing temperature sensitivity fo
+
+
+FILE COMPARED
+atecology/atmacrophytes.c
+
+FILE COMPARED
+atecology/atmigration.c
+    int matage;						      |	    //int matage;
+    int last_return = -1;				      |	    //int last_return = -1;
+            matage = (int) (FunctGroupArray[sp].speciesParams |	            //matage = (int) (FunctGroupArray[sp].speciesPara
+        last_return = -1;				      |	        //last_return = -1;
+        /** Error check printout **/			      |	        /** Error check printout **
+        /**/						      |	        **/
+                    /**/				      |	                    /**
+                    /**/				      |	                    **/
+        /**/						      |	        /**
+        /**/						      |	        **/
+
+FILE COMPARED
+atecology/atmovement.c
+	double clear, E1_sp, spSpeed, this_HowFar, vertdistri |		double clear, E1_sp, spSpeed, this_HowFar, vertdistri
+            for (n = 0; n < FunctGroupArray[sp].numCohortsXnu |	            Util_Init_1D_Double(totboxden, (bm->K_num_max_coh
+				/* Initialise totnumber being <
+				totboxden[n] = 0.0;	      <
+			}				      <
+			min_temp_sp = FunctGroupArray[sp].spe <
+			max_temp_sp = FunctGroupArray[sp].spe <
+			min_salt_sp = FunctGroupArray[sp].spe <
+			max_salt_sp = FunctGroupArray[sp].spe <
+                    warn("Time: %e Zeroing temperature sensit |	                    warn("Ecology_Total_Verts_And_Migration: 
+				min_temp_sp += contract_sp *  <
+				max_temp_sp -= contract_sp *  <
+	double totboxden[invert_biosum + 1];		      <
+							      >	    
+							      >	        Util_Init_1D_Double(totboxden, (bm->K_num_max_cohort 
+							      >	        
+							      >	        if ((FunctGroupArray[sp].isVertebrate == TRUE) || (Fu
+							      >	            continue;
+							      >	        }
+							      >	        
+                warn("Time: %e Zeroing temperature sensitivit |	                warn("Ecology_Invert_Migration: Time: %e Zero
+               If not zero the entry. Simialrly for salinity  |	               If not zero the entry. Similarly for salinity 
+            */						      <
+        // Dedicated invertebrate movements		      |	        /* Dedicated invertebrate movements */
+           if( flagcontract_sp  && (pH_scale > 0.0)) {	      |	            if( flagcontract_sp  && (pH_scale > 0.0)) {
+							      |	            
+							      >	                    amt = 0;
+                        amt = 0;			      <
+                                 */			      |	                                */
+                 */					      |	                */
+							      >
+							      >	                
+							      >	                
+                               distinction between vertebrate |	                               distinction between vertebrate
+                            */				      <
+                                    If not zero the entry. Si |	                                    If not zero the entry. Si
+                                    */			      <
+							      >	                            
+                             */				      |	                            */
+                                     */			      |	                                    */
+                     */					      |	                    */
+                                   to zero - divide by volume |	                                   to zero - divide by volume
+							      >	                                
+							      |	                                for (k = 1; k < bm->boxes[ij]
+							      >	                                }
+                 */					      |	                */
+							      >	                
+							      >	        
+							      <
+							      >	                    
+						if(FunctGroup |							if(FunctGroup
+						}else if(Func |							} else if(Fun
+						}else{	      |							} else {
+							      >	    
+            warn("Time: %e Zeroing temperature sensitivity fo |	            warn("Invade_Spread: Time: %e Zeroing temperature
+							      >	    int flagcontract_sp, contract_sp;
+							      >	    double pH_scale = 0.0;
+            warn("Time: %e Zeroing temperature sensitivity fo |	            warn("Check_Conditions: Time: %e Zeroing temperat
+							      >	    /* Make parameter adjustments due to acidification */
+							      >	    flagcontract_sp = (int)FunctGroupArray[sp].speciesParams[
+							      >	    pH_scale = (FunctGroupArray[sp].pHcorr - 1.0);
+							      >	    if( flagcontract_sp  && (pH_scale > 0.0)) {
+							      >	        contract_sp = (int)FunctGroupArray[sp].speciesParams[
+							      >	        min_temp_sp += contract_sp * pH_scale;
+							      >	        max_temp_sp -= contract_sp * pH_scale;
+							      >	    }
+							      >
+            warn("Time: %e Zeroing temperature sensitivity fo |	            warn("Check_Realloc_Conditions: Time: %e Zeroing 
+
+
+FILE COMPARED
+atecology/atvertprocesses.c
+	eatBact = eatBactPB + eatBactBB;		      |		eatBact = eatBactPB + eatBactBB + eatIceBact;
+
+
+FILE COMPARED
+atlantismain/atlantismain.c
+							      >	void Util_Usage();
+							      >
+		if (verbose > 1)			      |
+			printf("Call ecology\n");	      |	        if (verbose > 1) {
+							      >	            printf("Call ecology\n");
+							      >	            fflush(stdout);
+							      >	            fflush(stderr);
+							      >	        }
+							      >	    bm.dtsz_stored = bm.dt;
+
+
+FILE COMPARED
+atmanage/atManage.c
+	double EFF_scale1 = 0.0, EFF_scale2 = 0.0, EFF_scale3 |		double EFF_scale1 = 0.0, EFF_scale2 = 0.0, EFF_scale3
+			FC_likeREEF, FC_likeFLAT, FC_likeSOFT <
+			otherFC_likeSOFT, otherFC_dempel, dem <
+		}					      |	        } else if (flagmanage > stock_adapt_mgmt){
+							      >	            /* TAC-check needed so discard if over TAC amount
+							      >	            dummy = TAC_Check(bm, fishery_id, flagmanage, llo
+							      >	        }
+	} else if (flagmanage == stock_adapt_mgmt)	      |	    } else if (flagmanage == stock_adapt_mgmt) {
+							      >	    }
+	if (bm->FISHERYprms[fishery_id][use_msy_effort_id])   |	    if (bm->FISHERYprms[fishery_id][use_msy_effort_id]) {
+							      >	    }
+
+FILE COMPARED
+atmanage/atManageAnnual.c
+			if (FunctGroupArray[sp].isVertebrate  |	            if (FunctGroupArray[sp].isVertebrate == TRUE) {
+				Assess_Pseudo_Estimate_Prm(bm |	                Assess_Pseudo_Estimate_Prm(bm, sp, llogfp);
+			else				      |	            } else {
+				return;			      |	                return;
+							      >	            }
+		if (FunctGroupArray[sp].speciesParams[flagFon |	        if (FunctGroupArray[sp].speciesParams[flagFonly_id]) 
+			return;				      |	            return;
+							      >	        }
+		if(FunctGroupArray[sp].speciesParams[tac_rese |	        if(FunctGroupArray[sp].speciesParams[tac_resetcount_i
+			return;				      |	            return;
+							      >	        }
+                if(FunctGroupArray[sp].speciesParams[flagusin |	                if(FunctGroupArray[sp].speciesParams[flagusin
+    double FTARG, F_rescale, Fcurr, calcM, calcF, Fstep1, thi |	    double FTARG, F_rescale, Fcurr, calcF, Fstep1, this_mFC, 
+							      >	    //double calcM;
+    calcM = 0.0;					      |	    //calcM = 0.0;
+            calcM += (bm->calcTrackedMort[sp][nc][k][finalM1_ |	            //calcM += (bm->calcTrackedMort[sp][nc][k][finalM
+    calcM /= counter;					      |	    //calcM /= counter;
+
+
+
+FILE COMPARED
+atmanage/atRlinkRAssess.c
+    printf("Creating %s\n",fname);			      |	    printf("Init_RAssess_File: Creating %s\n",fname);
+							      >	    
+							      >	    printf("Run_RAssess for species %s idR %d RAssessRuseScri
+
+
+FILE COMPARED
+atphysics/attracerIO.c
+							      >	                        
+							      >	                        //fprintf(bm->logFile, "readBMTracerD
+					quit("readBMTracerDat |						quit("readBMTracerDat
+							      >	                
+							      >	                //fprintf(bm->logFile, "readBMTracerData - bo
+
+FILE COMPARED
+atphysics/attransport.c
