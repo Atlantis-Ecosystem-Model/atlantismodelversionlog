@@ -1,0 +1,1442 @@
+---
+title: "v6715"
+---
+
+<img width="30" alt="image" src="https://user-images.githubusercontent.com/11339490/272713181-58a7442b-f4df-4987-9afe-cb4702236a8f.jpg">
+
+***New parameters to add***
+No new parameters
+
+
+**SVN commit message** 
+------------------------------------------------------------------------
+r6715 | ful083 | 2024-05-06 15:54:49 -0700 (Mon, 06 May 2024) | 1 line
+Changed paths:
+   M /Atlantis/trunk/atlantis/atecology/atq10.c
+   M /Atlantis/trunk/atlantis/atharvest/atHarvestImposedCatch.c
+   M /Atlantis/trunk/atlantis/atlantismain/include/atlantisboxmodel.h
+
+Up dated the q!0 to include a new CEATTLE option (setting 3 for q10_method)
+--------------------------------------------------------------------------------
+
+**Atlantis model used:** Atlantis Model for Puget Sound https://github.com/hmorzaria/psatlantismodel commit 87031b7
+
+**Atlantis revision comments**
+
+**Version 6715**
+
+**Date pulled:** May 15, 2024
+
+**OS:** Ubuntu 20.04 LTS
+
+**Environment:** Linux
+
+**Modeler:** Hem Nalini Morzaria-Luna
+
+**Notes**
+
+**Model behavior**
+
+Not compiled
+
+
+Code changes
+--------------------------------------------------------------------------------
+Versions compared 6715 6707
+FILE COMPARED
+atassess/atassess_2013.vcxproj.bec
+
+FILE COMPARED
+atassess/atassessParamIO.c
+
+FILE COMPARED
+atassess/atAssessTierSetup.c
+
+FILE COMPARED
+atassess/atattribute.c
+
+FILE COMPARED
+atassess/atclassical.c
+
+FILE COMPARED
+atassess/atdatareading.c
+
+FILE COMPARED
+atassess/atdiet.c
+
+FILE COMPARED
+atassess/atindices.c
+
+FILE COMPARED
+atassess/atnetwork.c
+
+FILE COMPARED
+atassess/atsample.c
+
+FILE COMPARED
+atassess/atsamplesetup.c
+
+FILE COMPARED
+atassess/atsolve.c
+
+FILE COMPARED
+atassess/atsurvey.c
+
+FILE COMPARED
+atassess/atwriting.c
+
+FILE COMPARED
+atassess/doolittle.c
+
+FILE COMPARED
+atassess/unit_lower_triangular.c
+
+FILE COMPARED
+atassess/upper_triangular.c
+
+FILE COMPARED
+atbrokerlink/atBrokerLinkInit.c
+
+FILE COMPARED
+atbrokerlink/Deserialiser.c
+
+FILE COMPARED
+atbrokerlink/ImportExportData.c
+
+FILE COMPARED
+atbrokerlink/LinkageInterface.c
+
+FILE COMPARED
+atbrokerlink/network.c
+
+FILE COMPARED
+atbrokerlink/NetworkError.c
+
+FILE COMPARED
+atbrokerlink/requests.pb-c.c
+
+FILE COMPARED
+atbrokerlink/responses.pb-c.c
+
+FILE COMPARED
+atCLAMLink/atCLAMComm.c
+
+FILE COMPARED
+atCLAMLink/atCLAMImplement.c
+
+FILE COMPARED
+atCLAMLink/atCLAMLink.c
+
+FILE COMPARED
+atCLAMLink/atCLAMLinkIO.c
+
+FILE COMPARED
+atCLAMLink/atCLAMLinkSetup.c
+
+FILE COMPARED
+atCLAMLink/atCLAMManage.c
+
+FILE COMPARED
+atecology/additionalTracer.c
+
+FILE COMPARED
+atecology/atannualbiology.c
+
+FILE COMPARED
+atecology/atbiolmessage.c
+    double start_N = 0.0, natDead_N = 0.0, mort_scale = 0.0,  |		double start_N = 0.0, natDead_N = 0.0, mort_scale = 0
+    // double total = 0.0;				      <
+					//total += natDead_N; |						total += natDead_N;
+    int sp, cohort, i, k;				      |	    int sp, cohort, this_cohort, i, k;
+    //int this_cohort;;					      <
+                //this_cohort = 0;			      |	                this_cohort = 0;
+                    //this_cohort++;			      |	                    this_cohort++;
+
+FILE COMPARED
+atecology/atbiology.c
+        localWCTracers[i] = 0.0;			      <
+			// Do nothing here now		      |				localWCTracers[i] = 0.0;
+            //localWCTracers[i] = 0.0; Moved outside the if s <
+    for (i = 0; i < bm->ntracer; i++) {			      |		for (i = 0; i < bm->ntracer; i++)
+        if (!(_finite(localTracer[i]))) {		      |			if (!(_finite(localTracer[i])))
+            fprintf(llogfp, "day %e, box %d-%d %s (%d) starts |				fprintf(llogfp, "day %e, box %d-%d %s
+        }						      <
+    }							      <
+
+FILE COMPARED
+atecology/atBiologyXMLParamIO.c
+    bm->contam_sig_uptake_const = Util_XML_Read_Value(fileNam <
+    bm->flag_detritus_contam = Util_XML_Read_Value(fileName,  <
+    							      <
+    //fprintf(bm->logFile, "contam_sig_uptake_const starts: % <
+    							      <
+    int maxnum, num_migs;				      |	    int maxnum, num_migs, use_nyears;
+    //int use_nyears;  // Was used previously but not anymore <
+        //use_nyears = 1;				      |	        use_nyears = 1;
+            //use_nyears = nyears;			      |	            use_nyears = nyears;
+
+FILE COMPARED
+atecology/atbiolsetup.c
+            Util_Usage(1);				      |	            Util_Usage();
+    int ij, n, sp, k, flag_sp, sp_stock_type, stock_id, nreg, |	    int ij, n, sp, k, flag_sp, sp_stock_type, stock_id, nreg,
+    //int stage;					      <
+					//stage = FunctGroupA |						stage = FunctGroupArr
+				//stage = FunctGroupArray[fgI |					stage = FunctGroupArray[fgInd
+
+FILE COMPARED
+atecology/atbiolUtil.c
+
+FILE COMPARED
+atecology/atbiophysics.c
+
+FILE COMPARED
+atecology/atBuildTracer.c
+
+FILE COMPARED
+atecology/atcalibtools.c
+    int qid, recdate, spmigrate;			      |	    int qid, recdate, spmigrate, pid;
+    //int pid;						      <
+						//pid = Funct |							pid = FunctGr
+							      >	                        
+
+FILE COMPARED
+atecology/atContaminants.c
+	double flux, uptakeSum = 0, cLevel = 0, amt_after_dec |		double flux, uptakeSum, cLevel, amt_after_decay;
+            amt_after_decay = (cLevel / bm->dtsz_stored) - bm |	            amt_after_decay = cLevel - bm->contaminantStructu
+	double flux = 0;				      |		double flux;
+	int cIndex, groupIndex, cohort;			      |		int cIndex, groupIndex, cohort, pid;
+    //int pid;						      <
+    /*							      <
+    fprintf(bm->logFile, "Time: %e box%d-%d running - test pr |	    //fprintf(bm->logFile, "Time: %e box%d-%d running - test 
+     printf("Time: %e box%d-%d running - test propContam %s-% |	    //printf("Time: %e box%d-%d running - test propContam %s-
+     */							      <
+	double cGroupLevel, transfer, totalBiomass, propLost  |		double cGroupLevel, transfer, totalBiomass, propLost;
+		transfer = cGroupLevel * propLost * bm->conta |			transfer = cGroupLevel * propLost * bm->conta
+            fprintf(bm->logFile, "Gain_Contam transfer > 0 -- |	            fprintf(bm->logFile, "Time: %e %s-%d in box %d-%d
+	double cLevel = 0, uptake_rate = 0, cUptake = 0, cGro |		double cLevel, uptake_rate, cUptake = 0, cGroupLevel,
+                    case sigmoidal_uptake_id: /* The Richards |	                    case sigmoidal_uptake_id: /* The sigmoida
+                        if (FunctGroupArray[sp].isOncePerDt = <
+                            time_step = dtsz;		      <
+                        } else if ((it_count == 1) && (FunctG <
+                            time_step = bm->dt;		      <
+                        } else {			      <
+                            time_step = 0;		      <
+                        }				      <
+							      <
+                        if ((time_step > 0) && (uptake_rate > <
+                            /* Have the calculate the actual  <
+                             contam_sig_uptake_const set to 0 <
+                             */				      <
+                            				      <
+                            //fprintf(bm->logFile,"Time: %e b <
+                            				      <
+                            Cnew = pow((pow(cLevel,(1.0 - bm- <
+                            cUptake = (Cnew - cGroupLevel) /  <
+                            //cUptake = 0;		      <
+                        } else {			      <
+                            cUptake = 0.0;		      <
+                        }				      <
+                        break;				      <
+                    case invitro_sigmoid_id: /* The InVitro v <
+                    fprintf(bm->logFile,"Time: %e box%d-%d %s |	                    fprintf(bm->logFile,"Time: %e box%d-%d %s
+                    if(!cUptake) {			      |	                        if(!cUptake)
+                        continue;			      |	                            continue;
+                    }					      <
+    /*							      <
+    fprintf(bm->logFile, "Time: %e at end of Species_Contam_U |	    //fprintf(bm->logFile, "Time: %e at end of Species_Contam
+    printf("Time: %e end of Species_Contam_Uptake for box%d-% |	    //printf("Time: %e end of Species_Contam_Uptake for box%d
+     */							      <
+    double cGroupLevel = 0, transfer, totalBiomass, amt_excha |		double cGroupLevel, transfer, totalBiomass, amt_excha
+							      >
+							      >	       
+							      >
+    double *tracerArray;				      <
+    //double newValue;					      <
+    double local_cGroupLevel, decay_constant;		      <
+        						      <
+        tracerArray = getTracerArray(boxLayerInfo, habitat);  <
+                					      <
+                local_cGroupLevel = tracerArray[FunctGroupArr <
+                newValue = local_cGroupLevel * pow(0.5, time_ |	                newValue = cGroupLevel * pow(0.5, time_step /
+                bm->contaminantStructure[cIndex]->sp_amount_d |	                bm->contaminantStructure[cIndex]->sp_amount_d
+                					      <
+                /* Alternative code -- Using the decay consta <
+                decay_constant = (log(2))/bm->contaminantStru <
+                newValue = local_cGroupLevel * decay_constant <
+                bm->contaminantStructure[cIndex]->sp_amount_d <
+                */					      <
+							      <
+                //fprintf(bm->logFile,"Time: %e %s-%d contami <
+							      <
+    double step1, step2, chronicLevel = 0, cGroupLevel = 0;   |	    double step1, step2, chronicLevel, cGroupLevel;
+    int contamIndex, pid = 0;				      |	    int contamIndex, pid;
+    double contam_interaction_coefft = 0, contam_scalar = 1.0 |	    double contam_interaction_coefft, contam_scalar;
+    if (!bm->flag_contamInteractModel) {		      |	    if (!bm->flag_contamInteractModel)
+    }							      <
+    if (bm->flag_contamOnlyAmplify && (cum_contam_scalar < 1. |	    if (bm->flag_contamOnlyAmplify && (cum_contam_scalar < 1.
+    }							      <
+    double cGroupLevel = 0, cEnvLevel, conc_amplif = 1.0, cPo |	    double cGroupLevel = 0, cEnvLevel, chronicLevel, conc_amp
+    //double chronicLevel;				      <
+                    if (cGroupLevel <= 0) {		      |	                    if (cGroupLevel <= 0)  // Nothing to worr
+                        // Nothing to worry about	      <
+                    }					      <
+            /*						      <
+            						      |	            /*
+
+FILE COMPARED
+atecology/atcoral.c
+
+FILE COMPARED
+atecology/atdemography.c
+    double oldDEN, oldSN, oldRN, embryo_recruits;	      |	    double oldDEN, oldSN, oldRN, embryo_recruits, orig_den;
+    //double orig_den;					      <
+                                //orig_den = MIGRATION[specie |	                                orig_den = MIGRATION[species]
+                                //fprintf(bm->logFile, "Time: |	                                fprintf(bm->logFile, "Time: %
+    int recruit_outside = 0;				      |	    int recruit_outside = 0, leave_stage = 0;
+	//int thisday = 0;				      |		int thisday = 0;
+							      >					thisday = EMBRYO[species].Sta
+							      >	                leave_stage = FunctGroupArray[species].cohort
+                thisday = EMBRYO[species].StartDay[ngene][qid <
+							      <
+    //double yoysum = 0.0;				      |		double yoysum = 0.0, biomass, chrt_biomass;
+    double biomass, chrt_biomass;			      <
+	int ngene = 0, i = 0, stock_id = 0, den, k, mid, this |		int ngene = 0, i = 0, stock_id = 0, den, k, mid, this
+    //int stage;					      <
+			//yoysum += EMBRYO[species].Larvae[i] |				yoysum += EMBRYO[species].Larvae[i][n
+                    //stage = FunctGroupArray[species].cohort |	                    stage = FunctGroupArray[species].cohort_s
+    int ij, k, stock_id, species, cohort, age_mat, sn, rn, de |		int ij, k, stock_id, species, cohort, age_mat, sn, rn
+    //int stage, next_stage;				      <
+                        //stage = FunctGroupArray[species].co |	                        stage = FunctGroupArray[species].coho
+                        //next_stage = FunctGroupArray[specie |	                        next_stage = FunctGroupArray[species]
+	int recruit_outside = 0, cohort = 0, bcohort = 0;     |		int recruit_outside = 0, pid = 0, cohort = 0, bcohort
+	int mid = 0, pid;				      |		int mid = 0;
+
+FILE COMPARED
+atecology/atdiversity.c
+
+FILE COMPARED
+atecology/atecology_2013.vcxproj.bec
+
+FILE COMPARED
+atecology/atecology.c
+
+FILE COMPARED
+atecology/atecologyts.c
+
+FILE COMPARED
+atecology/atexternalpop.c
+
+FILE COMPARED
+atecology/atExternalScalar.c
+
+FILE COMPARED
+atecology/atfluxbreakdown.c
+
+FILE COMPARED
+atecology/atForcedMovement.c
+    //double distrib_last_qrt, distrib_qrt, distrib_next_qrt; |	    double distrib_last_qrt, distrib_qrt, distrib_next_qrt;
+                    /*					      <
+                    fprintf(llogfp, "Ecology_Update_Move_Entr |	                    //fprintf(llogfp, "Ecology_Update_Move_En
+                    */					      <
+
+FILE COMPARED
+atecology/atGroupProcesses.c
+            if(bm->flag_detritus_contam) {		      |	            Gain_Contaminants(bm, boxLayerInfo, WC, WC, guild
+                Gain_Contaminants(bm, boxLayerInfo, WC, WC, g <
+            }						      <
+            if(bm->flag_detritus_contam) { // If allowing tra |				Group_Transfer_Contaminant(bm, boxLay
+                Group_Transfer_Contaminant(bm, boxLayerInfo,  |				Group_Transfer_Contaminant(bm, boxLay
+                Group_Transfer_Contaminant(bm, boxLayerInfo,  <
+            }						      <
+            if(bm->flag_detritus_contam) {		      |				Gain_Contaminants(bm, boxLayerInfo, S
+                Gain_Contaminants(bm, boxLayerInfo, SED, SED, |
+            }						      <
+            						      |				Group_Transfer_Contaminant(bm, boxLay
+            if(bm->flag_detritus_contam) {  // If allowing tr |				Group_Transfer_Contaminant(bm, boxLay
+                Group_Transfer_Contaminant(bm, boxLayerInfo,  <
+                Group_Transfer_Contaminant(bm, boxLayerInfo,  <
+            }						      <
+                } else if(bm->flag_detritus_contam) {	      |					} else {
+                if(bm->flag_detritus_contam) {		      |					Gain_Contaminants(bm, boxLaye
+                    Gain_Contaminants(bm, boxLayerInfo, EPIFA <
+                }					      <
+            if(bm->flag_detritus_contam) { // If allowing tra |	            Group_Transfer_Contaminant(bm, boxLayerInfo, EPIF
+                Group_Transfer_Contaminant(bm, boxLayerInfo,  |				Group_Transfer_Contaminant(bm, boxLay
+                Group_Transfer_Contaminant(bm, boxLayerInfo,  |	            
+                					      |	            Group_Transfer_Contaminant(bm, boxLayerInfo, EPIF
+                Group_Transfer_Contaminant(bm, boxLayerInfo,  |				Group_Transfer_Contaminant(bm, boxLay
+                Group_Transfer_Contaminant(bm, boxLayerInfo,  <
+            }						      <
+                Group_Transfer_Contaminant(bm, boxLayerInfo,  |	                Group_Transfer_Contaminant(bm, boxLayerInfo, 
+                        Group_Transfer_Contaminant(bm, boxLay |	                        Group_Transfer_Contaminant(bm, boxLay
+                        Group_Transfer_Contaminant(bm, boxLay |	                        Group_Transfer_Contaminant(bm, boxLay
+                    Group_Transfer_Contaminant(bm, boxLayerIn |	                    Group_Transfer_Contaminant(bm, boxLayerIn
+					Group_Transfer_Contam |						Group_Transfer_Contam
+                    Group_Transfer_Contaminant(bm, boxLayerIn |	                    Group_Transfer_Contaminant(bm, boxLayerIn
+                Group_Transfer_Contaminant(bm, boxLayerInfo,  |	                Group_Transfer_Contaminant(bm, boxLayerInfo, 
+        if(bm->flag_benthos_sediment_link) {		      |			if(bm->flag_benthos_sediment_link)
+            realised_mum *= area_hab;			      |				realised_mum *= area_hab;
+        }						      <
+                Group_Transfer_Contaminant(bm, boxLayerInfo,  |	                Group_Transfer_Contaminant(bm, boxLayerInfo, 
+				Group_Transfer_Contaminant(bm |					Group_Transfer_Contaminant(bm
+    double biomass, eatBiomass, hO_SP, area_hab, NumSp, x_Sp, |		double biomass, eatBiomass, hO_SP, area_hab, NumSp, x
+		if(bm->flag_benthos_sediment_link) {	      |			if(bm->flag_benthos_sediment_link)
+        } else {					      <
+            realised_mum = FunctGroupArray[guild].scaled_mum[ <
+        }						      <
+        						      <
+        if(guild == bm->which_check) {			      |	        if(guild == bm->which_check)
+         }						      <
+            realised_mum, FunctGroupArray[guild].speciesParam |					FunctGroupArray[guild].scaled
+	double biomass, eatBiomass, BB_scale, hO_SP, depth_sc |		double biomass, eatBiomass, BB_scale, hO_SP, depth_sc
+        if(bm->flag_benthos_sediment_link) {		      |			if(bm->flag_benthos_sediment_link)
+            realised_mum *= area_hab;			      |				realised_mum *= area_hab;
+        } else {					      <
+            realised_mum = FunctGroupArray[guild].scaled_mum[ <
+        }						      <
+            realised_mum, FunctGroupArray[guild].speciesParam |					FunctGroupArray[guild].scaled
+            Group_Transfer_Contaminant(bm, boxLayerInfo, habi |	            Group_Transfer_Contaminant(bm, boxLayerInfo, habi
+			Group_Transfer_Contaminant(bm, boxLay |				Group_Transfer_Contaminant(bm, boxLay
+
+FILE COMPARED
+atecology/atIceProcesses.c
+/*							      |	//		if(i == 0){
+		if(i == 0){				      |	//			lighttop = lightbot;	/* Surface ic
+			lighttop = lightbot;	// Surface ic |	//		}else{
+		} else {				      |	//			lighttop = light_surf * (1.0 - albedo
+			lighttop = light_surf * (1.0 - albedo |	//
+		}					      |	//		}
+		if(i <  (ice->currentnz - 1)){		      |
+			lighttop = light_surf * (1.0 - albedo |	//		if(i <  (ice->currentnz - 1)){
+		}					      |	//			lighttop = light_surf * (1.0 - albedo
+*/							      |	//		}
+							      >
+
+FILE COMPARED
+atecology/atImposeRecruit.c
+
+FILE COMPARED
+atecology/atLandProcess.c
+
+FILE COMPARED
+atecology/atmacrophytes.c
+
+FILE COMPARED
+atecology/atmigration.c
+
+FILE COMPARED
+atecology/atmovement.c
+
+FILE COMPARED
+atecology/atNutrient.c
+
+FILE COMPARED
+atecology/atPhysChemIO.c
+
+FILE COMPARED
+atecology/atprocess.c
+
+FILE COMPARED
+atecology/atq10.c
+        FunctGroupArray[sp].TcorrEff = FunctGroupArray[sp].Tc <
+	double step1, step2, step3, step4, stepA, stepB, step |		double step1, step2;
+	double temp_const_A = 0.0, temp_const_B = 0.0;	      |		double temp_const_A = 0.0;
+    int q10flag = (int)(FunctGroupArray[sp].speciesParams[q10 <
+		switch (q10flag) {			      |			if (FunctGroupArray[sp].speciesParams[q10_met
+            case base_q10_id: /* Basic q10 relationship */    |
+                ans = (double)pow(FunctGroupArray[sp].species |				// Equation from Gary G - Tdep_di=log
+            case humped_griffith_q10_id: /* Humped shape from |				temp_const_A = (double) FunctGroupArr
+                // Equation from Gary G - Tdep_di=log(2)*0.85 |				opt_temp = (double) FunctGroupArray[s
+                temp_const_A = (double) FunctGroupArray[sp].s |				step1 = log(2) * temp_const_A * pow(b
+                opt_temp = (double) FunctGroupArray[sp].speci |				step2 = exp(-bm->temp_const_C * (pow(
+                step1 = log(2) * temp_const_A * pow(bm->temp_ |				*current_corr = current_temp - opt_te
+                step2 = exp(-bm->temp_const_C * (pow(fabs(cur |
+                *current_corr = current_temp - opt_temp;      |				ans = step1 * step2;
+							      |
+                ans = step1 * step2;			      |	//				fprintf(bm->logFile, "FunctGr
+                					      |	//				fprintf(llogfp, "ParameterQ10
+                //                fprintf(bm->logFile, "Funct |
+                //                fprintf(llogfp, "ParameterQ |			} else {
+                break;					      |				ans = (double)pow(FunctGroupArray[sp]
+            case Heinichen_q10_id:			      <
+                /* Equation 4 from Heinichen et al. referenci <
+                // Tau = 2.71^(25.55-(0.63/((0.0000863*TinK[i <
+                step1 = 0.0000863 * (current_temp + 273.15);  <
+                step2 = 25.55 - (0.63 / step1); // Caren adde <
+                      					      <
+                step3 = exp(step2);			      <
+							      <
+                /*					      <
+                if(sp == 45) {				      <
+                  fprintf(bm->logFile, "Tau check: Day: %e, S <
+                }					      <
+                 */					      <
+               						      <
+                opt_temp = FunctGroupArray[sp].speciesParams[ <
+               						      <
+                // Equation #5 from Heinichen et al. 2022     <
+                stepA = 0.0000863 * (opt_temp + 273.15);      <
+                stepB = 25.55 - (0.63 / stepA);		      <
+                stepC = exp(stepB);			      <
+               						      <
+                ans = 1.0 / (step3 / stepC); //scaled Tau     <
+                					      <
+                /*					      <
+                if(sp == 45) {				      <
+                  fprintf(bm->logFile, "Scaled Tau check: Day <
+                }					      <
+                */					      <
+							      <
+                break;					      <
+            case CEATTLE_q10_id:			      <
+                // Equation from Wisconsin model used in CEAT <
+                temp_const_A = (double) FunctGroupArray[sp].s <
+                opt_temp = (double) FunctGroupArray[sp].speci <
+                temp_const_B = (double) FunctGroupArray[sp].s <
+                					      <
+                step1 = log(temp_const_A)*(temp_const_B - opt <
+                step2 = log(temp_const_A)*(temp_const_B - opt <
+                step3 = (pow(step2, 2) * pow((1 + pow((1 + 40 <
+                step4 = (temp_const_B - current_temp)/(temp_c <
+                					      <
+                ans = pow(step4, step3) * exp(step3 * (1 - st <
+							      <
+                break;					      <
+            default:					      <
+                quit("How got here as code option not possibl <
+    // Always has to be non-negative, but don't make it zero  <
+    if((ans < 0.0) || (!ans) || isnan(ans))		      <
+      ans = small_num;					      <
+							      <
+    double TscalarEff = 1.0;				      <
+                if((FunctGroupArray[sp].Tcorr * pHscalar) < 1 |					if((FunctGroupArray[sp].Tcorr
+                    Tscalar = FunctGroupArray[sp].Tcorr * pHs |						Tscalar = FunctGroupA
+                } else {				      |					else
+                    Tscalar = 1.0 / (FunctGroupArray[sp].Tcor |						Tscalar = 1.0 / (Func
+                }					      <
+                					      <
+                TscalarEff = 1.0 / (FunctGroupArray[sp].Tcorr <
+				if ((sp_q10eff == poorer_when |					if ((sp_q10eff == 1) && (bm->
+				} else if ((sp_q10eff == poor |					} else if ((sp_q10eff == 2) &
+				} else if ((sp_q10eff == vers |					}
+                    FunctGroupArray[sp].speciesParams[E1_id]  |
+                    FunctGroupArray[sp].speciesParams[E2_id]  <
+                    FunctGroupArray[sp].speciesParams[E3_id]  <
+                    FunctGroupArray[sp].speciesParams[E4_id]  <
+                }					      <
+
+FILE COMPARED
+atecology/attime.c
+
+FILE COMPARED
+atecology/atvertprocesses.c
+
+FILE COMPARED
+atecology/dump.c
+
+FILE COMPARED
+atecology/init.c
+
+FILE COMPARED
+ateconomic/ateconeffort.c
+
+FILE COMPARED
+ateconomic/ateconhelp.c
+
+FILE COMPARED
+ateconomic/ateconindicator.c
+
+FILE COMPARED
+ateconomic/ateconio.c
+
+FILE COMPARED
+ateconomic/ateconomic_2013.vcxproj.bec
+
+FILE COMPARED
+ateconomic/ateconomic.c
+
+FILE COMPARED
+ateconomic/atEconomicAnnual.c
+
+FILE COMPARED
+ateconomic/ateconomicsetup.c
+
+FILE COMPARED
+ateconomic/atEconomicUtil.c
+
+FILE COMPARED
+ateconomic/ateconParamIO.c
+
+FILE COMPARED
+ateconomic/ateconresponse.c
+    int nf, ns, sp, b, ij, do_debug, do_debug_base, nreg;     |		int nf, ns, sp, b, ij, do_debug, do_debug_base, nreg,
+    int do_debug_quota = 0;				      <
+
+FILE COMPARED
+ateconomic/ateconts.c
+
+FILE COMPARED
+ateconomic/ateffortquota.c
+
+FILE COMPARED
+ateconomic/atquota.c
+
+FILE COMPARED
+atharvest/atharvest_2013.vcxproj.bec
+
+FILE COMPARED
+atharvest/atHarvest.c
+
+FILE COMPARED
+atharvest/atHarvestAnnual.c
+
+FILE COMPARED
+atharvest/atHarvestCatch.c
+
+FILE COMPARED
+atharvest/atHarvestDiscards.c
+
+FILE COMPARED
+atharvest/atHarvestImposedCatch.c
+		quit("No such case (%d) for flagimposecatch f |			quit("No such case (%d) for flagimposecatch f
+
+FILE COMPARED
+atharvest/atHarvestIndex.c
+
+FILE COMPARED
+atharvest/atHarvestIO.c
+
+FILE COMPARED
+atharvest/atHarvestParamIO.c
+
+FILE COMPARED
+atharvest/atHarvestSetup.c
+    bm->EffortModelsActive = 0;				      <
+        						      <
+        if((bm->FISHERYprms[nf][flageffortmodel_id] > 0) || ( <
+            bm->EffortModelsActive = 1;			      <
+        }						      <
+
+FILE COMPARED
+atharvest/atHarvestTS.c
+
+FILE COMPARED
+atimplementation/atimplementation_2013.vcxproj.bec
+
+FILE COMPARED
+atimplementation/atImplementationAnnual.c
+
+FILE COMPARED
+atimplementation/atImplementationParamIO.c
+
+FILE COMPARED
+atimplementation/atImplementationSetup.c
+
+FILE COMPARED
+atlantismain/atlantismain.c
+ Arguments:      See Util_Usage(1) routine below for explanat |	 Arguments:      See Util_Usage() routine below for explanati
+void Util_Usage(int dummy);				      |	void Util_Usage();
+		Util_Usage(1);				      |			Util_Usage();
+					Util_Usage(1);	      |						Util_Usage();
+					Util_Usage(1);	      |						Util_Usage();
+					Util_Usage(1);	      |						Util_Usage();
+					Util_Usage(1);	      |						Util_Usage();
+					Util_Usage(1);	      |						Util_Usage();
+					Util_Usage(1);	      |						Util_Usage();
+					Util_Usage(1);	      |						Util_Usage();
+					Util_Usage(1);	      |						Util_Usage();
+					Util_Usage(1);	      |						Util_Usage();
+					Util_Usage(1);	      |						Util_Usage();
+					Util_Usage(1);	      |						Util_Usage();
+					Util_Usage(1);	      |						Util_Usage();
+                    Util_Usage(1);			      |	                    Util_Usage();
+					Util_Usage(1);	      |						Util_Usage();
+					Util_Usage(1);	      |						Util_Usage();
+				if( argc < 2 ) Util_Usage(1); |					if( argc < 2 ) Util_Usage();
+				if( argc < 2 ) Util_Usage(1); |					if( argc < 2 ) Util_Usage();
+				Util_Usage(1);		      |					Util_Usage();
+			Util_Usage(1);			      |				Util_Usage();
+		Util_Usage(1);				      |			Util_Usage();
+		Util_Usage(1);				      |			Util_Usage();
+		Util_Usage(1);				      |			Util_Usage();
+		Util_Usage(1);				      |			Util_Usage();
+void Util_Usage(int dummy) {				      |	void Util_Usage() {
+
+FILE COMPARED
+atlantismain/atlantisMerged.pc
+
+FILE COMPARED
+atlantisUtil/atlantisUtil_2013.vcxproj.bec
+
+FILE COMPARED
+atlantisUtil/atUtil.c
+
+FILE COMPARED
+atlantisUtil/atUtilArray.c
+
+FILE COMPARED
+atlantisUtil/atUtilFisheryIO.c
+			Util_Usage(1);			      |				Util_Usage();
+		Util_Usage(1);				      |			Util_Usage();
+
+FILE COMPARED
+atlantisUtil/atUtilFisheryXML.c
+
+FILE COMPARED
+atlantisUtil/atUtilGroupIO.c
+
+FILE COMPARED
+atlantisUtil/atUtilhelp.c
+
+FILE COMPARED
+atlantisUtil/atUtilIO.c
+
+FILE COMPARED
+atlantisUtil/atUtilUnix.c
+
+FILE COMPARED
+atlantisUtil/atUtilXML.c
+
+FILE COMPARED
+atlink/atComms.c
+
+FILE COMPARED
+atlink/atlinkconversion.c
+
+FILE COMPARED
+atlink/atlinkexport.c
+
+FILE COMPARED
+atlink/atlinkimport.c
+
+FILE COMPARED
+atmanage/atmanage_2013.vcxproj.bec
+
+FILE COMPARED
+atmanage/atManage.c
+    if(bm->flagStoreShotCPUE) {				      |	    if(bm->flagStoreShotCPUE)
+    }							      |	    if(bm->flagStoreCPUE)
+    if(bm->flagStoreCPUE) {				      <
+    }							      <
+    if(bm->EffortModelsActive) {			      |		for (nf = 0; nf < bm->K_num_fisheries; nf++) {
+        for (nf = 0; nf < bm->K_num_fisheries; nf++) {	      |			Harvest_Set_Harvest_Index(bm, nf, checkdone_i
+            Harvest_Set_Harvest_Index(bm, nf, checkdone_id, 0 |			for (ij = 0; ij < ncells; ij++) {
+            for (ij = 0; ij < ncells; ij++) {		      |				bm->CumEffort[nf][ij] += bm->Effort[i
+                bm->CumEffort[nf][ij] += bm->Effort[ij][nf];  |				bm->OldEffort[ij][nf] = bm->Effort[ij
+                bm->OldEffort[ij][nf] = bm->Effort[ij][nf];   |				bm->totOldEffort[nf] += bm->OldEffort
+                bm->totOldEffort[nf] += bm->OldEffort[ij][nf] |				bm->Effort[ij][nf] = 0.0;
+                bm->Effort[ij][nf] = 0.0;		      |				bm->TempCPUE[ij][nf] = 0.0;
+                bm->TempCPUE[ij][nf] = 0.0;		      |
+                					      |	            /*
+                /*					      |				if (do_debug && (nf == bm->which_flee
+                 if (do_debug && (nf == bm->which_fleet)) {   |					fprintf(llogfp, "Time: %e, %s
+                 fprintf(llogfp, "Time: %e, %s-%d, effort: %e |							bm->Effort[ij
+                 bm->Effort[ij][nf], bm->OldEffort[ij][nf], b |				}
+                 }					      |	            */
+                 */					      |
+                					      |			}
+            }						      |			scale_effort[nf] = 0;
+            scale_effort[nf] = 0;			      |			bm->totCPUE[nf] = 0;
+            bm->totCPUE[nf] = 0;			      |		}
+        }						      <
+    }							      <
+            for (nstock = 0; nstock < FunctGroupArray[sp].num |				for (nstock = 0; nstock < FunctGroupA
+                bm->RegionalData[sp][nstock][reg_catch_id] =  |					bm->RegionalData[sp][nstock][
+            }						      <
+    if(!bm->EffortModelsActive) {			      <
+        // Check MPAs active or not then jump out - need MPA  <
+        if (bm->dayt != bm->predayt) {			      <
+            for (fishery_id = 0; fishery_id < bm->K_num_fishe <
+                Check_For_Active_MPA(bm, fishery_id);	      <
+            }						      <
+        }						      <
+        return;						      <
+    }							      <
+        						      <
+                /* Determine effort model type */	      <
+                flagspeffortmodel = (int) (bm->FISHERYprms[nf <
+							      <
+                if (!flagspeffortmodel) {		      <
+                    continue;				      <
+                }					      <
+                					      <
+                // If have active effort model then continue  <
+        if (bm->dayt != bm->predayt) {			      |	        if (bm->dayt != bm->predayt)
+        }						      <
+        /* Check if fishery activated and if no set to zero a |	        /* Check if fishery activated and if no set to zero *
+		if (((!flagspeffortmodel) && ((!mEff[fishery_ |			if ((!flagspeffortmodel) && ((!mEff[fishery_i
+							      >				for (ij = 0; ij < bm->nbox; ij++) {
+							      >					bm->Effort[ij][fishery_id] = 
+							      >				}
+							      >				continue;
+							      >			}
+							      >
+							      >			/* Only continue if fishery active this time 
+							      >			if (!bm->FISHERYprms[fishery_id][fisheriesact
+            /* Before do spatially explicit management identi |	            /* Before do spatially explicit management identi
+	int flagfcmpa, ij, k, sp, cohort, cIndex, ad, adbox;  |		int flagfcmpa, ij, k, sp;
+	double temp_scale, temp_scale2, catch_check, cGroupLe |		double temp_scale, temp_scale2, catch_check;
+    double *tracerArray;				      <
+							      >		}
+        /* Check for contaminant based closures */	      <
+        if(bm->track_contaminants) {			      <
+        						      <
+            switch (bm->flag_contam_fisheries_mgmt) {	      <
+                case no_closures: // Nothing to do	      <
+                    break;				      <
+                case set_closures: // Closed for a set period <
+                    if((bm->dayt >= bm->contam_fishery_closur <
+                        bm->MPA[ij][fishery_id] = 1.0 - bm->C <
+                    }					      <
+                    break;				      <
+                case conc_based: // Based on concentration in <
+                    tracerArray = boxLayerInfo->localWCTracer <
+                    for (sp = 0; sp < bm->K_num_tot_sp; sp++) <
+                        for(cohort = 0; cohort < FunctGroupAr <
+                            for (cIndex = 0; cIndex < bm->num <
+                                cGroupLevel = tracerArray[Fun <
+                                			      <
+                                thresh_level = bm->contaminan <
+                                if (cGroupLevel > thresh_leve <
+                                    if (!bm->contam_fishery_c <
+                                        bm->MPA[ij][fishery_i <
+                                    } else { // Close immedia <
+                                        bm->MPA[ij][fishery_i <
+                                        for (ad = 0; ad < bm- <
+                                            adbox = bm->boxes <
+                                            bm->MPA[adbox][fi <
+                                        }		      <
+                                    }			      <
+                                    			      <
+                                    // Break loop as already  <
+                                    sp = bm->K_num_tot_sp;    <
+                                }			      <
+                            }				      <
+                        }				      <
+                    }					      <
+                    break;				      <
+                default:				      <
+                    quit("This (%d) setting for flag_contam_f <
+                    break;				      <
+            }						      <
+        }						      <
+    }							      <
+    							      <
+
+FILE COMPARED
+atmanage/atManageAnnual.c
+	int sp, nf, flag_sp, co_sp, co_sp2, co_TYPE, dont_sca |		int sp, nf, flag_sp, co_sp, co_sp2, co_TYPE, dont_sca
+    /* If doing pseudo assessments go do them now */	      <
+    do_assessing = 1;					      <
+    if (bm->pseudo_assess || bm->useRBCTiers || bm->do_TACass <
+        do_assessing = 1;				      <
+    } else if (!bm->do_TACassessing) {  // used to be "else i <
+        do_assessing = 0;				      <
+    }							      <
+    							      <
+    if ((bm->thisyear > 0) || (!do_assessing)){		      |	    if (bm->thisyear > 0) {
+							      >		/* If doing pseudo assessments go do them now */
+							      >		do_assess = 1;
+							      >		if (bm->pseudo_assess || bm->useRBCTiers || bm->do_TA
+							      >			do_assess = 1;
+							      >		} else if (!bm->do_TACassessing) {  // used to be "el
+							      >			do_assess = 0;
+							      >		}
+							      >
+	if (!do_assessing) {				      |		if (!do_assess) {
+    							      <
+    // Allow for F based assessment rule her etoo, judt in ca <
+    if ((bm->thisyear > 0) && do_assessing){		      <
+        Check_F_Harvest_Control_Rule(bm, llogfp);	      <
+        Check_Ecosystem_F_Harvest_Control_Rule(bm, llogfp);   <
+    }							      <
+        case tier13:					      <
+    double FTARG, F_rescale, Fcurr, calcF, Fstep1, this_mFC,  |	    double FTARG, F_rescale, Fcurr, calcF, Fstep1, this_mFC, 
+							      >	    double Braw = bm->totfishpop[sp] * bm->X_CN * mg_2_tonne;
+							      >	    double Bcurr = Assess_Add_Error(bm, er_case, Braw, est_bi
+							      >	    
+    double FrefLim = FunctGroupArray[sp].speciesParams[FrefLi <
+							      <
+    double Braw, Bcurr;					      <
+    if(!do_assess) {  // Where do_assess set at atlantismain. <
+        Braw = bm->totfishpop[sp] * bm->X_CN * mg_2_tonne;    <
+        Bcurr = Assess_Add_Error(bm, er_case, Braw, est_bias, <
+    } else {						      <
+        Bcurr = bm->NAssess[sp][est_med_stock_id];	      <
+        Fcurr = bm->NAssess[sp][est_Fcurr_id];		      <
+        M = bm->NAssess[sp][est_M_id];			      <
+    }							      <
+    							      <
+    //FINISH THIS					      <
+    							      <
+    fprintf(llogfp, "The HCR refernce poitns are as follows:\ |
+    fprintf(llogfp, "BrefA: %e, BrefB: %e, Blim: %e, FrefLim: <
+    							      <
+							      >	    
+							      >	    // This is the old method - not used anymore //
+     // This is the old method - not used anymore //	      |	    // TODO: This should be F from calcTrackedMort
+     							      |	    if (update_date > 182) {
+     // TODO: This should be F from calcTrackedMort	      |	        // If restarted records within last 6 months use prev
+     if (update_date > 182) {				      |	        start_N = bm->calcNstart[sp][hist_id];
+     // If restarted records within last 6 months use previou |	        catch_N = bm->calcFnum[sp][hist_id];
+     start_N = bm->calcNstart[sp][hist_id];		      |	        mort_scale = 1.0;
+     catch_N = bm->calcFnum[sp][hist_id];		      |	    } else {
+     mort_scale = 1.0;					      |	        // If restart records early each year then current re
+     } else {						      |	        start_N = bm->calcNstart[sp][expect_id];
+     // If restart records early each year then current recor |	        catch_N = bm->calcFnum[sp][expect_id];
+     start_N = bm->calcNstart[sp][expect_id];		      |	        mort_scale = 365.0 / (365.0 - update_date);
+     catch_N = bm->calcFnum[sp][expect_id];		      |	    }
+     mort_scale = 365.0 / (365.0 - update_date);	      <
+     }							      <
+     if (start_N < 0)					      |	    if (start_N < 0)
+     start_N = 1;					      |	        start_N = 1;
+     if (catch_N < 0)					      |	    if (catch_N < 0)
+     catch_N = 0;					      |	        catch_N = 0;
+     							      |	    
+     Fcurr = catch_N / (start_N + small_num);            // T |	    Fcurr = catch_N / (start_N + small_num);            // TO
+     Fcurr *= mort_scale;				      |	    Fcurr *= mort_scale;
+     							      |	    
+     */							      |	    */
+    							      |	   
+    							      |
+    switch (tier) {					      |	    if (tier < tier8) {  // So not US (tier8) or Norway (tier
+        case tier0: // Intentional flow throgh for all these  |	        /* Tier 1 - Best quantitative assessment available */
+        case tier1:					      |	        if (Bcurr >= BrefA) {
+        case tier2:					      |	            /* Greater than BrefA (e.g. B48) so use F48 */
+        case tier3:					      |	            FTARG = FrefA;
+        case tier4:					      |	            //FTARG = Fcurr;
+        case tier5:					      |	        } else if ((Bcurr < BrefA) && (Bcurr >= BrefB)) {
+        case tier6:					      |	            /* Less than BrefA and greater than BrefB (e.g. B
+        case tier7:					      |	            FTARG = FrefA;
+        case dyntier4:					      |	        } else if ((Bcurr < BrefB) && (Bcurr > Blim)) {
+        case dyntier1B0:				      |	            /* Less than BrefB and greater than Blim (e.g. B2
+        case sp_rollover: // So not US (tier8) or Norway (tie |	            FTARG = FrefA * ((Bcurr - Blim) / (BrefB - Blim))
+            if (Bcurr >= BrefA) {			      |	        } else {
+                /* Greater than BrefA (e.g. B48) so use F48 * |	            /* Less than Blim so set F = 0 */
+                FTARG = FrefA;				      |	            FTARG = 0;
+                //FTARG = Fcurr;			      |	        }
+            } else if ((Bcurr < BrefA) && (Bcurr >= BrefB)) { |	    } else {
+                /* Less than BrefA and greater than BrefB (e. |	        /* Tier 8 version of the broken stick - how its appli
+                FTARG = FrefA;				      |	        if (Bcurr >= BrefA) {
+            } else if ((Bcurr < BrefB) && (Bcurr > Blim)) {   |	            /* Greater than BrefA (e.g. B48) so fish at a hig
+                /* Less than BrefB and greater than Blim (e.g |	            FTARG = FrefH;
+                FTARG = FrefA * ((Bcurr - Blim) / (BrefB - Bl |	        } else if ((Bcurr < BrefA) && (Bcurr >= BrefB)) {
+            } else {					      |	            /* Less than BrefA and greater than BrefB (e.g. B
+                /* Less than Blim so set F = 0 */	      |	            FTARG = FrefA;
+                FTARG = 0;				      |	        } else if ((Bcurr < BrefB) && (Bcurr > Blim)) {
+            }						      |	            /* Less than BrefB and greater than Blim (e.g. B2
+            break;					      |	            FTARG = FrefA * ((Bcurr - Blim) / (BrefB - Blim))
+        case tier8: // Tier 8 version of the broken stick - h |	        } else {
+        case tier9:					      |	            /* Less than Blim so set F = 0 */
+            if (Bcurr >= BrefA) {			      |	            FTARG = 0;
+                /* Greater than BrefA (e.g. B48) so fish at a |	        }
+                FTARG = FrefH;				      |
+            } else if ((Bcurr < BrefA) && (Bcurr >= BrefB)) { <
+                /* Less than BrefA and greater than BrefB (e. <
+                FTARG = FrefA;				      <
+            } else if ((Bcurr < BrefB) && (Bcurr > Blim)) {   <
+                /* Less than BrefB and greater than Blim (e.g <
+                   Formulate updated to allow for FrefLme to  <
+                FTARG = ((FrefLim * (BrefB - Bcurr) + FrefA * <
+            } else {					      <
+                /* Less than Blim so set F = FrefLim (typical <
+                FTARG = FrefLim;			      <
+            }						      <
+            break;					      <
+        case tier13: // Icelandic escapement approach	      <
+            if (Bcurr > Blim) {				      <
+                /* Bigger than Blim so set F rate */	      <
+                FTARG = 1 - (Blim / BrefB);		      <
+            } else {					      <
+                /* Less than Blim so set F = 0 */	      <
+                FTARG = 0;				      <
+            }						      <
+            break;					      <
+        default:					      <
+            quit("Per_Sp_Frescale: We do not have any code fo <
+            break;					      <
+    } else {						      |	    } else if (tier != tier8) {
+        switch (tier) {					      |	        Fstep1 = Fcurr / (FunctGroupArray[sp].speciesParams[m
+            case tier0:     // Intentional flow throgh for al |	        if (tier != tier9) {
+            case tier1:					      |	            F_rescale = Fstep1 * (FTARG / (Fcurr + small_num)
+            case tier2:					      |	        } else {
+            case tier3:					      |	            F_rescale = Fstep1 * (FTARG / (FrefA + small_num)
+            case tier4:					      <
+            case tier5:					      <
+            case tier6:					      <
+            case tier7:					      <
+            case dyntier4:				      <
+            case dyntier1B0:				      <
+            case sp_rollover:				      <
+            case tier13:				      <
+                Fstep1 = Fcurr / (FunctGroupArray[sp].species <
+                F_rescale = Fstep1 * (FTARG / (Fcurr + small_ <
+                break;					      <
+            case tier9: // Norwegian way of doing it - to avo <
+                Fstep1 = Fcurr / (FunctGroupArray[sp].species <
+                F_rescale = Fstep1 * (FTARG / (FrefA + small_ <
+                break;					      <
+            case tier8:					      <
+                /* In tier 8 version rescaling vs FrefA - alt <
+                 so just in case the user has not entered Fre <
+                this_mFC = FunctGroupArray[sp].speciesParams[ <
+                Fstep1 = FrefA / this_mFC;		      <
+                F_rescale = Fstep1 * (FTARG / (FrefA + small_ <
+                break;					      <
+            default:					      <
+                quit("Per_Sp_Frescale: We do not have any cod <
+                break;					      <
+							      >	    } else {
+							      >	        /* In tier 8 version rescaling vs FrefA - although ap
+							      >	         so just in case the user has not entered FrefA for m
+							      >	        this_mFC = FunctGroupArray[sp].speciesParams[maxmFC_i
+							      >	        Fstep1 = FrefA / this_mFC;
+							      >	        F_rescale = Fstep1 * (FTARG / (FrefA + small_num));  
+            WriteAnnBrokenStickFile(bm, sp, nf, tier, FrefLim |	            WriteAnnBrokenStickFile(bm, sp, nf, Fcurr, FTARG,
+    double FrefLim = FunctGroupArray[sp].speciesParams[FrefLi |
+    							      <
+    fprintf(llogfp, "The HCR refernce poitns are as follows:\ <
+    fprintf(llogfp, "BrefA: %e, BrefB: %e, Blim: %e, FrefLim: <
+            /* Less than BrefB and greater than Blim (e.g. B2 |	            /* Less than BrefB and greater than Blim (e.g. B2
+               Formulate updated to allow for FrefLme to be n |	            FTARG = FrefA * ((Bcurr - Blim) / (BrefB - Blim))
+            FTARG = ((FrefLim * (BrefB - Bcurr) + FrefA * (Bc <
+            /* Less than Blim so set F = FrefLim (typicall ab |	            /* Less than Blim so set F = 0 */
+            FTARG = FrefLim;				      |	            FTARG = 0;
+							      >
+                WriteAnnBrokenStickFile(bm, othersp, nf, tier |	                WriteAnnBrokenStickFile(bm, othersp, nf, Fcur
+
+FILE COMPARED
+atmanage/atManageIndex.c
+
+FILE COMPARED
+atmanage/atManageIO.c
+							      >
+							      >
+    fprintf(fid,"Tier ");				      |
+    fprintf(fid,"FrefLim ");				      |	    fprintf(fid, "FCurr ");
+    fprintf(fid,"FrefA ");				      |
+    fprintf(fid,"FrefH ");				      |	    fprintf(fid, "FTARG ");
+    fprintf(fid,"Blim ");				      |
+    fprintf(fid,"BrefB ");				      <
+    fprintf(fid,"BrefA ");				      <
+    fprintf(fid,"FCurr ");				      <
+    fprintf(fid,"FTARG ");				      <
+							      >
+							      >
+void WriteAnnBrokenStickFile(MSEBoxModel *bm,  int species, i |	void WriteAnnBrokenStickFile(MSEBoxModel *bm,  int species, i
+	fprintf(annBrokenfp, "%e %s %s %d %e %e %e %e %e %e % |		fprintf(annBrokenfp, "%e %s %s %e %e %e %e\n", bm->da
+
+FILE COMPARED
+atmanage/atManageMPATS.c
+
+FILE COMPARED
+atmanage/atManageParamIO.c
+    if(    Util_XML_Read_Array_Double(ATLANTIS_ATTRIBUTE, fil <
+        quit("Error: Unable to find parameter 'TAC_Parameters <
+    }							      <
+    							      <
+    							      <
+/* Read the Seasonal Fishery xml nodes */		      |	/* Create the Seasonal Fishery xml ndoes */
+/* Read the ryke based Fishery xml nodes */		      |	/* Create the Seasonal Fishery xml ndoes */
+/* Read the contaminant Fishery xml ndoes */		      <
+void readContaminantFisheryXML(MSEBoxModel *bm, char *fileNam <
+    int i, cIndex;					      <
+    xmlNodePtr groupingNode;				      <
+    char varStr[STRLEN*2];				      <
+    double *values = 0;					      <
+    char errorString[STRLEN];				      <
+    sprintf(errorString, "%s/Fishery_Contaminant_Parameters", <
+ 							      <
+    groupingNode = Util_XML_Get_Node(ATLANTIS_ATTRIBUTE_SUB_G <
+    if (groupingNode == NULL)				      <
+        quit("readContaminantFisheryXML: %s attribute group n <
+    							      <
+    if(Util_XML_Read_Array_Double(ATLANTIS_ATTRIBUTE, fileNam <
+        quit("Error: Unable to find parameter '%s/ContamClose <
+    }							      <
+    							      <
+    for (i = 0; i < bm->nbox; i++) {			      <
+        bm->ContamClosed[i] = values[i];		      <
+    }							      <
+    free(values);					      <
+    							      <
+    bm->flag_contam_fisheries_mgmt = Util_XML_Read_Value(file <
+    bm->contam_fishery_closure_day = Util_XML_Read_Value(file <
+    bm->contam_fishery_closure_period = Util_XML_Read_Value(f <
+    bm->contam_fishery_closure_option = Util_XML_Read_Value(f <
+							      <
+    for(cIndex = 0; cIndex < bm->num_contaminants; cIndex++){ <
+        sprintf(varStr, "%s_fishery_thresh_level", bm->contam <
+        bm->contaminantStructure[cIndex]->fishery_thresh_leve <
+    }							      <
+                         				      <
+}							      <
+							      <
+    if(bm->track_contaminants){				      <
+        readContaminantFisheryXML(bm, filename, inputDoc->chi <
+    }							      <
+
+FILE COMPARED
+atmanage/atManageSetup.c
+            FunctGroupArray[sp].speciesParams[FrefLim_id] = F <
+    free1d(FrefLimi);					      <
+    							      <
+    free1d(bm->ContamClosed);				      <
+    bm->ContamClosed = Util_Alloc_Init_1D_Double(bm->nbox, 0. <
+							      <
+
+FILE COMPARED
+atmanage/atManageTier.c
+    case tier13:  // Icealndic escapement method	      <
+        case tier13: //  ---------------- tier 13 Iceland esc <
+
+FILE COMPARED
+atmanage/atPGMSY.c
+
+FILE COMPARED
+atmanage/atRlink.c
+int initRedus(int ans)					      |	int initRedus()
+
+FILE COMPARED
+atmanage/atRlinkRAssess.c
+
+FILE COMPARED
+atmanage/atRlinkRBC.c
+
+FILE COMPARED
+atmanage/atRlinkRedus.c
+int initRedus(int ans)					      |	int initRedus()
+
+FILE COMPARED
+atmanage/atSS3assess.c
+    free(cwd);  // TODO: This correct or cause dump?	      |	    free(cwd);
+
+FILE COMPARED
+atphysics/atagetracerIO.c
+
+FILE COMPARED
+atphysics/atbioirrig.c
+
+FILE COMPARED
+atphysics/atbioturb.c
+
+FILE COMPARED
+atphysics/atboundary.c
+
+FILE COMPARED
+atphysics/atdecay.c
+
+FILE COMPARED
+atphysics/atdeposition.c
+    fprintf(bm->logFile,"Doing deposition in box %d ");	      |	    sed_layer_coords(sm);
+    sed_layer_coords(sm, bm->logFile);			      <
+
+FILE COMPARED
+atphysics/atdiagIO.c
+
+FILE COMPARED
+atphysics/atdietIO.c
+
+FILE COMPARED
+atphysics/atepiIO.c
+
+FILE COMPARED
+atphysics/atfishstatIO.c
+
+FILE COMPARED
+atphysics/atgas.c
+
+FILE COMPARED
+atphysics/atgeomIO.c
+
+FILE COMPARED
+atphysics/athdiff.c
+
+FILE COMPARED
+atphysics/athydromod.c
+
+FILE COMPARED
+atphysics/aticeIO.c
+
+FILE COMPARED
+atphysics/atindex.c
+
+FILE COMPARED
+atphysics/atLandIO.c
+
+FILE COMPARED
+atphysics/atparamIO.c
+
+FILE COMPARED
+atphysics/atphysics_2013.vcxproj.bec
+
+FILE COMPARED
+atphysics/atphysics.c
+	free_diffusion1d(1);				      |		free_diffusion1d();
+
+FILE COMPARED
+atphysics/atPhysicsModule.c
+
+FILE COMPARED
+atphysics/atphysIO.c
+
+FILE COMPARED
+atphysics/atprofile.c
+
+FILE COMPARED
+atphysics/atreadbm.c
+
+FILE COMPARED
+atphysics/atsaturation.c
+
+FILE COMPARED
+atphysics/atsedprops.c
+
+FILE COMPARED
+atphysics/atsettle.c
+
+FILE COMPARED
+atphysics/atsourcesink.c
+
+FILE COMPARED
+atphysics/atsummaryIO.c
+
+FILE COMPARED
+atphysics/atsuspension.c
+
+FILE COMPARED
+atphysics/atswr.c
+
+FILE COMPARED
+atphysics/attempsalt.c
+    if (propInput->prop_vid < 0) {			      |		if (propInput->prop_vid < 0)
+        quit("open_phyprop: no %s variable in %s\n", propInpu |			quit("open_phyprop: no %s variable in %s\n", 
+    }							      |
+    							      <
+
+FILE COMPARED
+atphysics/attracerIO.c
+    /*							      |	    //int pid = FunctGroupArray[8].contamPropTracers[3][0];
+    int pid = FunctGroupArray[8].contamPropTracers[3][0];     |	    //fprintf(bm->logFile, "Time: %e at start of writeBMTrace
+    fprintf(bm->logFile, "Time: %e at start of writeBMTracerD |
+     */							      <
+     							      <
+
+FILE COMPARED
+atphysics/attransport.c
+
+FILE COMPARED
+atphysics/atvdiff.c
+
+FILE COMPARED
+atphysics/atvertgeom.c
+        //fprintf(bm->logFile, "box: %d ", b);		      <
+        						      <
+		sed_layer_coords(sm, llogfp);		      |			sed_layer_coords(sm);
+void sed_layer_coords(SedModel *sm, FILE *llogfp)	      |	void sed_layer_coords(SedModel *sm)
+    							      <
+    //fprintf(llogfp, "topk: %d sm->dz[0]: %e ", sm->topk, sm <
+    							      <
+    							      <
+    //fprintf(llogfp, "but ends sm->dz[0] %e \n", sm->dz[0]); <
+
+FILE COMPARED
+atphysics/atvmix.c
+
+FILE COMPARED
+atSS3Link/atCloseKin.c
+
+FILE COMPARED
+atSS3Link/atSS3DataGen.c
+
+FILE COMPARED
+atSS3Link/atSS3Link_2013.vcxproj.bec
+
+FILE COMPARED
+atSS3Link/atSS3Link.c
+
+FILE COMPARED
+atSS3Link/atSS3LinkIO.c
+
+FILE COMPARED
+atSS3Link/atSS3Test.c
+
+FILE COMPARED
+atSS3Link/atSS3Util.c
+
+FILE COMPARED
+build_hpc
+
+FILE COMPARED
+configure_mac
+
+FILE COMPARED
+configure.ac
+
+FILE COMPARED
+ConvertAtlantis/atAssesstoXML.c
+
+FILE COMPARED
+ConvertAtlantis/atBioltoXML.c
+
+FILE COMPARED
+ConvertAtlantis/atCreateXML.c
+
+FILE COMPARED
+ConvertAtlantis/atEconomicXML.c
+
+FILE COMPARED
+ConvertAtlantis/atFisheriesXML.c
+
+FILE COMPARED
+ConvertAtlantis/atGroupsXML.c
+
+FILE COMPARED
+ConvertAtlantis/atHarvesttoXML.c
+
+FILE COMPARED
+ConvertAtlantis/atImplementationtoXML.c
+
+FILE COMPARED
+ConvertAtlantis/atManagetoXML.c
+    Util_XML_Create_Node_Next_Line(fp, fileName, childGroupin <
+    							      <
+							      >	    Util_XML_Parse_Create_Node(fp, fileName, groupingNode, "c
+							      >	    Util_XML_Parse_Create_Node(fp, fileName, groupingNode, "f
+							      >
+							      >	    
+
+FILE COMPARED
+ConvertAtlantis/atRunXML.c
+
+FILE COMPARED
+ConvertAtlantis/ConvertAtlantis_2013.vcxproj.bec
+
+FILE COMPARED
+externalLibs/win32_vs_dll_4.0.1-beta3.tar/netcdf.inc
+
+FILE COMPARED
+netcdf/include/netcdf.inc
+
+FILE COMPARED
+sjwlib/cfft.c
+
+FILE COMPARED
+sjwlib/colourtable.c
+
+FILE COMPARED
+sjwlib/contour.c
+
+FILE COMPARED
+sjwlib/convertFileFormats.c
+
+FILE COMPARED
+sjwlib/datafile.c
+
+FILE COMPARED
+sjwlib/decay.c
+
+FILE COMPARED
+sjwlib/dfcoords.c
+
+FILE COMPARED
+sjwlib/dfeval.c
+
+FILE COMPARED
+sjwlib/diffusion.c
+
+FILE COMPARED
+sjwlib/drandom.c
+
+FILE COMPARED
+sjwlib/ellipt_coord.c
+
+FILE COMPARED
+sjwlib/erfc.c
+
+FILE COMPARED
+sjwlib/geodetic.c
+
+FILE COMPARED
+sjwlib/gridangle.c
+
+FILE COMPARED
+sjwlib/gridmetric.c
+
+FILE COMPARED
+sjwlib/gridmisc.c
+
+FILE COMPARED
+sjwlib/keyfile.c
+
+FILE COMPARED
+sjwlib/libsjwlib.pc
+
+FILE COMPARED
+sjwlib/mapproj.c
+
+FILE COMPARED
+sjwlib/memory.c
+
+FILE COMPARED
+sjwlib/netcdf.c
+
+FILE COMPARED
+sjwlib/nrcdflib.c
+
+FILE COMPARED
+sjwlib/pointsourcesink.c
+
+FILE COMPARED
+sjwlib/polar_coord.c
+
+FILE COMPARED
+sjwlib/polyline.c
+
+FILE COMPARED
+sjwlib/ppbfetch.c
+
+FILE COMPARED
+sjwlib/ptrack.c
+
+FILE COMPARED
+sjwlib/quit.c
+
+FILE COMPARED
+sjwlib/rect_coord.c
+
+FILE COMPARED
+sjwlib/sjwlib_2013.vcxproj.bec
+
+FILE COMPARED
+sjwlib/spline.c
+
+FILE COMPARED
+sjwlib/text_input.c
+
+FILE COMPARED
+sjwlib/time.c
+
+FILE COMPARED
+sjwlib/timeseries.c
+
+FILE COMPARED
+sjwlib/txt_param.c
+
+FILE COMPARED
+sjwlib/vgrid.c
+
+FILE COMPARED
+sjwlib/warn.c
+
+FILE COMPARED
+sjwlib/waterprops.c
+
+FILE COMPARED
+sjwlib/weight_fn.c
+
+FILE COMPARED
+sjwlib/win32.c
+
+FILE COMPARED
+sjwlib/xytoij.c

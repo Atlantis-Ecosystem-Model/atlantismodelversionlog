@@ -1,0 +1,776 @@
+---
+title: "v6707"
+---
+
+<img width="30" alt="image" src="https://user-images.githubusercontent.com/11339490/272713181-58a7442b-f4df-4987-9afe-cb4702236a8f.jpg">
+
+***New parameters to add***
+No new parameters
+
+
+**SVN commit message** 
+------------------------------------------------------------------------
+r6707 | ful083 | 2024-03-30 07:20:31 -0700 (Sat, 30 Mar 2024) | 3 lines
+Changed paths:
+   M /Atlantis/trunk/atlantis/ConvertAtlantis/atBioltoXML.c
+   M /Atlantis/trunk/atlantis/ConvertAtlantis/atManagetoXML.c
+
+Added contaminant handling
+
+See blog entry on contaminants for list of additional parameters
+--------------------------------------------------------------------------------
+
+**Atlantis model used:** Atlantis Model for Puget Sound https://github.com/hmorzaria/psatlantismodel commit 87031b7
+
+**Atlantis revision comments**
+
+**Version 6707**
+
+**Date pulled:** May 15, 2024
+
+**OS:** Ubuntu 20.04 LTS
+
+**Environment:** Linux
+
+**Modeler:** Hem Nalini Morzaria-Luna
+
+**Notes**
+
+**Model behavior**
+
+Not compiled
+
+
+Code changes
+--------------------------------------------------------------------------------
+Versions compared 6707 6706
+FILE COMPARED
+atassess/atassess_2013.vcxproj.bec
+
+FILE COMPARED
+atassess/atassessParamIO.c
+
+FILE COMPARED
+atassess/atAssessTierSetup.c
+
+FILE COMPARED
+atassess/atattribute.c
+
+FILE COMPARED
+atassess/atclassical.c
+
+FILE COMPARED
+atassess/atdatareading.c
+
+FILE COMPARED
+atassess/atdiet.c
+
+FILE COMPARED
+atassess/atindices.c
+
+FILE COMPARED
+atassess/atnetwork.c
+
+FILE COMPARED
+atassess/atsample.c
+
+FILE COMPARED
+atassess/atsamplesetup.c
+
+FILE COMPARED
+atassess/atsolve.c
+
+FILE COMPARED
+atassess/atsurvey.c
+
+FILE COMPARED
+atassess/atwriting.c
+
+FILE COMPARED
+atassess/doolittle.c
+
+FILE COMPARED
+atassess/unit_lower_triangular.c
+
+FILE COMPARED
+atassess/upper_triangular.c
+
+FILE COMPARED
+atbrokerlink/atBrokerLinkInit.c
+
+FILE COMPARED
+atbrokerlink/Deserialiser.c
+
+FILE COMPARED
+atbrokerlink/ImportExportData.c
+
+FILE COMPARED
+atbrokerlink/LinkageInterface.c
+
+FILE COMPARED
+atbrokerlink/network.c
+
+FILE COMPARED
+atbrokerlink/NetworkError.c
+
+FILE COMPARED
+atbrokerlink/requests.pb-c.c
+
+FILE COMPARED
+atbrokerlink/responses.pb-c.c
+
+FILE COMPARED
+atCLAMLink/atCLAMComm.c
+
+FILE COMPARED
+atCLAMLink/atCLAMImplement.c
+
+FILE COMPARED
+atCLAMLink/atCLAMLink.c
+
+FILE COMPARED
+atCLAMLink/atCLAMLinkIO.c
+
+FILE COMPARED
+atCLAMLink/atCLAMLinkSetup.c
+
+FILE COMPARED
+atCLAMLink/atCLAMManage.c
+
+FILE COMPARED
+atecology/additionalTracer.c
+
+FILE COMPARED
+atecology/atannualbiology.c
+
+FILE COMPARED
+atecology/atbiolmessage.c
+
+FILE COMPARED
+atecology/atbiology.c
+
+FILE COMPARED
+atecology/atBiologyXMLParamIO.c
+
+FILE COMPARED
+atecology/atbiolsetup.c
+
+FILE COMPARED
+atecology/atbiolUtil.c
+
+FILE COMPARED
+atecology/atbiophysics.c
+
+FILE COMPARED
+atecology/atBuildTracer.c
+
+FILE COMPARED
+atecology/atcalibtools.c
+
+FILE COMPARED
+atecology/atContaminants.c
+
+FILE COMPARED
+atecology/atcoral.c
+
+FILE COMPARED
+atecology/atdemography.c
+
+FILE COMPARED
+atecology/atdiversity.c
+
+FILE COMPARED
+atecology/atecology_2013.vcxproj.bec
+
+FILE COMPARED
+atecology/atecology.c
+
+FILE COMPARED
+atecology/atecologyts.c
+
+FILE COMPARED
+atecology/atexternalpop.c
+
+FILE COMPARED
+atecology/atExternalScalar.c
+
+FILE COMPARED
+atecology/atfluxbreakdown.c
+
+FILE COMPARED
+atecology/atForcedMovement.c
+
+FILE COMPARED
+atecology/atGroupProcesses.c
+
+FILE COMPARED
+atecology/atIceProcesses.c
+
+FILE COMPARED
+atecology/atImposeRecruit.c
+
+FILE COMPARED
+atecology/atLandProcess.c
+
+FILE COMPARED
+atecology/atmacrophytes.c
+
+FILE COMPARED
+atecology/atmigration.c
+
+FILE COMPARED
+atecology/atmovement.c
+
+FILE COMPARED
+atecology/atNutrient.c
+
+FILE COMPARED
+atecology/atPhysChemIO.c
+
+FILE COMPARED
+atecology/atprocess.c
+
+FILE COMPARED
+atecology/atq10.c
+
+FILE COMPARED
+atecology/attime.c
+
+FILE COMPARED
+atecology/atvertprocesses.c
+
+FILE COMPARED
+atecology/dump.c
+
+FILE COMPARED
+atecology/init.c
+
+FILE COMPARED
+ateconomic/ateconeffort.c
+
+FILE COMPARED
+ateconomic/ateconhelp.c
+
+FILE COMPARED
+ateconomic/ateconindicator.c
+
+FILE COMPARED
+ateconomic/ateconio.c
+
+FILE COMPARED
+ateconomic/ateconomic_2013.vcxproj.bec
+
+FILE COMPARED
+ateconomic/ateconomic.c
+
+FILE COMPARED
+ateconomic/atEconomicAnnual.c
+
+FILE COMPARED
+ateconomic/ateconomicsetup.c
+
+FILE COMPARED
+ateconomic/atEconomicUtil.c
+
+FILE COMPARED
+ateconomic/ateconParamIO.c
+
+FILE COMPARED
+ateconomic/ateconresponse.c
+
+FILE COMPARED
+ateconomic/ateconts.c
+
+FILE COMPARED
+ateconomic/ateffortquota.c
+
+FILE COMPARED
+ateconomic/atquota.c
+
+FILE COMPARED
+atharvest/atharvest_2013.vcxproj.bec
+
+FILE COMPARED
+atharvest/atHarvest.c
+
+FILE COMPARED
+atharvest/atHarvestAnnual.c
+
+FILE COMPARED
+atharvest/atHarvestCatch.c
+
+FILE COMPARED
+atharvest/atHarvestDiscards.c
+
+FILE COMPARED
+atharvest/atHarvestImposedCatch.c
+
+FILE COMPARED
+atharvest/atHarvestIndex.c
+
+FILE COMPARED
+atharvest/atHarvestIO.c
+
+FILE COMPARED
+atharvest/atHarvestParamIO.c
+
+FILE COMPARED
+atharvest/atHarvestSetup.c
+
+FILE COMPARED
+atharvest/atHarvestTS.c
+
+FILE COMPARED
+atimplementation/atimplementation_2013.vcxproj.bec
+
+FILE COMPARED
+atimplementation/atImplementationAnnual.c
+
+FILE COMPARED
+atimplementation/atImplementationParamIO.c
+
+FILE COMPARED
+atimplementation/atImplementationSetup.c
+
+FILE COMPARED
+atlantismain/atlantismain.c
+
+FILE COMPARED
+atlantismain/atlantisMerged.pc
+
+FILE COMPARED
+atlantisUtil/atlantisUtil_2013.vcxproj.bec
+
+FILE COMPARED
+atlantisUtil/atUtil.c
+
+FILE COMPARED
+atlantisUtil/atUtilArray.c
+
+FILE COMPARED
+atlantisUtil/atUtilFisheryIO.c
+
+FILE COMPARED
+atlantisUtil/atUtilFisheryXML.c
+
+FILE COMPARED
+atlantisUtil/atUtilGroupIO.c
+
+FILE COMPARED
+atlantisUtil/atUtilhelp.c
+
+FILE COMPARED
+atlantisUtil/atUtilIO.c
+
+FILE COMPARED
+atlantisUtil/atUtilUnix.c
+
+FILE COMPARED
+atlantisUtil/atUtilXML.c
+
+FILE COMPARED
+atlink/atComms.c
+
+FILE COMPARED
+atlink/atlinkconversion.c
+
+FILE COMPARED
+atlink/atlinkexport.c
+
+FILE COMPARED
+atlink/atlinkimport.c
+
+FILE COMPARED
+atmanage/atmanage_2013.vcxproj.bec
+
+FILE COMPARED
+atmanage/atManage.c
+
+FILE COMPARED
+atmanage/atManageAnnual.c
+
+FILE COMPARED
+atmanage/atManageIndex.c
+
+FILE COMPARED
+atmanage/atManageIO.c
+
+FILE COMPARED
+atmanage/atManageMPATS.c
+
+FILE COMPARED
+atmanage/atManageParamIO.c
+
+FILE COMPARED
+atmanage/atManageSetup.c
+
+FILE COMPARED
+atmanage/atManageTier.c
+
+FILE COMPARED
+atmanage/atPGMSY.c
+
+FILE COMPARED
+atmanage/atRlink.c
+
+FILE COMPARED
+atmanage/atRlinkRAssess.c
+
+FILE COMPARED
+atmanage/atRlinkRBC.c
+
+FILE COMPARED
+atmanage/atRlinkRedus.c
+
+FILE COMPARED
+atmanage/atSS3assess.c
+
+FILE COMPARED
+atphysics/atagetracerIO.c
+
+FILE COMPARED
+atphysics/atbioirrig.c
+
+FILE COMPARED
+atphysics/atbioturb.c
+
+FILE COMPARED
+atphysics/atboundary.c
+
+FILE COMPARED
+atphysics/atdecay.c
+
+FILE COMPARED
+atphysics/atdeposition.c
+
+FILE COMPARED
+atphysics/atdiagIO.c
+
+FILE COMPARED
+atphysics/atdietIO.c
+
+FILE COMPARED
+atphysics/atepiIO.c
+
+FILE COMPARED
+atphysics/atfishstatIO.c
+
+FILE COMPARED
+atphysics/atgas.c
+
+FILE COMPARED
+atphysics/atgeomIO.c
+
+FILE COMPARED
+atphysics/athdiff.c
+
+FILE COMPARED
+atphysics/athydromod.c
+
+FILE COMPARED
+atphysics/aticeIO.c
+
+FILE COMPARED
+atphysics/atindex.c
+
+FILE COMPARED
+atphysics/atLandIO.c
+
+FILE COMPARED
+atphysics/atparamIO.c
+
+FILE COMPARED
+atphysics/atphysics_2013.vcxproj.bec
+
+FILE COMPARED
+atphysics/atphysics.c
+
+FILE COMPARED
+atphysics/atPhysicsModule.c
+
+FILE COMPARED
+atphysics/atphysIO.c
+
+FILE COMPARED
+atphysics/atprofile.c
+
+FILE COMPARED
+atphysics/atreadbm.c
+
+FILE COMPARED
+atphysics/atsaturation.c
+
+FILE COMPARED
+atphysics/atsedprops.c
+
+FILE COMPARED
+atphysics/atsettle.c
+
+FILE COMPARED
+atphysics/atsourcesink.c
+
+FILE COMPARED
+atphysics/atsummaryIO.c
+
+FILE COMPARED
+atphysics/atsuspension.c
+
+FILE COMPARED
+atphysics/atswr.c
+
+FILE COMPARED
+atphysics/attempsalt.c
+
+FILE COMPARED
+atphysics/attracerIO.c
+
+FILE COMPARED
+atphysics/attransport.c
+
+FILE COMPARED
+atphysics/atvdiff.c
+
+FILE COMPARED
+atphysics/atvertgeom.c
+
+FILE COMPARED
+atphysics/atvmix.c
+
+FILE COMPARED
+atSS3Link/atCloseKin.c
+
+FILE COMPARED
+atSS3Link/atSS3DataGen.c
+
+FILE COMPARED
+atSS3Link/atSS3Link_2013.vcxproj.bec
+
+FILE COMPARED
+atSS3Link/atSS3Link.c
+
+FILE COMPARED
+atSS3Link/atSS3LinkIO.c
+
+FILE COMPARED
+atSS3Link/atSS3Test.c
+
+FILE COMPARED
+atSS3Link/atSS3Util.c
+
+FILE COMPARED
+build_hpc
+
+FILE COMPARED
+configure_mac
+
+FILE COMPARED
+configure.ac
+
+FILE COMPARED
+ConvertAtlantis/atAssesstoXML.c
+
+FILE COMPARED
+ConvertAtlantis/atBioltoXML.c
+    Util_XML_Parse_Create_Node(fp, fileName, groupingNode, "c
+							      <
+
+							      <
+    Util_XML_Parse_Create_Node(fp, fileName, groupingNode, "f
+							      <
+        
+							      <
+
+FILE COMPARED
+ConvertAtlantis/atCreateXML.c
+
+FILE COMPARED
+ConvertAtlantis/atEconomicXML.c
+
+FILE COMPARED
+ConvertAtlantis/atFisheriesXML.c
+
+FILE COMPARED
+ConvertAtlantis/atGroupsXML.c
+
+FILE COMPARED
+ConvertAtlantis/atHarvesttoXML.c
+
+FILE COMPARED
+ConvertAtlantis/atImplementationtoXML.c
+
+FILE COMPARED
+ConvertAtlantis/atManagetoXML.c
+/* Fisheries contaminant management */			      <
+void ContaminantFisheryXML(MSEBoxModel *bm, FILE *fp, char *f <
+    int cIndex;						      <
+    char varStr[STRLEN*2];				      <
+    char longStr[2*STRLEN];				      <
+							      <
+    xmlNodePtr groupingNode;				      <
+    groupingNode = Util_XML_Create_Node(ATLANTIS_ATTRIBUTE_SU <
+							      <
+    /* not sure this is going to give the correct array lengt <
+    Util_XML_Create_Node_Next_Line(			      <
+            fp,						      <
+            fileName,					      <
+            groupingNode,				      <
+            "ContamClosed",				      <
+            "Sites closed due to a contaminant spill",	      <
+            "", XML_TYPE_BOOLEANARRAY);			      <
+							      <
+    Util_XML_Parse_Create_Node(fp, fileName, groupingNode, "f <
+    Util_XML_Parse_Create_Node(fp, fileName, groupingNode, "c <
+    Util_XML_Parse_Create_Node(fp, fileName, groupingNode, "c <
+    Util_XML_Parse_Create_Node(fp, fileName, groupingNode, "c <
+							      <
+    Util_XML_Parse_Create_Node(fp, fileName, groupingNode, "c <
+    Util_XML_Parse_Create_Node(fp, fileName, groupingNode, "f <
+							      <
+    							      <
+    for(cIndex = 0; cIndex < bm->num_contaminants; cIndex++){ <
+        sprintf(varStr, "%s_fishery_thresh_level", bm->contam <
+        sprintf(longStr, "Concentration of ontaminant %s wher <
+        Util_XML_Parse_Create_Node(fp, fileName, groupingNode <
+    }							      <
+							      <
+}							      <
+							      <
+							      <
+    if(bm->track_contaminants) {			      <
+        ContaminantFisheryXML(bm, fp, fileName, doc, rootnode <
+    }							      <
+
+FILE COMPARED
+ConvertAtlantis/atRunXML.c
+
+FILE COMPARED
+ConvertAtlantis/ConvertAtlantis_2013.vcxproj.bec
+
+FILE COMPARED
+externalLibs/win32_vs_dll_4.0.1-beta3.tar/netcdf.inc
+
+FILE COMPARED
+netcdf/include/netcdf.inc
+
+FILE COMPARED
+sjwlib/cfft.c
+
+FILE COMPARED
+sjwlib/colourtable.c
+
+FILE COMPARED
+sjwlib/contour.c
+
+FILE COMPARED
+sjwlib/convertFileFormats.c
+
+FILE COMPARED
+sjwlib/datafile.c
+
+FILE COMPARED
+sjwlib/decay.c
+
+FILE COMPARED
+sjwlib/dfcoords.c
+
+FILE COMPARED
+sjwlib/dfeval.c
+
+FILE COMPARED
+sjwlib/diffusion.c
+
+FILE COMPARED
+sjwlib/drandom.c
+
+FILE COMPARED
+sjwlib/ellipt_coord.c
+
+FILE COMPARED
+sjwlib/erfc.c
+
+FILE COMPARED
+sjwlib/geodetic.c
+
+FILE COMPARED
+sjwlib/gridangle.c
+
+FILE COMPARED
+sjwlib/gridmetric.c
+
+FILE COMPARED
+sjwlib/gridmisc.c
+
+FILE COMPARED
+sjwlib/keyfile.c
+
+FILE COMPARED
+sjwlib/libsjwlib.pc
+
+FILE COMPARED
+sjwlib/mapproj.c
+
+FILE COMPARED
+sjwlib/memory.c
+
+FILE COMPARED
+sjwlib/netcdf.c
+
+FILE COMPARED
+sjwlib/nrcdflib.c
+
+FILE COMPARED
+sjwlib/pointsourcesink.c
+
+FILE COMPARED
+sjwlib/polar_coord.c
+
+FILE COMPARED
+sjwlib/polyline.c
+
+FILE COMPARED
+sjwlib/ppbfetch.c
+
+FILE COMPARED
+sjwlib/ptrack.c
+
+FILE COMPARED
+sjwlib/quit.c
+
+FILE COMPARED
+sjwlib/rect_coord.c
+
+FILE COMPARED
+sjwlib/sjwlib_2013.vcxproj.bec
+
+FILE COMPARED
+sjwlib/spline.c
+
+FILE COMPARED
+sjwlib/text_input.c
+
+FILE COMPARED
+sjwlib/time.c
+
+FILE COMPARED
+sjwlib/timeseries.c
+
+FILE COMPARED
+sjwlib/txt_param.c
+
+FILE COMPARED
+sjwlib/vgrid.c
+
+FILE COMPARED
+sjwlib/warn.c
+
+FILE COMPARED
+sjwlib/waterprops.c
+
+FILE COMPARED
+sjwlib/weight_fn.c
+
+FILE COMPARED
+sjwlib/win32.c
+
+FILE COMPARED
+sjwlib/xytoij.c

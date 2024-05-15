@@ -5,6 +5,7 @@ title: "v6704"
 <img width="30" alt="image" src="https://user-images.githubusercontent.com/11339490/272713181-58a7442b-f4df-4987-9afe-cb4702236a8f.jpg">
 
 ***New parameters to add***
+No new parameters
 
 
 **SVN commit message** 
@@ -36,6 +37,8 @@ Changed reference to flagusingRedusR_HCR_id to overall model variable bm->usingR
 **Model behavior**
 
 Code compiled and runs to 5 years
+
+Code changes
 --------------------------------------------------------------------------------
 Specific code changes relative to v6702
 
