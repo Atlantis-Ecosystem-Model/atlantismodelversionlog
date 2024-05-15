@@ -1,0 +1,861 @@
+---
+title: "v6706"
+---
+
+<img width="30" alt="image" src="https://user-images.githubusercontent.com/11339490/272713181-58a7442b-f4df-4987-9afe-cb4702236a8f.jpg">
+
+***New parameters to add***
+No new parameters
+
+
+**SVN commit message** 
+------------------------------------------------------------------------
+r6706 | ful083 | 2024-03-30 07:17:22 -0700 (Sat, 30 Mar 2024) | 1 line
+Changed paths:
+   M /Atlantis/trunk/atlantis/sjwlib/diffusion.c
+   M /Atlantis/trunk/atlantis/sjwlib/include/sjwlib.h
+
+Sorting compile issues
+--------------------------------------------------------------------------------
+
+**Atlantis model used:** Atlantis Model for Puget Sound https://github.com/hmorzaria/psatlantismodel commit 87031b7
+
+**Atlantis revision comments**
+
+**Version 6706**
+
+**Date pulled:** May 15, 2024
+
+**OS:** Ubuntu 20.04 LTS
+
+**Environment:** Linux
+
+**Modeler:** Hem Nalini Morzaria-Luna
+
+**Notes**
+
+**Model behavior**
+
+Not compiled
+
+
+Code changes
+--------------------------------------------------------------------------------
+Versions compared 6706 6704
+FILE COMPARED
+atassess/atassess_2013.vcxproj.bec
+
+FILE COMPARED
+atassess/atassessParamIO.c
+
+FILE COMPARED
+atassess/atAssessTierSetup.c
+
+FILE COMPARED
+atassess/atattribute.c
+
+FILE COMPARED
+atassess/atclassical.c
+
+FILE COMPARED
+atassess/atdatareading.c
+
+FILE COMPARED
+atassess/atdiet.c
+
+FILE COMPARED
+atassess/atindices.c
+
+FILE COMPARED
+atassess/atnetwork.c
+
+FILE COMPARED
+atassess/atsample.c
+
+FILE COMPARED
+atassess/atsamplesetup.c
+
+FILE COMPARED
+atassess/atsolve.c
+
+FILE COMPARED
+atassess/atsurvey.c
+
+FILE COMPARED
+atassess/atwriting.c
+
+FILE COMPARED
+atassess/doolittle.c
+
+FILE COMPARED
+atassess/unit_lower_triangular.c
+
+FILE COMPARED
+atassess/upper_triangular.c
+
+FILE COMPARED
+atbrokerlink/atBrokerLinkInit.c
+		Util_Usage(1);				      |			Util_Usage();
+		Util_Usage(1);				      |			Util_Usage();
+
+FILE COMPARED
+atbrokerlink/Deserialiser.c
+
+FILE COMPARED
+atbrokerlink/ImportExportData.c
+
+FILE COMPARED
+atbrokerlink/LinkageInterface.c
+
+FILE COMPARED
+atbrokerlink/network.c
+
+FILE COMPARED
+atbrokerlink/NetworkError.c
+
+FILE COMPARED
+atbrokerlink/requests.pb-c.c
+
+FILE COMPARED
+atbrokerlink/responses.pb-c.c
+
+FILE COMPARED
+atCLAMLink/atCLAMComm.c
+
+FILE COMPARED
+atCLAMLink/atCLAMImplement.c
+
+FILE COMPARED
+atCLAMLink/atCLAMLink.c
+
+FILE COMPARED
+atCLAMLink/atCLAMLinkIO.c
+
+FILE COMPARED
+atCLAMLink/atCLAMLinkSetup.c
+
+FILE COMPARED
+atCLAMLink/atCLAMManage.c
+
+FILE COMPARED
+atecology/additionalTracer.c
+
+FILE COMPARED
+atecology/atannualbiology.c
+            /*						      <
+            */						      <
+                                quit("EMBRYO[%s].next_larvae  |	                                quit("EMBRYO[%s].next_larvae 
+
+FILE COMPARED
+atecology/atbiolmessage.c
+
+FILE COMPARED
+atecology/atbiology.c
+    if (verbose > 0){					      |	    if (verbose > 0)
+        printf("processing box %d\n", pBox->n);		      |			printf("processing box %d\n", pBox->n);
+        fflush(stdout);					      <
+        fflush(stderr);					      <
+    }							      <
+    if(!bm->dtsz_stored) {				      <
+        bm->dtsz_stored = dt;				      <
+    }							      <
+    							      <
+
+FILE COMPARED
+atecology/atBiologyXMLParamIO.c
+
+FILE COMPARED
+atecology/atbiolsetup.c
+    fprintf(llogfp, "totboxden created with dimension bm->K_n <
+    							      <
+
+FILE COMPARED
+atecology/atbiolUtil.c
+
+FILE COMPARED
+atecology/atbiophysics.c
+
+FILE COMPARED
+atecology/atBuildTracer.c
+
+FILE COMPARED
+atecology/atcalibtools.c
+
+FILE COMPARED
+atecology/atContaminants.c
+
+FILE COMPARED
+atecology/atcoral.c
+
+FILE COMPARED
+atecology/atdemography.c
+            warn("Time: %e Zeroing temperature sensitivity fo |	            warn("Time: %e Zeroing temperature sensitivity fo
+
+FILE COMPARED
+atecology/atdiversity.c
+
+FILE COMPARED
+atecology/atecology_2013.vcxproj.bec
+
+FILE COMPARED
+atecology/atecology.c
+
+FILE COMPARED
+atecology/atecologyts.c
+
+FILE COMPARED
+atecology/atexternalpop.c
+
+FILE COMPARED
+atecology/atExternalScalar.c
+
+FILE COMPARED
+atecology/atfluxbreakdown.c
+
+FILE COMPARED
+atecology/atForcedMovement.c
+
+FILE COMPARED
+atecology/atGroupProcesses.c
+
+FILE COMPARED
+atecology/atIceProcesses.c
+
+FILE COMPARED
+atecology/atImposeRecruit.c
+
+FILE COMPARED
+atecology/atLandProcess.c
+
+FILE COMPARED
+atecology/atmacrophytes.c
+
+FILE COMPARED
+atecology/atmigration.c
+    //int matage;					      |	    int matage;
+    //int last_return = -1;				      |	    int last_return = -1;
+            //matage = (int) (FunctGroupArray[sp].speciesPara |	            matage = (int) (FunctGroupArray[sp].speciesParams
+        //last_return = -1;				      |	        last_return = -1;
+        /** Error check printout **			      |	        /** Error check printout **/
+        **/						      |	        /**/
+                    /**					      |	                    /**/
+                    **/					      |	                    /**/
+        /**						      |	        /**/
+        **/						      |	        /**/
+
+FILE COMPARED
+atecology/atmovement.c
+	double clear, E1_sp, spSpeed, this_HowFar, vertdistri |		double clear, E1_sp, spSpeed, this_HowFar, vertdistri
+            Util_Init_1D_Double(totboxden, (bm->K_num_max_coh |	            for (n = 0; n < FunctGroupArray[sp].numCohortsXnu
+							      >					/* Initialise totnumber being
+							      >					totboxden[n] = 0.0;
+							      >				}
+							      >				min_temp_sp = FunctGroupArray[sp].spe
+							      >				max_temp_sp = FunctGroupArray[sp].spe
+							      >				min_salt_sp = FunctGroupArray[sp].spe
+							      >				max_salt_sp = FunctGroupArray[sp].spe
+                    warn("Ecology_Total_Verts_And_Migration:  |	                    warn("Time: %e Zeroing temperature sensit
+							      >					min_temp_sp += contract_sp * 
+							      >					max_temp_sp -= contract_sp * 
+							      >		double totboxden[invert_biosum + 1];
+    							      <
+        Util_Init_1D_Double(totboxden, (bm->K_num_max_cohort  <
+        						      <
+        if ((FunctGroupArray[sp].isVertebrate == TRUE) || (Fu <
+            continue;					      <
+        }						      <
+        						      <
+                warn("Ecology_Invert_Migration: Time: %e Zero |	                warn("Time: %e Zeroing temperature sensitivit
+               If not zero the entry. Similarly for salinity  |	               If not zero the entry. Simialrly for salinity 
+							      >	            */
+        /* Dedicated invertebrate movements */		      |	        // Dedicated invertebrate movements
+            if( flagcontract_sp  && (pH_scale > 0.0)) {	      |	           if( flagcontract_sp  && (pH_scale > 0.0)) {
+            						      |
+                    amt = 0;				      <
+							      >	                        amt = 0;
+                                */			      |	                                 */
+                */					      |	                 */
+							      <
+                					      <
+                					      <
+                               distinction between vertebrate |	                               distinction between vertebrate
+							      >	                            */
+                                    If not zero the entry. Si |	                                    If not zero the entry. Si
+							      >	                                    */
+                            				      <
+                            */				      |	                             */
+                                    */			      |	                                     */
+                    */					      |	                     */
+                                   to zero - divide by volume |	                                   to zero - divide by volume
+                                			      <
+                                for (k = 1; k < bm->boxes[ij] |								
+                                }			      <
+                */					      |	                 */
+                					      <
+        						      <
+							      >
+                    					      <
+						if(FunctGroup |							if(FunctGroup
+						} else if(Fun |							}else if(Func
+						} else {      |							}else{
+    							      <
+            warn("Invade_Spread: Time: %e Zeroing temperature |	            warn("Time: %e Zeroing temperature sensitivity fo
+    int flagcontract_sp, contract_sp;			      <
+    double pH_scale = 0.0;				      <
+            warn("Check_Conditions: Time: %e Zeroing temperat |	            warn("Time: %e Zeroing temperature sensitivity fo
+    /* Make parameter adjustments due to acidification */     <
+    flagcontract_sp = (int)FunctGroupArray[sp].speciesParams[ <
+    pH_scale = (FunctGroupArray[sp].pHcorr - 1.0);	      <
+    if( flagcontract_sp  && (pH_scale > 0.0)) {		      <
+        contract_sp = (int)FunctGroupArray[sp].speciesParams[ <
+        min_temp_sp += contract_sp * pH_scale;		      <
+        max_temp_sp -= contract_sp * pH_scale;		      <
+    }							      <
+							      <
+            warn("Check_Realloc_Conditions: Time: %e Zeroing  |	            warn("Time: %e Zeroing temperature sensitivity fo
+
+FILE COMPARED
+atecology/atNutrient.c
+
+FILE COMPARED
+atecology/atPhysChemIO.c
+
+FILE COMPARED
+atecology/atprocess.c
+
+FILE COMPARED
+atecology/atq10.c
+
+FILE COMPARED
+atecology/attime.c
+
+FILE COMPARED
+atecology/atvertprocesses.c
+	eatBact = eatBactPB + eatBactBB + eatIceBact;	      |		eatBact = eatBactPB + eatBactBB;
+
+FILE COMPARED
+atecology/dump.c
+
+FILE COMPARED
+atecology/init.c
+
+FILE COMPARED
+ateconomic/ateconeffort.c
+
+FILE COMPARED
+ateconomic/ateconhelp.c
+
+FILE COMPARED
+ateconomic/ateconindicator.c
+
+FILE COMPARED
+ateconomic/ateconio.c
+
+FILE COMPARED
+ateconomic/ateconomic_2013.vcxproj.bec
+
+FILE COMPARED
+ateconomic/ateconomic.c
+
+FILE COMPARED
+ateconomic/atEconomicAnnual.c
+
+FILE COMPARED
+ateconomic/ateconomicsetup.c
+
+FILE COMPARED
+ateconomic/atEconomicUtil.c
+
+FILE COMPARED
+ateconomic/ateconParamIO.c
+
+FILE COMPARED
+ateconomic/ateconresponse.c
+
+FILE COMPARED
+ateconomic/ateconts.c
+
+FILE COMPARED
+ateconomic/ateffortquota.c
+
+FILE COMPARED
+ateconomic/atquota.c
+
+FILE COMPARED
+atharvest/atharvest_2013.vcxproj.bec
+
+FILE COMPARED
+atharvest/atHarvest.c
+
+FILE COMPARED
+atharvest/atHarvestAnnual.c
+
+FILE COMPARED
+atharvest/atHarvestCatch.c
+
+FILE COMPARED
+atharvest/atHarvestDiscards.c
+
+FILE COMPARED
+atharvest/atHarvestImposedCatch.c
+
+FILE COMPARED
+atharvest/atHarvestIndex.c
+
+FILE COMPARED
+atharvest/atHarvestIO.c
+
+FILE COMPARED
+atharvest/atHarvestParamIO.c
+
+FILE COMPARED
+atharvest/atHarvestSetup.c
+
+FILE COMPARED
+atharvest/atHarvestTS.c
+
+FILE COMPARED
+atimplementation/atimplementation_2013.vcxproj.bec
+
+FILE COMPARED
+atimplementation/atImplementationAnnual.c
+
+FILE COMPARED
+atimplementation/atImplementationParamIO.c
+
+FILE COMPARED
+atimplementation/atImplementationSetup.c
+
+FILE COMPARED
+atlantismain/atlantismain.c
+
+FILE COMPARED
+atlantismain/atlantisMerged.pc
+
+FILE COMPARED
+atlantisUtil/atlantisUtil_2013.vcxproj.bec
+
+FILE COMPARED
+atlantisUtil/atUtil.c
+
+FILE COMPARED
+atlantisUtil/atUtilArray.c
+
+FILE COMPARED
+atlantisUtil/atUtilFisheryIO.c
+
+FILE COMPARED
+atlantisUtil/atUtilFisheryXML.c
+
+FILE COMPARED
+atlantisUtil/atUtilGroupIO.c
+
+FILE COMPARED
+atlantisUtil/atUtilhelp.c
+
+FILE COMPARED
+atlantisUtil/atUtilIO.c
+
+FILE COMPARED
+atlantisUtil/atUtilUnix.c
+
+FILE COMPARED
+atlantisUtil/atUtilXML.c
+
+FILE COMPARED
+atlink/atComms.c
+
+FILE COMPARED
+atlink/atlinkconversion.c
+
+FILE COMPARED
+atlink/atlinkexport.c
+
+FILE COMPARED
+atlink/atlinkimport.c
+
+FILE COMPARED
+atmanage/atmanage_2013.vcxproj.bec
+
+FILE COMPARED
+atmanage/atManage.c
+	double EFF_scale1 = 0.0, EFF_scale2 = 0.0, EFF_scale3 |		double EFF_scale1 = 0.0, EFF_scale2 = 0.0, EFF_scale3
+							      >				FC_likeREEF, FC_likeFLAT, FC_likeSOFT
+							      >				otherFC_likeSOFT, otherFC_dempel, dem
+        } else if (flagmanage > stock_adapt_mgmt){	      |			}
+            /* TAC-check needed so discard if over TAC amount <
+            dummy = TAC_Check(bm, fishery_id, flagmanage, llo <
+        }						      <
+    } else if (flagmanage == stock_adapt_mgmt) {	      |		} else if (flagmanage == stock_adapt_mgmt)
+    }							      <
+    if (bm->FISHERYprms[fishery_id][use_msy_effort_id]) {     |		if (bm->FISHERYprms[fishery_id][use_msy_effort_id])
+    }							      <
+
+FILE COMPARED
+atmanage/atManageAnnual.c
+            if (FunctGroupArray[sp].isVertebrate == TRUE) {   |				if (FunctGroupArray[sp].isVertebrate 
+                Assess_Pseudo_Estimate_Prm(bm, sp, llogfp);   |					Assess_Pseudo_Estimate_Prm(bm
+            } else {					      |				else
+                return;					      |					return;
+            }						      <
+        if (FunctGroupArray[sp].speciesParams[flagFonly_id])  |			if (FunctGroupArray[sp].speciesParams[flagFon
+            return;					      |				return;
+        }						      <
+        if(FunctGroupArray[sp].speciesParams[tac_resetcount_i |			if(FunctGroupArray[sp].speciesParams[tac_rese
+            return;					      |				return;
+        }						      <
+               if(bm->usingRedus_R_HCR) {   // Used to say <  |	               if(FunctGroupArray[sp].speciesParams[flagusing
+                if(bm->usingRedus_R_HCR) {  // Used to say <  |	                if(FunctGroupArray[sp].speciesParams[flagusin
+    double FTARG, F_rescale, Fcurr, calcF, Fstep1, this_mFC,  |	    double FTARG, F_rescale, Fcurr, calcM, calcF, Fstep1, thi
+    //double calcM;					      <
+    //calcM = 0.0;					      |	    calcM = 0.0;
+            //calcM += (bm->calcTrackedMort[sp][nc][k][finalM |	            calcM += (bm->calcTrackedMort[sp][nc][k][finalM1_
+    //calcM /= counter;					      |	    calcM /= counter;
+
+FILE COMPARED
+atmanage/atManageIndex.c
+
+FILE COMPARED
+atmanage/atManageIO.c
+
+FILE COMPARED
+atmanage/atManageMPATS.c
+
+FILE COMPARED
+atmanage/atManageParamIO.c
+
+FILE COMPARED
+atmanage/atManageSetup.c
+
+FILE COMPARED
+atmanage/atManageTier.c
+
+FILE COMPARED
+atmanage/atPGMSY.c
+
+FILE COMPARED
+atmanage/atRlink.c
+
+FILE COMPARED
+atmanage/atRlinkRAssess.c
+    printf("Init_RAssess_File: Creating %s\n",fname);	      |	    printf("Creating %s\n",fname);
+    							      <
+    printf("Run_RAssess for species %s idR %d RAssessRuseScri <
+
+FILE COMPARED
+atmanage/atRlinkRBC.c
+
+FILE COMPARED
+atmanage/atRlinkRedus.c
+
+FILE COMPARED
+atmanage/atSS3assess.c
+
+FILE COMPARED
+atphysics/atagetracerIO.c
+
+FILE COMPARED
+atphysics/atbioirrig.c
+
+FILE COMPARED
+atphysics/atbioturb.c
+
+FILE COMPARED
+atphysics/atboundary.c
+
+FILE COMPARED
+atphysics/atdecay.c
+
+FILE COMPARED
+atphysics/atdeposition.c
+
+FILE COMPARED
+atphysics/atdiagIO.c
+
+FILE COMPARED
+atphysics/atdietIO.c
+
+FILE COMPARED
+atphysics/atepiIO.c
+
+FILE COMPARED
+atphysics/atfishstatIO.c
+
+FILE COMPARED
+atphysics/atgas.c
+
+FILE COMPARED
+atphysics/atgeomIO.c
+
+FILE COMPARED
+atphysics/athdiff.c
+
+FILE COMPARED
+atphysics/athydromod.c
+
+FILE COMPARED
+atphysics/aticeIO.c
+
+FILE COMPARED
+atphysics/atindex.c
+
+FILE COMPARED
+atphysics/atLandIO.c
+
+FILE COMPARED
+atphysics/atparamIO.c
+
+FILE COMPARED
+atphysics/atphysics_2013.vcxproj.bec
+
+FILE COMPARED
+atphysics/atphysics.c
+
+FILE COMPARED
+atphysics/atPhysicsModule.c
+
+FILE COMPARED
+atphysics/atphysIO.c
+
+FILE COMPARED
+atphysics/atprofile.c
+
+FILE COMPARED
+atphysics/atreadbm.c
+
+FILE COMPARED
+atphysics/atsaturation.c
+
+FILE COMPARED
+atphysics/atsedprops.c
+
+FILE COMPARED
+atphysics/atsettle.c
+
+FILE COMPARED
+atphysics/atsourcesink.c
+
+FILE COMPARED
+atphysics/atsummaryIO.c
+
+FILE COMPARED
+atphysics/atsuspension.c
+
+FILE COMPARED
+atphysics/atswr.c
+
+FILE COMPARED
+atphysics/attempsalt.c
+
+FILE COMPARED
+atphysics/attracerIO.c
+                        				      <
+                        //fprintf(bm->logFile, "readBMTracerD <
+					quit("readBMTracerDat |						quit("readBMTracerDat
+                					      <
+                //fprintf(bm->logFile, "readBMTracerData - bo <
+
+FILE COMPARED
+atphysics/attransport.c
+
+FILE COMPARED
+atphysics/atvdiff.c
+
+FILE COMPARED
+atphysics/atvertgeom.c
+
+FILE COMPARED
+atphysics/atvmix.c
+
+FILE COMPARED
+atSS3Link/atCloseKin.c
+
+FILE COMPARED
+atSS3Link/atSS3DataGen.c
+
+FILE COMPARED
+atSS3Link/atSS3Link_2013.vcxproj.bec
+
+FILE COMPARED
+atSS3Link/atSS3Link.c
+
+FILE COMPARED
+atSS3Link/atSS3LinkIO.c
+
+FILE COMPARED
+atSS3Link/atSS3Test.c
+
+FILE COMPARED
+atSS3Link/atSS3Util.c
+
+FILE COMPARED
+build_hpc
+
+FILE COMPARED
+configure_mac
+
+FILE COMPARED
+configure.ac
+
+FILE COMPARED
+ConvertAtlantis/atAssesstoXML.c
+
+FILE COMPARED
+ConvertAtlantis/atBioltoXML.c
+
+FILE COMPARED
+ConvertAtlantis/atCreateXML.c
+
+FILE COMPARED
+ConvertAtlantis/atEconomicXML.c
+
+FILE COMPARED
+ConvertAtlantis/atFisheriesXML.c
+
+FILE COMPARED
+ConvertAtlantis/atGroupsXML.c
+
+FILE COMPARED
+ConvertAtlantis/atHarvesttoXML.c
+
+FILE COMPARED
+ConvertAtlantis/atImplementationtoXML.c
+
+FILE COMPARED
+ConvertAtlantis/atManagetoXML.c
+
+FILE COMPARED
+ConvertAtlantis/atRunXML.c
+
+FILE COMPARED
+ConvertAtlantis/ConvertAtlantis_2013.vcxproj.bec
+
+FILE COMPARED
+externalLibs/win32_vs_dll_4.0.1-beta3.tar/netcdf.inc
+
+FILE COMPARED
+netcdf/include/netcdf.inc
+
+FILE COMPARED
+sjwlib/cfft.c
+
+FILE COMPARED
+sjwlib/colourtable.c
+
+FILE COMPARED
+sjwlib/contour.c
+
+FILE COMPARED
+sjwlib/convertFileFormats.c
+
+FILE COMPARED
+sjwlib/datafile.c
+
+FILE COMPARED
+sjwlib/decay.c
+
+FILE COMPARED
+sjwlib/dfcoords.c
+
+FILE COMPARED
+sjwlib/dfeval.c
+
+FILE COMPARED
+sjwlib/diffusion.c
+void free_diffusion1d(int dummy) {			      |	void free_diffusion1d() {
+
+FILE COMPARED
+sjwlib/drandom.c
+
+FILE COMPARED
+sjwlib/ellipt_coord.c
+
+FILE COMPARED
+sjwlib/erfc.c
+
+FILE COMPARED
+sjwlib/geodetic.c
+
+FILE COMPARED
+sjwlib/gridangle.c
+
+FILE COMPARED
+sjwlib/gridmetric.c
+
+FILE COMPARED
+sjwlib/gridmisc.c
+
+FILE COMPARED
+sjwlib/keyfile.c
+
+FILE COMPARED
+sjwlib/libsjwlib.pc
+
+FILE COMPARED
+sjwlib/mapproj.c
+
+FILE COMPARED
+sjwlib/memory.c
+
+FILE COMPARED
+sjwlib/netcdf.c
+
+FILE COMPARED
+sjwlib/nrcdflib.c
+
+FILE COMPARED
+sjwlib/pointsourcesink.c
+
+FILE COMPARED
+sjwlib/polar_coord.c
+
+FILE COMPARED
+sjwlib/polyline.c
+
+FILE COMPARED
+sjwlib/ppbfetch.c
+
+FILE COMPARED
+sjwlib/ptrack.c
+
+FILE COMPARED
+sjwlib/quit.c
+
+FILE COMPARED
+sjwlib/rect_coord.c
+
+FILE COMPARED
+sjwlib/sjwlib_2013.vcxproj.bec
+
+FILE COMPARED
+sjwlib/spline.c
+
+FILE COMPARED
+sjwlib/text_input.c
+
+FILE COMPARED
+sjwlib/time.c
+
+FILE COMPARED
+sjwlib/timeseries.c
+
+FILE COMPARED
+sjwlib/txt_param.c
+
+FILE COMPARED
+sjwlib/vgrid.c
+
+FILE COMPARED
+sjwlib/warn.c
+
+FILE COMPARED
+sjwlib/waterprops.c
+
+FILE COMPARED
+sjwlib/weight_fn.c
+
+FILE COMPARED
+sjwlib/win32.c
+
+FILE COMPARED
+sjwlib/xytoij.c
