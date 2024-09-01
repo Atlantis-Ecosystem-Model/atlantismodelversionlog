@@ -1,5 +1,5 @@
 ---
-title: "v6707"
+title: "v6718"
 ---
 
 <img width="30" alt="image" src="https://user-images.githubusercontent.com/11339490/272713181-58a7442b-f4df-4987-9afe-cb4702236a8f.jpg">
@@ -10,23 +10,22 @@ No new parameters
 
 **SVN commit message** 
 ------------------------------------------------------------------------
-r6707 | ful083 | 2024-03-30 07:20:31 -0700 (Sat, 30 Mar 2024) | 3 lines
+r6718 | ful083 | 2024-07-23 15:16:26 -0700 (Tue, 23 Jul 2024) | 2 linesttps://svnserv.csiro.au/svn/ext/atlantis/Atlantis/trunk --username hmorzarialuna.992 --password CS2@@9M0971o5p$
 Changed paths:
-   M /Atlantis/trunk/atlantis/ConvertAtlantis/atBioltoXML.c
-   M /Atlantis/trunk/atlantis/ConvertAtlantis/atManagetoXML.c
+   M /Atlantis/trunk/atlantis/atecology/atdemography.c
+   M /Atlantis/trunk/atlantis/atecology/atq10.c
 
-Added contaminant handling
-
-See blog entry on contaminants for list of additional parameters
---------------------------------------------------------------------------------
+Missed proportion of contaminant being transferred in atdemography.c
+No real change in at10.c was a spacing issue
+------------------------------------------------------------------------
 
 **Atlantis model used:** Atlantis Model for Puget Sound https://github.com/hmorzaria/psatlantismodel commit 87031b7
 
 **Atlantis revision comments**
 
-**Version 6707**
+**Version 6718**
 
-**Date pulled:** May 15, 2024
+**Date pulled:** August 19, 2024
 
 **OS:** Ubuntu 20.04 LTS
 
@@ -36,13 +35,17 @@ See blog entry on contaminants for list of additional parameters
 
 **Notes**
 
+This version corrects missing break in atq10.c        
+
+
 **Model behavior**
 
-Does not compile, error in atphysics.c
+Model compiles and runs
 
 Code changes
 --------------------------------------------------------------------------------
-Versions compared 6707 6706
+
+Versions compared 6718 6717
 FILE COMPARED
 atassess/atassess_2013.vcxproj.bec
 
@@ -174,6 +177,7 @@ atecology/atcoral.c
 
 FILE COMPARED
 atecology/atdemography.c
+		*this_p_ageup = p_ageup;		      <
 
 FILE COMPARED
 atecology/atdiversity.c
@@ -231,6 +235,7 @@ atecology/atprocess.c
 
 FILE COMPARED
 atecology/atq10.c
+        						      |
 
 FILE COMPARED
 atecology/attime.c
@@ -570,14 +575,6 @@ ConvertAtlantis/atAssesstoXML.c
 
 FILE COMPARED
 ConvertAtlantis/atBioltoXML.c
-    Util_XML_Parse_Create_Node(fp, fileName, groupingNode, "c
-							      <
-
-							      <
-    Util_XML_Parse_Create_Node(fp, fileName, groupingNode, "f
-							      <
-        
-							      <
 
 FILE COMPARED
 ConvertAtlantis/atCreateXML.c
@@ -599,45 +596,6 @@ ConvertAtlantis/atImplementationtoXML.c
 
 FILE COMPARED
 ConvertAtlantis/atManagetoXML.c
-/* Fisheries contaminant management */			      <
-void ContaminantFisheryXML(MSEBoxModel *bm, FILE *fp, char *f <
-    int cIndex;						      <
-    char varStr[STRLEN*2];				      <
-    char longStr[2*STRLEN];				      <
-							      <
-    xmlNodePtr groupingNode;				      <
-    groupingNode = Util_XML_Create_Node(ATLANTIS_ATTRIBUTE_SU <
-							      <
-    /* not sure this is going to give the correct array lengt <
-    Util_XML_Create_Node_Next_Line(			      <
-            fp,						      <
-            fileName,					      <
-            groupingNode,				      <
-            "ContamClosed",				      <
-            "Sites closed due to a contaminant spill",	      <
-            "", XML_TYPE_BOOLEANARRAY);			      <
-							      <
-    Util_XML_Parse_Create_Node(fp, fileName, groupingNode, "f <
-    Util_XML_Parse_Create_Node(fp, fileName, groupingNode, "c <
-    Util_XML_Parse_Create_Node(fp, fileName, groupingNode, "c <
-    Util_XML_Parse_Create_Node(fp, fileName, groupingNode, "c <
-							      <
-    Util_XML_Parse_Create_Node(fp, fileName, groupingNode, "c <
-    Util_XML_Parse_Create_Node(fp, fileName, groupingNode, "f <
-							      <
-    							      <
-    for(cIndex = 0; cIndex < bm->num_contaminants; cIndex++){ <
-        sprintf(varStr, "%s_fishery_thresh_level", bm->contam <
-        sprintf(longStr, "Concentration of ontaminant %s wher <
-        Util_XML_Parse_Create_Node(fp, fileName, groupingNode <
-    }							      <
-							      <
-}							      <
-							      <
-							      <
-    if(bm->track_contaminants) {			      <
-        ContaminantFisheryXML(bm, fp, fileName, doc, rootnode <
-    }							      <
 
 FILE COMPARED
 ConvertAtlantis/atRunXML.c

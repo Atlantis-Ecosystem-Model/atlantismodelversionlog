@@ -36,8 +36,7 @@ Sorting compile issues
 
 **Model behavior**
 
-Not compiled
-
+Does not compile, error in atphysics.c
 
 Code changes
 --------------------------------------------------------------------------------

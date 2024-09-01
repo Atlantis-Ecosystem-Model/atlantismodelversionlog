@@ -30,7 +30,11 @@ website:
     contents:
       - href: index.qmd
         text: Home
-       - href: content/v6716.qmd
+      - href: content/v6718.qmd
+        text: v6718
+      - href: content/v6717.qmd
+        text: v6717
+      - href: content/v6716.qmd
         text: v6716
       - href: content/v6715.qmd
         text: v6715
