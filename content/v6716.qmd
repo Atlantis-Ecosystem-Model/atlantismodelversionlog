@@ -33,9 +33,16 @@ Added FrefLim
 
 **Notes**
 
+This version incorporates new Q10 options in the atq10.c, including CEATTLE which is now option 3        
+
 **Model behavior**
 
-Not compiled
+Model behavior for functional groups was very different for previous versions because there was a missing break in the modified atq10.c introduced in v6716
+
+    `case base_q10_id: /* Basic q10 relationship */
+     ans = (double)pow(FunctGroupArray[sp].speciesParams[q10_id], (*current_corr));
+     case humped_griffith_q10_id: /* Humped shape from Hary Griffith */`
+
 
 
 Code changes

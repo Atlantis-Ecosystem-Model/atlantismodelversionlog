@@ -1,5 +1,5 @@
 ---
-title: "v6707"
+title: "v6717"
 ---
 
 <img width="30" alt="image" src="https://user-images.githubusercontent.com/11339490/272713181-58a7442b-f4df-4987-9afe-cb4702236a8f.jpg">
@@ -10,23 +10,21 @@ No new parameters
 
 **SVN commit message** 
 ------------------------------------------------------------------------
-r6707 | ful083 | 2024-03-30 07:20:31 -0700 (Sat, 30 Mar 2024) | 3 lines
+r6717 | ful083 | 2024-06-24 17:43:19 -0700 (Mon, 24 Jun 2024) | 1 line
 Changed paths:
-   M /Atlantis/trunk/atlantis/ConvertAtlantis/atBioltoXML.c
-   M /Atlantis/trunk/atlantis/ConvertAtlantis/atManagetoXML.c
+   M /Atlantis/trunk/atlantis/atecology/atmigration.c
+   M /Atlantis/trunk/atlantis/atecology/atq10.c
 
-Added contaminant handling
-
-See blog entry on contaminants for list of additional parameters
---------------------------------------------------------------------------------
+Fixed a missing break
+------------------------------------------------------------------------
 
 **Atlantis model used:** Atlantis Model for Puget Sound https://github.com/hmorzaria/psatlantismodel commit 87031b7
 
 **Atlantis revision comments**
 
-**Version 6707**
+**Version 6717**
 
-**Date pulled:** May 15, 2024
+**Date pulled:** June 24, 2024
 
 **OS:** Ubuntu 20.04 LTS
 
@@ -36,13 +34,19 @@ See blog entry on contaminants for list of additional parameters
 
 **Notes**
 
+
 **Model behavior**
 
-Does not compile, error in atphysics.c
+Model behavior for functional groups was back to before 6716 when there was a missing break in the modified atq10.c corrected in this version
+
+    `case base_q10_id: /* Basic q10 relationship */
+     ans = (double)pow(FunctGroupArray[sp].speciesParams[q10_id], (*current_corr));
+     case humped_griffith_q10_id: /* Humped shape from Hary Griffith */`
 
 Code changes
 --------------------------------------------------------------------------------
-Versions compared 6707 6706
+
+Versions compared 6717 6716
 FILE COMPARED
 atassess/atassess_2013.vcxproj.bec
 
@@ -183,6 +187,9 @@ atecology/atecology_2013.vcxproj.bec
 
 FILE COMPARED
 atecology/atecology.c
+		Apply_Q10_Corrections(bm);		      |			Apply_Q10_Corrections(bm, llogfp);
+		Apply_Q10_Corrections(bm);		      |			Apply_Q10_Corrections(bm, llogfp);
+		Apply_Q10_Corrections(bm);		      |			Apply_Q10_Corrections(bm, llogfp);
 
 FILE COMPARED
 atecology/atecologyts.c
@@ -204,6 +211,7 @@ atecology/atGroupProcesses.c
 
 FILE COMPARED
 atecology/atIceProcesses.c
+			FunctGroupArray[sp].Tcorr = Get_Tcorr |				FunctGroupArray[sp].Tcorr = Get_Tcorr
 
 FILE COMPARED
 atecology/atImposeRecruit.c
@@ -216,6 +224,7 @@ atecology/atmacrophytes.c
 
 FILE COMPARED
 atecology/atmigration.c
+            if (check_day > (MIGRATION[species].Return_Now[co |	            if (check_day > (MIGRATION[species].Return_Now[co
 
 FILE COMPARED
 atecology/atmovement.c
@@ -231,6 +240,65 @@ atecology/atprocess.c
 
 FILE COMPARED
 atecology/atq10.c
+							      >	    fprintf("Scale linear mortality species = %d, cohort = %d
+							      >	    
+							      >	    
+							      >	    fprintf("Scaler for linear mortality species = %d, cohort
+							      >	        
+							      >	    fprintf("Scaled linear mort species = %d, cohort = %d, sc
+							      >	        
+	} else						      |		  fprintf(llogfp,"Q10 flag activated, Time: %e, Tcorr
+							      >		  
+							      >		} else {
+							      |		  fprintf(llogfp,"Q10 flag not active, Time: %e, Tcor
+							      >		  
+							      >		}
+//Bad fprint leads to segmentation fault		      |
+							      >		/* led to segmentation fault in 6704
+		FunctGroupArray[sp].Tcorr = Get_Tcorr(bm, sp, |			FunctGroupArray[sp].Tcorr = Get_Tcorr(bm, sp,
+        FunctGroupArray[sp].TcorrEff = FunctGroupArray[sp].Tc |	    FunctGroupArray[sp].TcorrEff = FunctGroupArray[sp].Tcorr;
+							      |	  
+							      >	    fprintf(llogfp, "Calculating ParameterQ10, Time: %e, %s, 
+							      >	        
+		Apply_Q10_Corrections(bm);		      |			Apply_Q10_Corrections(bm, llogfp);
+double Get_Tcorr(MSEBoxModel *bm, int sp, double current_temp |	double Get_Tcorr(MSEBoxModel *bm, int sp, double current_temp
+							      >		  
+							      >		  fprintf(llogfp, "Q10 flag activated, going into Tco
+							      >		  
+							      >	              fprintf(bm->logFile, "Base is activated Q10 - T
+							      >		            
+							      >	                
+							      >	                fprintf(llogfp, "Griffith activated Time: %e,
+                /*					      |	                fprintf(bm->logFile, "Heinichen is activated 
+                if(sp == 45) {				      |	                
+							      >	            /*    if(sp == 45) {
+                }					      |	            } */
+                */					      |	                
+							      |	                
+							      >	                fprintf(bm->logFile, "CEATTLE is activated Ti
+							      >	                
+void Apply_Q10_Corrections(MSEBoxModel *bm) {		      |	void Apply_Q10_Corrections(MSEBoxModel *bm, FILE *llogfp) {
+    double TscalarEff = 1.0;				      |	  double TscalarEff = 1.0;
+							      >	    fprintf(llogfp, "pHCorr value Time: %e, pHCorr = %e\n", b
+							      >	    
+							      >				  
+							      >				  fprintf(llogfp, "Species is pH sens
+							      >				  
+                    					      |	       
+							      >	       fprintf(llogfp, "Invertebrate growth parameters Time: 
+							      >	       
+							      >				 fprintf(llogfp, "growth_scalar Time:
+							      >					
+							      |	          fprintf("sp = %d, cohort = %d, Tcorr correction ove
+							      >					
+							      >					fprintf(llogfp, "Vertebrate p
+							      >					
+							      >	                fprintf(llogfp, "Tscalar Time: %e, species = 
+							      >	                
+							      |	fprintf("sp = %d, Tcorr correction over vertebrate growth Fun
+							      >	fprintf(llogfp, "Physical parameters Time: %e, r_DL = %e, r_D
+							      >		
+							      >		
 
 FILE COMPARED
 atecology/attime.c
@@ -570,14 +638,6 @@ ConvertAtlantis/atAssesstoXML.c
 
 FILE COMPARED
 ConvertAtlantis/atBioltoXML.c
-    Util_XML_Parse_Create_Node(fp, fileName, groupingNode, "c
-							      <
-
-							      <
-    Util_XML_Parse_Create_Node(fp, fileName, groupingNode, "f
-							      <
-        
-							      <
 
 FILE COMPARED
 ConvertAtlantis/atCreateXML.c
@@ -599,45 +659,6 @@ ConvertAtlantis/atImplementationtoXML.c
 
 FILE COMPARED
 ConvertAtlantis/atManagetoXML.c
-/* Fisheries contaminant management */			      <
-void ContaminantFisheryXML(MSEBoxModel *bm, FILE *fp, char *f <
-    int cIndex;						      <
-    char varStr[STRLEN*2];				      <
-    char longStr[2*STRLEN];				      <
-							      <
-    xmlNodePtr groupingNode;				      <
-    groupingNode = Util_XML_Create_Node(ATLANTIS_ATTRIBUTE_SU <
-							      <
-    /* not sure this is going to give the correct array lengt <
-    Util_XML_Create_Node_Next_Line(			      <
-            fp,						      <
-            fileName,					      <
-            groupingNode,				      <
-            "ContamClosed",				      <
-            "Sites closed due to a contaminant spill",	      <
-            "", XML_TYPE_BOOLEANARRAY);			      <
-							      <
-    Util_XML_Parse_Create_Node(fp, fileName, groupingNode, "f <
-    Util_XML_Parse_Create_Node(fp, fileName, groupingNode, "c <
-    Util_XML_Parse_Create_Node(fp, fileName, groupingNode, "c <
-    Util_XML_Parse_Create_Node(fp, fileName, groupingNode, "c <
-							      <
-    Util_XML_Parse_Create_Node(fp, fileName, groupingNode, "c <
-    Util_XML_Parse_Create_Node(fp, fileName, groupingNode, "f <
-							      <
-    							      <
-    for(cIndex = 0; cIndex < bm->num_contaminants; cIndex++){ <
-        sprintf(varStr, "%s_fishery_thresh_level", bm->contam <
-        sprintf(longStr, "Concentration of ontaminant %s wher <
-        Util_XML_Parse_Create_Node(fp, fileName, groupingNode <
-    }							      <
-							      <
-}							      <
-							      <
-							      <
-    if(bm->track_contaminants) {			      <
-        ContaminantFisheryXML(bm, fp, fileName, doc, rootnode <
-    }							      <
 
 FILE COMPARED
 ConvertAtlantis/atRunXML.c
@@ -773,3 +794,4 @@ sjwlib/win32.c
 
 FILE COMPARED
 sjwlib/xytoij.c
+
